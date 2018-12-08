@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>编程语言学习总结系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="__CSS__/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__CSS__/font-awesome.min.css" />
+		<link rel="stylesheet" href="__CSS__/ace.min.css" />
+		<link rel="stylesheet" href="__CSS__/ace-rtl.min.css" />
+		<link rel="stylesheet" href="__CSS__/ace-skins.min.css" />
+		<script src="__JS__/ace-extra.min.js"></script>
+		<script src="__JS__/jquery-2.0.3.min.js"></script>
+		<script src="__PLUG__/layer/layer.js" ></script>
+		{block name="css"}{/block}
+	</head>
+	<body>
+		<!-- header start -->
+		{include file="header" /}
+		<!-- header end -->
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+			<div class="main-container-inner">
+				<div class="sidebar" id="sidebar">
+					<!-- lefttop start -->
+					{include file="lefttop" /}
+					<!-- lefttop end -->
+					<!-- left start -->
+					{include file="left" /}
+					<!-- left end -->
+				</div>
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+						<!-- bodyheader start -->
+						{block name="bodyheader"}{/block}
+						<!-- bodyheader end -->
+					</div>
+					{block name="content"}{/block}
+				</div>
+				{include file="right" /}
+			</div>
+			{include file="footer" /}
+		</div>
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__JS__/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='__JS__/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__JS__/bootstrap.min.js"></script>
+		<script src="__JS__/typeahead-bs2.min.js"></script>
+		<script src="__JS__/ace-elements.min.js"></script>
+		<script src="__JS__/ace.min.js"></script>
+<script>
+/**
+* 公共函数:add
+* checkObj    失去光标时，验证对象是否为空，是否符合正则表达式，是否比较相等
+* @param
+*       obj      	当前对象
+*       ischeck     验证0否1是
+*       type        类型0无类型1：126或163邮箱 2：密码5-16位数字、字母或两者组合  3：英文，数字，汉字长度
+*       compareobj  比较对象相等
+*		isrepeat	验证是否重复0否1是
+*		tbname		相关表名称
+*		field       表字段
+*/
+function checkObj(obj,ischeck,type,compareobj,isrepeat,tbname,field){
+	var objval = $.trim($(obj).val());
+	if(!objval){
+		layer.msg('内容不能为空！',{time:600});
+		return false;
+	}
+	else if(ischeck == 1){
+		if(type == 1){
+			if(!(/^[a-zA-Z0-9]{1,22}@(163|126)\.com$/.test(objval))){
+				layer.msg('邮箱的格式不正确，请重新输入！');
+				$(obj).val('');
+				return false;
+			}
+			else if(!!compareobj){
+				compareObj(obj,compareobj);
+			}
+			else if(isrepeat == 1){
+				repeatObj(obj,objval,field,tbname);
+			}
+		}
+		else if(type == 2){
+			if(!(/^[a-zA-Z0-9]{5,16}$/.test(objval))){
+				layer.msg('密码为5-16位数字、字母或两者组合');
+				$(obj).val('');
+				return false;
+			}
+			else if(!!compareobj){
+				compareObj(obj,compareobj);
+			}
+			else if(isrepeat == 1){
+				repeatObj(obj,objval,field,tbname);
+			}
+		}
+		else if(type == 3){
+			if(len(objval) > 60){
+				layer.msg('字符长度不能超过60');
+				$(obj).val('');
+				return false;
+			}
+			else if(isrepeat == 1){
+				repeatObj(obj,objval,field,tbname);
+			}
+		}
+	}
+	else if(isrepeat == 1){
+		repeatObj(obj,objval,field,tbname);
+	}
+}
+function compareObj(obj,compareobj){
+	if($.trim($(obj).val()) != $.trim($('#'+compareobj).val())){
+		layer.msg('两次输入的内容不一致',{time:600});
+		$(obj).val('');
+		return false;
+	}
+}
+function repeatObj(obj,objval,field,tbname){
+	$.ajax({
+		url: "{:url('index/Check/checkAdd')}",
+		data: {'content':objval,'field':field,'tbname':tbname},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				$(obj).val('');
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	})
+}
+//字符长度
+function len(s) {
+	var l = 0;
+	var a = s.split("");
+	for (var i = 0; i < a.length ; i++ ) {
+		if (a[i].charCodeAt(0) < 299) {
+			l++;
+		} else {
+			l += 3;
+		}
+	}
+	return l;
+}
+</script>
+		{block name="js"}{/block}
+	</body>
+</html>
+

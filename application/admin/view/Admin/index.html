@@ -1,0 +1,165 @@
+{extend name="main" /}
+{block name="bodyheader"}
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">用户管理</li>
+	</ul>
+{/block}
+{block name="content"}
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				用户管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					添加用户
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="table-header">
+					后台管理员列表
+				</div>
+				<div class="table-responsive">
+					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+						<div class="row">
+							<div class="col-sm-6" style="width:100%">
+								<div style="display:inline">
+									<a href="{:url('index/admin/add')}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
+								</div>											
+							</div>													
+						</div>
+						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
+							<thead>
+								<tr style="height:45px">
+									<th style="width:5%;text-align: center">排序</th>																									
+									<th style="width:11%;padding:8px 3px">用户名</th>
+									<th style="width:13%;padding:8px 3px">昵称</th>	
+									<th class="hidden-480" style="width:9%;padding:8px 3px">头像</th>														
+									<th class="hidden-480" style="width:7%;padding:8px 3px">状态</th>
+									<th style="width:21%;padding:8px 3px">电子邮箱</th>													
+									<th style="width:18%;padding:8px 3px">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										上次登录时间
+									</th>															
+									<th class="hidden-480" style="width:18%;padding:8px 3px">上次登录ip</th>
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="lists" id="list"}
+								<tr style="height:40px">
+									<td class="center" style="vertical-align:middle;padding:4px">{$i}</td>																											
+									<td style="vertical-align:middle;padding:4px">
+										<a href="#" style="color:#393939">{$list.admin_name}</a>
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="admin_nickname{$list.admin_id}">
+										<input type="text"  value="{$list.admin_nickname}" onblur="updateObj(this,'{$list.admin_nickname}','admin','admin_nickname',{$list.admin_id},'admin_id')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>
+									</td>
+									<td style="vertical-align:middle;padding:4px">
+											{$list.admin_image}
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="admin_state{$list.admin_id}">
+										{eq name="list.admin_state" value="1"}
+											<span style="color:rgb(10, 184, 48)" {if condition="($list.admin_vip == 0)"}onclick="updateObjState({$list.admin_id},'admin_id',{$list.admin_state},'admin_state','admin')"{/if}>正常</span>
+										{else/}
+											<span style="color:#8089a0" {if condition="($list.admin_vip == 0)"}onclick="updateObjState({$list.admin_id},'admin_id',{$list.admin_state},'admin_state','admin')"{/if}>禁止</span>
+										{/eq}
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px">{$list.admin_email}</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px">{$list.admin_time|date="Y-m-d H:i:s",###}</td>
+									<td style="vertical-align:middle;padding:4px">{$list.admin_ip}</td>															
+								</tr>
+								{/volist}
+							</tbody>
+						</table>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="js"}
+<script>
+/**
+* 公共函数:update
+* updateObj    失去光标时，修改对象，验证是否重复，是否为空
+* @param
+*       obj      	当前对象
+*       oldval      原值
+*		tbname		相关表名称
+*		field       表字段
+*		id       	主键值
+*		idfield     主键字段
+*/
+function updateObj(obj,oldval,tbname,field,id,idfield){
+	var newval = $.trim($(obj).val());
+	if(!newval || newval == oldval && oldval){
+		$(obj).val(oldval);
+		return false;
+	}
+	else{
+		$.ajax({
+			url: "{:url('index/Check/checkUpdate')}",
+			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield},
+			datatype: 'json',
+			type: 'POST',
+			async: false,
+			success:function(res){
+				if(res.status == 1){
+					layer.msg(res.msg,{time:600,icon:1});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="width:95px;height:30px;border:none; background:transparent;"/>');
+					}
+					return
+				}
+				else{
+					layer.msg(res.msg,{time:600,icon:2});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="width:95px;height:30px;border:none; background:transparent;"/>');
+					}
+					return
+				}
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return false;
+			}
+		})
+	}
+}
+//修改状态(用户管理)
+function updateObjState(id,idfield,stateval,statefield,tbname){
+	$.ajax({
+		url: "{:url('index/Check/updateObjState')}",
+		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				if(stateval == 0){
+					$('#'+statefield+id).html('<span style="color:rgb(10, 184, 48)" onclick="updateObjState('+id+',\''+idfield+'\',1,\''+statefield+'\',\''+tbname+'\')" >正常</span>');
+				}
+				else{
+					$('#'+statefield+id).html('<span style="color:#8089a0"  onclick="updateObjState('+id+',\''+idfield+'\',0,\''+statefield+'\',\''+tbname+'\')" >禁止</span>');
+				}
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	})
+}
+</script>
+{/block}
