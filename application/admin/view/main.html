@@ -161,7 +161,59 @@ function len(s) {
 	}
 	return l;
 }
-
+// 清除缓存
+function cleanCache(){
+	$.ajax({
+		url: "{:url('admin/clean/index')}",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			console.log(res);
+			// if(res.status == 1){
+			// 	layer.msg(res.msg,{time:600,icon:1});
+			// 	return
+			// }
+			// else{
+			// 	layer.msg(res.msg,{time:600,icon:2});
+			// 	return
+			// }
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
+		}
+	})
+}
+// 退出平台
+function logout(){
+	$.ajax({
+		url: "{:url('admin/logout/logout')}",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				setInterval(jumplogin, 1000);
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
+		}
+	})
+}
+function jumplogin(){
+	location.href = "{:url('admin/login/index')}";
+}
 </script>
 		{block name="js"}{/block}
 	</body>

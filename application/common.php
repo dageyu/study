@@ -37,3 +37,22 @@ function getRandomString($len, $chars=null){
     }
     return $str;
 }
+
+/**
+ * 清理缓存:清除缓存的所有文件
+ */
+function deldir($dir = RUNTIME_PATH) {     
+    $dh = @opendir($dir);
+    while ($file = @readdir($dh)) {
+        if($file !="." && $file !="..") {
+            $fullpath = $dir."/".$file;
+            if(!is_dir($fullpath)) {
+                unlink($fullpath);
+            } else {
+                deldir($fullpath);
+            }
+        }
+    }
+    @closedir($dh);
+    return true;
+}

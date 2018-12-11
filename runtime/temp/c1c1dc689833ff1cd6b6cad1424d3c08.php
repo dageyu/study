@@ -1,4 +1,4 @@
-<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\admin\index.html";i:1544522370;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544520019;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1543395263;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\admin\index.html";i:1544523850;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544524711;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -397,7 +397,7 @@ function compareObj(obj,compareobj){
 }
 function repeatObj(obj,objval,field,tbname){
 	$.ajax({
-		url: "<?php echo url('index/Check/checkAdd'); ?>",
+		url: "<?php echo url('admin/Check/checkAdd'); ?>",
 		data: {'content':objval,'field':field,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',
@@ -432,7 +432,59 @@ function len(s) {
 	}
 	return l;
 }
-
+// 清除缓存
+function cleanCache(){
+	$.ajax({
+		url: "<?php echo url('admin/clean/index'); ?>",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			console.log(res);
+			// if(res.status == 1){
+			// 	layer.msg(res.msg,{time:600,icon:1});
+			// 	return
+			// }
+			// else{
+			// 	layer.msg(res.msg,{time:600,icon:2});
+			// 	return
+			// }
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
+		}
+	})
+}
+// 退出平台
+function logout(){
+	$.ajax({
+		url: "<?php echo url('admin/logout/logout'); ?>",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				setInterval(jumplogin, 1000);
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
+		}
+	})
+}
+function jumplogin(){
+	location.href = "<?php echo url('admin/login/index'); ?>";
+}
 </script>
 		
 <script>

@@ -4018,3 +4018,423 @@
 )
 [ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\add.html [ array (
 ) ]
+---------------------------------------------------------------
+[ 2018-12-11T18:22:36+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.106855s] [吞吐率：9.36req/s] [内存消耗：4,383.16kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011513s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001282s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000872s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:31:10+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.090248s] [吞吐率：11.08req/s] [内存消耗：4,391.34kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001666s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001480s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.001072s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:31:12+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/index.html
+[运行时间：0.040449s] [吞吐率：24.72req/s] [内存消耗：2,204.27kb] [文件加载：62]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/admin/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ error ] [8]Use of undefined constant RUNTIME_PATH - assumed 'RUNTIME_PATH'[D:\wamp64\www\study\application\admin\controller\Clean.php:10]
+---------------------------------------------------------------
+[ 2018-12-11T18:32:27+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.074267s] [吞吐率：13.46req/s] [内存消耗：4,167.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001292s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001047s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000663s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:32:29+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/index.html
+[运行时间：0.039513s] [吞吐率：25.31req/s] [内存消耗：2,202.66kb] [文件加载：62]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/admin/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ error ] [8]Use of undefined constant RUNTIME_PATH - assumed 'RUNTIME_PATH'[D:\wamp64\www\study\application\admin\controller\Clean.php:17]
+---------------------------------------------------------------
+[ 2018-12-11T18:35:23+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.099472s] [吞吐率：10.05req/s] [内存消耗：4,392.46kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011157s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.009302s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000882s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:35:23+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.097412s] [吞吐率：10.27req/s] [内存消耗：4,171.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011494s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001834s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.001185s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:35:23+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.068304s] [吞吐率：14.64req/s] [内存消耗：4,171.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001361s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001030s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000698s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:35:23+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.090961s] [吞吐率：10.99req/s] [内存消耗：4,171.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011587s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001053s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000683s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:35:24+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/index.html
+[运行时间：0.039682s] [吞吐率：25.20req/s] [内存消耗：2,202.66kb] [文件加载：62]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/admin/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ error ] [8]Use of undefined constant RUNTIME_PATH - assumed 'RUNTIME_PATH'[D:\wamp64\www\study\application\admin\controller\Clean.php:17]
+---------------------------------------------------------------
+[ 2018-12-11T18:37:07+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.083086s] [吞吐率：12.04req/s] [内存消耗：4,391.34kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001454s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001352s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000877s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:37:08+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.076548s] [吞吐率：13.06req/s] [内存消耗：4,171.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011623s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001086s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000679s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:37:09+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/index.html
+[运行时间：0.039809s] [吞吐率：25.12req/s] [内存消耗：2,202.66kb] [文件加载：62]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/admin/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ error ] [8]Use of undefined constant RUNTIME_PATH - assumed 'RUNTIME_PATH'[D:\wamp64\www\study\application\admin\controller\Clean.php:17]
+---------------------------------------------------------------
+[ 2018-12-11T18:37:40+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.090044s] [吞吐率：11.11req/s] [内存消耗：4,391.34kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011340s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001293s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000727s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:37:40+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.083995s] [吞吐率：11.91req/s] [内存消耗：4,171.03kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010987s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.004767s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000715s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:38:34+08:00 ] ::1 GET localhost/study/public/index.php/admin/admin/index.html
+[运行时间：0.072646s] [吞吐率：13.77req/s] [内存消耗：4,391.34kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; ace.settings=%7B%22main-container-fixed%22%3A1%7D; pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\admin\index.html [ array (
+  0 => 'lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001284s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.000981s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` [ RunTime:0.000624s ]
+---------------------------------------------------------------
+[ 2018-12-11T18:38:36+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/index.html
+[运行时间：0.037259s] [吞吐率：26.84req/s] [内存消耗：2,148.00kb] [文件加载：58]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/admin/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=3853760512; PHPSESSID=vh070on3inkruh5m6tsvioeof2',
+)
+[ info ] [ PARAM ] array (
+)
