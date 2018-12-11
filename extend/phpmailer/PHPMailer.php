@@ -19,7 +19,7 @@
  */
 
 // namespace PHPMailer\PHPMailer;修改命名空间
-namespace email\phpmailer;
+namespace phpmailer;
 
 /**
  * PHPMailer - PHP email creation and transport class.

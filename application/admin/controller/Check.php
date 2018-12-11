@@ -1,7 +1,7 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-use app\index\logic\CheckLogic;
+use app\admin\logic\CheckLogic;
 /**
  * 后台公用控制器
  */
@@ -12,8 +12,7 @@ class Check extends Controller {
      */
     public function checkAdd(){
         $data = $this->request->param();
-        $checkLogic = new CheckLogic();
-        $res = $checkLogic->checkAdd($data);
+        $res = CheckLogic::checkAdd($data);
         return $res;
     }
 
@@ -22,8 +21,7 @@ class Check extends Controller {
      */
     public function checkUpdate(){
         $data = $this->request->param();
-        $checkLogic = new CheckLogic();
-        $res = $checkLogic->checkUpdate($data);
+        $res = CheckLogic::checkUpdate($data);
         return $res;
     }
 
@@ -32,10 +30,8 @@ class Check extends Controller {
      */
     public function updateObjState(){
         $data = $this->request->param();
-        $checkLogic = new CheckLogic();
-        $res = $checkLogic->updateObjState($data);
+        $res = CheckLogic::updateObjState($data);
         return $res;
-        // return $data;
     }
 
 

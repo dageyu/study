@@ -126,7 +126,7 @@ function compareObj(obj,compareobj){
 }
 function repeatObj(obj,objval,field,tbname){
 	$.ajax({
-		url: "{:url('index/Check/checkAdd')}",
+		url: "{:url('admin/Check/checkAdd')}",
 		data: {'content':objval,'field':field,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',
@@ -161,6 +161,7 @@ function len(s) {
 	}
 	return l;
 }
+
 </script>
 		{block name="js"}{/block}
 	</body>

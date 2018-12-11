@@ -9,7 +9,7 @@ class CheckLogic extends Controller {
      * @access  public
      * @param   array   $data     包含表名，字段名，验证内容
      */
-    public function checkAdd($data){
+    public static function checkAdd($data){
         $list = Db::name($data['tbname'])->where($data['field'],$data['content'])->find();
         if($list){
             $res = array('status'=>0,'msg'=>'已被使用，请核对后再次输入！');
@@ -25,7 +25,7 @@ class CheckLogic extends Controller {
      * @access  public
      * @param   array   $data     包含表名，字段名，验证内容，主键值，主键字段
      */
-    public function checkUpdate($data){
+    public static function checkUpdate($data){
         $list = Db::name($data['tbname'])->where($data['idfield'],'<>',$data['id'])->where($data['field'],$data['content'])->find();
         if($list){
             $res = array('status'=>0,'msg'=>'已被使用，请核对后再次输入！');
@@ -47,7 +47,7 @@ class CheckLogic extends Controller {
      * @access  public
      * @param   array   $data     包含表名，状态值，状态字段，主键值，主键字段
      */
-    public function updateObjState($data){
+    public static function updateObjState($data){
         $data['stateval'] == 1 ? $data['state'] = 0 : $data['state'] = 1;
         $update_msg = Db::name($data['tbname'])->where($data['idfield'],$data['id'])->setField($data['statefield'], $data['state']);
         if($update_msg){

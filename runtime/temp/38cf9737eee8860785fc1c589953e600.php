@@ -1,4 +1,4 @@
-<?php /*a:1:{s:59:"D:\wamp64\www\study\application\admin\view\login\index.html";i:1543831115;}*/ ?>
+<?php /*a:1:{s:59:"D:\wamp64\www\study\application\admin\view\login\index.html";i:1544503558;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +93,7 @@
 											<fieldset>
 												<label class="block clearfix">
 													<span class="block input-icon input-icon-right">
-														<input type="email" class="form-control" placeholder="126 or 163 Email" name="email" id="email" onblur="checkEmail(this)"/>
+														<input type="email" class="form-control" placeholder="126 or 163 Email" name="email" id="email" onblur="checkEmail(this,'','')"/>
 														<i class="icon-envelope"></i>
 													</span>
 												</label>
@@ -202,11 +202,11 @@
 		function checkEmail(obj,field,tbname){
 			var email = $.trim($(obj).val());
 			if(!(/^[a-zA-Z0-9]{1,22}@(163|126)\.com$/.test(email))){
-				layer.msg('邮箱的格式不正确，请重新输入！');
+				layer.msg('邮箱的格式不正确或内容不能为空，请重新输入！');
 				$(obj).val('');
 				return false;
 			}
-			else{
+			else if(field && tbname){
 				repeatObj(obj,email,field,tbname);
 			}
 		}
@@ -224,7 +224,7 @@
 		}
 		//重复密码
 		function checkCompare(obj,field){
-			var psaaword = $.trim($(obj).val());
+			var psaaword = $.trim($('#'+field).val());
 			var repeat_password = $.trim($(obj).val());
 			if(!(/^[a-zA-Z0-9]{5,16}$/.test(repeat_password))){
 				layer.msg('内容为5-16位数字、字母或两者组合');
@@ -242,23 +242,23 @@
 			var email = $.trim($('#email').val());
 			if(!email){
 				layer.msg('邮箱不能为空！');
-				$(obj).val('');
+				$('#email').val('');
 				return false;
 			}
 			else{
 				$.ajax({
-					url: "<?php echo url('index/login/backPassword'); ?>",
+					url: "<?php echo url('admin/login/backPassword'); ?>",
 					data: {'email':email},
 					datatype: 'json',
 					type: 'POST',
 					async: false,
 					success:function(res){
 						if(res.status == 1){
-							layer.msg(res.msg,{time:600,icon:1});
+							layer.msg(res.msg,{time:800,icon:1});
 							return
 						}
 						else{
-							layer.msg(res.msg,{time:600,icon:2});
+							layer.msg(res.msg,{time:800,icon:2});
 							return
 						}
 					},
@@ -279,7 +279,7 @@
 			}
 			else{
 				$.ajax({
-					url: "<?php echo url('index/login/login'); ?>",
+					url: "<?php echo url('admin/login/login'); ?>",
 					data: {'admin_name':admin_name,'admin_password':admin_password,'state':remember_me},
 					datatype: 'json',
 					type: 'POST',
@@ -303,7 +303,7 @@
 		
 		});
 		function jump(){
-			location.href = "<?php echo url('index/index/index'); ?>";
+			location.href = "<?php echo url('admin/index/index'); ?>";
 		}
 		//用户协议
 		function userAgreement(){
@@ -344,7 +344,7 @@
 			}
 			else{
 				$.ajax({
-					url: "<?php echo url('index/login/register'); ?>",
+					url: "<?php echo url('admin/login/register'); ?>",
 					data: {'admin_name':admin_name,'admin_password':admin_password,'admin_email':admin_email,'admin_secret':admin_secret},
 					datatype: 'json',
 					type: 'POST',
@@ -369,7 +369,7 @@
 		//验证内容是否重复
 		function repeatObj(obj,objval,field,tbname){
 			$.ajax({
-				url: "<?php echo url('index/Check/checkAdd'); ?>",
+				url: "<?php echo url('admin/Check/checkAdd'); ?>",
 				data: {'content':objval,'field':field,'tbname':tbname},
 				datatype: 'json',
 				type: 'POST',

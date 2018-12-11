@@ -29,7 +29,7 @@
 						<div class="row">
 							<div class="col-sm-6" style="width:100%">
 								<div style="display:inline">
-									<a href="{:url('index/admin/add')}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
+									<a href="{:url('admin/admin/add')}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
 								</div>											
 							</div>													
 						</div>
@@ -70,7 +70,7 @@
 										{/eq}
 									</td>
 									<td class="hidden-480" style="vertical-align:middle;padding:4px">{$list.admin_email}</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px">{$list.admin_time|date="Y-m-d H:i:s",###}</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px">{$list.admin_time|date="Y-m-d H:i:s"}</td>
 									<td style="vertical-align:middle;padding:4px">{$list.admin_ip}</td>															
 								</tr>
 								{/volist}
@@ -103,7 +103,7 @@ function updateObj(obj,oldval,tbname,field,id,idfield){
 	}
 	else{
 		$.ajax({
-			url: "{:url('index/Check/checkUpdate')}",
+			url: "{:url('admin/Check/checkUpdate')}",
 			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield},
 			datatype: 'json',
 			type: 'POST',
@@ -112,14 +112,14 @@ function updateObj(obj,oldval,tbname,field,id,idfield){
 				if(res.status == 1){
 					layer.msg(res.msg,{time:600,icon:1});
 					if(tbname == 'admin'){
-						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="width:95px;height:30px;border:none; background:transparent;"/>');
+						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
 					}
 					return
 				}
 				else{
 					layer.msg(res.msg,{time:600,icon:2});
 					if(tbname == 'admin'){
-						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="width:95px;height:30px;border:none; background:transparent;"/>');
+						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
 					}
 					return
 				}
@@ -134,7 +134,7 @@ function updateObj(obj,oldval,tbname,field,id,idfield){
 //修改状态(用户管理)
 function updateObjState(id,idfield,stateval,statefield,tbname){
 	$.ajax({
-		url: "{:url('index/Check/updateObjState')}",
+		url: "{:url('admin/Check/updateObjState')}",
 		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',

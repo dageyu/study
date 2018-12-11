@@ -19,7 +19,7 @@
  */
 
 // namespace PHPMailer\PHPMailer;修改命名空间
-namespace email\phpmailer;
+namespace phpmailer;
 
 /**
  * PHPMailer RFC821 SMTP email transport class.

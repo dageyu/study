@@ -1,4 +1,4 @@
-<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\index\index.html";i:1544521728;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544520019;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1543395263;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\admin\index.html";i:1544522370;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544520019;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1543395263;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,9 +14,6 @@
 		<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
 		<script src="/study/public/static/plug/layer/layer.js" ></script>
 		
-<link rel="stylesheet" href="/study/public/static/admin/css/layui.css" media="all">
-<link rel="stylesheet" href="/study/public/static/admin/css/public.css" media="all">
-
 	</head>
 	<body>
 		<!-- header start -->
@@ -188,78 +185,89 @@
 						</script>
 						<!-- bodyheader start -->
 						
-<ul class="breadcrumb">
-    <li>
-        <i class="icon-home home-icon"></i>
-        <a href="#">首页</a>
-    </li>
-    <li class="active">控制台</li>
-</ul>
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">用户管理</li>
+	</ul>
 
 						<!-- bodyheader end -->
 					</div>
 					
-<div class="page-content">
-    <div class="page-header">
-        <h1>
-            控制台
-            <small>
-                <i class="icon-double-angle-right"></i>
-                    欢迎界面
-            </small>
-        </h1>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-block alert-success">
-                <button type="button" class="close" data-dismiss="alert">
-                    <i class="icon-remove"></i>
-                </button>
-                <i class="icon-ok green"></i>
-                欢迎使用
-                <strong class="green">
-                    编程语言学习总结系统
-                    <small id="nowTime"></small>
-                </strong>
-            </div>
-            <div class="row">
-                <div class="sysNotice col" style="padding:0px 12px 0px 12px">
-                    <blockquote class="layui-elem-quote title" style="font-size:16px">系统基本参数</blockquote>
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="150">
-                            <col>
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <td style="width:20%">服务器环境:</td>
-                                <td class="author" colspan="3"><?php echo htmlentities($sys_info['web_server']); ?></td>
-                            </tr>
-                            <tr>
-                                <td>服务器操作系统:</td>
-                                <td class="version" style="width:35%"><?php echo htmlentities($sys_info['os']); ?></td>
-                                <td style="width:18%">服务器域名/IP:</td>
-                                <td class="version"><?php echo htmlentities($sys_info['domain']); ?> [ <?php echo htmlentities($sys_info['ip']); ?> ]</td>
-                            </tr>
-                            <tr>
-                                <td>PHP 版本:</td>
-                                <td class="author"><?php echo htmlentities($sys_info['phpv']); ?></td>
-                                <td>Mysql 版本:</td>
-                                <td class="homePage"><?php echo htmlentities($sys_info['mysql_version']); ?></td>
-                            </tr>
-                            <tr>
-                                <td>程序开发:</td>
-                                <td class="server"><a href="https://github.com/dageyu/study" target="_blank" style="color:blueviolet">个人git学习网站</a></td>
-                                <td>版权所有:</td>
-                                <td class="author">盗版必究</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				用户管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					添加用户
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="table-header">
+					后台管理员列表
+				</div>
+				<div class="table-responsive">
+					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+						<div class="row">
+							<div class="col-sm-6" style="width:100%">
+								<div style="display:inline">
+									<a href="<?php echo url('admin/admin/add'); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
+								</div>											
+							</div>													
+						</div>
+						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
+							<thead>
+								<tr style="height:45px">
+									<th style="width:5%;text-align: center">排序</th>																									
+									<th style="width:11%;padding:8px 3px">用户名</th>
+									<th style="width:13%;padding:8px 3px">昵称</th>	
+									<th class="hidden-480" style="width:9%;padding:8px 3px">头像</th>														
+									<th class="hidden-480" style="width:7%;padding:8px 3px">状态</th>
+									<th style="width:21%;padding:8px 3px">电子邮箱</th>													
+									<th style="width:18%;padding:8px 3px">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										上次登录时间
+									</th>															
+									<th class="hidden-480" style="width:18%;padding:8px 3px">上次登录ip</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+								<tr style="height:40px">
+									<td class="center" style="vertical-align:middle;padding:4px"><?php echo htmlentities($i); ?></td>																											
+									<td style="vertical-align:middle;padding:4px">
+										<a href="#" style="color:#393939"><?php echo htmlentities($list['admin_name']); ?></a>
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="admin_nickname<?php echo htmlentities($list['admin_id']); ?>">
+										<input type="text"  value="<?php echo htmlentities($list['admin_nickname']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['admin_nickname']); ?>','admin','admin_nickname',<?php echo htmlentities($list['admin_id']); ?>,'admin_id')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>
+									</td>
+									<td style="vertical-align:middle;padding:4px">
+											<?php echo htmlentities($list['admin_image']); ?>
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="admin_state<?php echo htmlentities($list['admin_id']); ?>">
+										<?php if($list['admin_state'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48)" <?php if(($list['admin_vip'] == 0)): ?>onclick="updateObjState(<?php echo htmlentities($list['admin_id']); ?>,'admin_id',<?php echo htmlentities($list['admin_state']); ?>,'admin_state','admin')"<?php endif; ?>>正常</span>
+										<?php else: ?>
+											<span style="color:#8089a0" <?php if(($list['admin_vip'] == 0)): ?>onclick="updateObjState(<?php echo htmlentities($list['admin_id']); ?>,'admin_id',<?php echo htmlentities($list['admin_state']); ?>,'admin_state','admin')"<?php endif; ?>>禁止</span>
+										<?php endif; ?>
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px"><?php echo htmlentities($list['admin_email']); ?></td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px"><?php echo htmlentities(date("Y-m-d H:i:s",!is_numeric($list['admin_time'])? strtotime($list['admin_time']) : $list['admin_time'])); ?></td>
+									<td style="vertical-align:middle;padding:4px"><?php echo htmlentities($list['admin_ip']); ?></td>															
+								</tr>
+								<?php endforeach; endif; else: echo "" ;endif; ?>
+							</tbody>
+						</table>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 				</div>
 				﻿<div class="ace-settings-container" id="ace-settings-container">
@@ -427,31 +435,84 @@ function len(s) {
 
 </script>
 		
-<script type="text/javascript">
-    //获取系统时间
-    var newDate = '';
-    getLangDate();
-    //值小于10时，在前面补0
-    function dateFilter(date){
-        if(date < 10){return "0"+date;}
-        return date;
-    }
-    function getLangDate(){
-        var dateObj = new Date(); //表示当前系统时间的Date对象
-        var year = dateObj.getFullYear(); //当前系统时间的完整年份值
-        var month = dateObj.getMonth()+1; //当前系统时间的月份值
-        var date = dateObj.getDate(); //当前系统时间的月份中的日
-        var day = dateObj.getDay(); //当前系统时间中的星期值
-        var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
-        var week = weeks[day]; //根据星期值，从数组中获取对应的星期字符串
-        var hour = dateObj.getHours(); //当前系统时间的小时值
-        var minute = dateObj.getMinutes(); //当前系统时间的分钟值
-        var second = dateObj.getSeconds(); //当前系统时间的秒钟值
-        var timeValue = "" +((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午" ); //当前时间属于上午、晚上还是下午
-        newDate = dateFilter(year)+"年"+dateFilter(month)+"月"+dateFilter(date)+"日 "+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
-        document.getElementById("nowTime").innerHTML = timeValue+"好！ 当前时间为： "+newDate+"　"+week;
-        setTimeout("getLangDate()",1000);
-    }
+<script>
+/**
+* 公共函数:update
+* updateObj    失去光标时，修改对象，验证是否重复，是否为空
+* @param
+*       obj      	当前对象
+*       oldval      原值
+*		tbname		相关表名称
+*		field       表字段
+*		id       	主键值
+*		idfield     主键字段
+*/
+function updateObj(obj,oldval,tbname,field,id,idfield){
+	var newval = $.trim($(obj).val());
+	if(!newval || newval == oldval && oldval){
+		$(obj).val(oldval);
+		return false;
+	}
+	else{
+		$.ajax({
+			url: "<?php echo url('admin/Check/checkUpdate'); ?>",
+			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield},
+			datatype: 'json',
+			type: 'POST',
+			async: false,
+			success:function(res){
+				if(res.status == 1){
+					layer.msg(res.msg,{time:600,icon:1});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
+					}
+					return
+				}
+				else{
+					layer.msg(res.msg,{time:600,icon:2});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
+					}
+					return
+				}
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return false;
+			}
+		})
+	}
+}
+//修改状态(用户管理)
+function updateObjState(id,idfield,stateval,statefield,tbname){
+	$.ajax({
+		url: "<?php echo url('admin/Check/updateObjState'); ?>",
+		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				if(stateval == 0){
+					$('#'+statefield+id).html('<span style="color:rgb(10, 184, 48)" onclick="updateObjState('+id+',\''+idfield+'\',1,\''+statefield+'\',\''+tbname+'\')" >正常</span>');
+				}
+				else{
+					$('#'+statefield+id).html('<span style="color:#8089a0"  onclick="updateObjState('+id+',\''+idfield+'\',0,\''+statefield+'\',\''+tbname+'\')" >禁止</span>');
+				}
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	})
+}
 </script>
 
 	</body>

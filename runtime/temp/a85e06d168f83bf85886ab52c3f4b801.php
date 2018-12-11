@@ -1,4 +1,4 @@
-<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\index\index.html";i:1544521728;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544520019;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1543395263;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:57:"D:\wamp64\www\study\application\admin\view\admin\add.html";i:1544523222;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544523244;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523268;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,9 +14,6 @@
 		<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
 		<script src="/study/public/static/plug/layer/layer.js" ></script>
 		
-<link rel="stylesheet" href="/study/public/static/admin/css/layui.css" media="all">
-<link rel="stylesheet" href="/study/public/static/admin/css/public.css" media="all">
-
 	</head>
 	<body>
 		<!-- header start -->
@@ -188,78 +185,85 @@
 						</script>
 						<!-- bodyheader start -->
 						
-<ul class="breadcrumb">
-    <li>
-        <i class="icon-home home-icon"></i>
-        <a href="#">首页</a>
-    </li>
-    <li class="active">控制台</li>
-</ul>
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">用户管理</li>
+	</ul>
 
 						<!-- bodyheader end -->
 					</div>
 					
-<div class="page-content">
-    <div class="page-header">
-        <h1>
-            控制台
-            <small>
-                <i class="icon-double-angle-right"></i>
-                    欢迎界面
-            </small>
-        </h1>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-block alert-success">
-                <button type="button" class="close" data-dismiss="alert">
-                    <i class="icon-remove"></i>
-                </button>
-                <i class="icon-ok green"></i>
-                欢迎使用
-                <strong class="green">
-                    编程语言学习总结系统
-                    <small id="nowTime"></small>
-                </strong>
-            </div>
-            <div class="row">
-                <div class="sysNotice col" style="padding:0px 12px 0px 12px">
-                    <blockquote class="layui-elem-quote title" style="font-size:16px">系统基本参数</blockquote>
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="150">
-                            <col>
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <td style="width:20%">服务器环境:</td>
-                                <td class="author" colspan="3"><?php echo htmlentities($sys_info['web_server']); ?></td>
-                            </tr>
-                            <tr>
-                                <td>服务器操作系统:</td>
-                                <td class="version" style="width:35%"><?php echo htmlentities($sys_info['os']); ?></td>
-                                <td style="width:18%">服务器域名/IP:</td>
-                                <td class="version"><?php echo htmlentities($sys_info['domain']); ?> [ <?php echo htmlentities($sys_info['ip']); ?> ]</td>
-                            </tr>
-                            <tr>
-                                <td>PHP 版本:</td>
-                                <td class="author"><?php echo htmlentities($sys_info['phpv']); ?></td>
-                                <td>Mysql 版本:</td>
-                                <td class="homePage"><?php echo htmlentities($sys_info['mysql_version']); ?></td>
-                            </tr>
-                            <tr>
-                                <td>程序开发:</td>
-                                <td class="server"><a href="https://github.com/dageyu/study" target="_blank" style="color:blueviolet">个人git学习网站</a></td>
-                                <td>版权所有:</td>
-                                <td class="author">盗版必究</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				用户管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					添加用户
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">					
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="table-header">
+							添加新的用户
+						</div>				
+						<div class="col-xs-12">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform">
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 电子邮箱 </label>
+									<div class="col-sm-9">
+										<input type="email" id="admin_email" name="admin_email" placeholder="请输入126或163电子邮箱" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,1,1,'',1,'admin','admin_email')"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 用户名 </label>
+									<div class="col-sm-9">
+										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 设置密码 </label>		
+									<div class="col-sm-9">
+										<input type="password" id="admin_password" name="admin_password" maxlength="16" required placeholder="5-16位数字、字母或两者组合" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'',0,'','')"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 确认密码 </label>		
+									<div class="col-sm-9">
+										<input type="password" id="admin_checkpassword" name="admin_checkpassword" required placeholder="必须和设置密码一致" maxlength="16" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'admin_password',0,'','')"/><span style="color:red;display:inline">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 口令 </label>
+									<div class="col-sm-9">
+										<input type="text" id="admin_secret" name="admin_secret" placeholder="请输入口令" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,3,'',1,'admin','admin_secret')"/><span style="color:gray;margin-left: 2%">注：授权人允许你注册时输入的口令,可以为空！</span>
+									</div>
+								</div>
+								<div class="space-4"></div>									
+								<div class="col-md-offset-3 col-md-9" style="margin-left:7%">
+									<button class="btn btn-info" type="button" id="button" name="button">
+										<i class="icon-ok bigger-110"></i>
+										提交
+									</button>
+								</div>									
+							</form>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 				</div>
 				﻿<div class="ace-settings-container" id="ace-settings-container">
@@ -389,7 +393,7 @@ function compareObj(obj,compareobj){
 }
 function repeatObj(obj,objval,field,tbname){
 	$.ajax({
-		url: "<?php echo url('index/Check/checkAdd'); ?>",
+		url: "<?php echo url('admin/Check/checkAdd'); ?>",
 		data: {'content':objval,'field':field,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',
@@ -427,31 +431,41 @@ function len(s) {
 
 </script>
 		
-<script type="text/javascript">
-    //获取系统时间
-    var newDate = '';
-    getLangDate();
-    //值小于10时，在前面补0
-    function dateFilter(date){
-        if(date < 10){return "0"+date;}
-        return date;
-    }
-    function getLangDate(){
-        var dateObj = new Date(); //表示当前系统时间的Date对象
-        var year = dateObj.getFullYear(); //当前系统时间的完整年份值
-        var month = dateObj.getMonth()+1; //当前系统时间的月份值
-        var date = dateObj.getDate(); //当前系统时间的月份中的日
-        var day = dateObj.getDay(); //当前系统时间中的星期值
-        var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
-        var week = weeks[day]; //根据星期值，从数组中获取对应的星期字符串
-        var hour = dateObj.getHours(); //当前系统时间的小时值
-        var minute = dateObj.getMinutes(); //当前系统时间的分钟值
-        var second = dateObj.getSeconds(); //当前系统时间的秒钟值
-        var timeValue = "" +((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午" ); //当前时间属于上午、晚上还是下午
-        newDate = dateFilter(year)+"年"+dateFilter(month)+"月"+dateFilter(date)+"日 "+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
-        document.getElementById("nowTime").innerHTML = timeValue+"好！ 当前时间为： "+newDate+"　"+week;
-        setTimeout("getLangDate()",1000);
-    }
+<script>
+	$("#button").click(function (){
+		var admin_name     			= $.trim($('#admin_name').val());
+		var admin_email     		= $.trim($('#admin_email').val());
+		var admin_password     		= $.trim($('#admin_password').val());
+		var admin_checkpassword     = $.trim($('#admin_checkpassword').val());
+		var admin_secret     		= $.trim($('#admin_secret').val());		
+		if(!admin_name || !admin_email || !admin_password || !admin_checkpassword){
+			layer.msg('内容不能为空',{time:600});
+			return false;
+		}
+		else{
+			$.ajax({
+				url: "<?php echo url('admin/admin/add'); ?>",
+				data: $("#myform").serializeArray(),
+				datatype: 'json',
+				type: 'POST',
+				async: false,
+				success:function(res){
+					if(res.status == 1){
+						layer.msg(res.msg,{icon:1});
+						return
+					}
+					else{
+						layer.msg(res.msg,{icon:2});
+						return
+					}
+				},
+				error:function(){
+					layer.msg('系统未知错误');
+					return false;
+				}
+			})
+		}
+	});
 </script>
 
 	</body>
