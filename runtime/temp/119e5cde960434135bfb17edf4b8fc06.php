@@ -1,4 +1,4 @@
-<?php /*a:7:{s:57:"D:\wamp64\www\study\application\admin\view\admin\add.html";i:1544523222;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544523244;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523268;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:58:"D:\wamp64\www\study\application\admin\view\menu\index.html";i:1544948625;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544524711;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1544944478;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -156,6 +156,19 @@
 	<li class="" name="active">
 		<a href="javascript:cleanCache()">
 			<i class="icon-circle-blank"></i>
+			<span class="menu-text"> 数据管理 </span>
+		</a>
+	</li>
+	<li class="" name="active">
+		<a href="javascript:logout()">
+			<i class="icon-off"></i>
+			<span class="menu-text"> 退出平台 </span>
+		</a>
+	</li>
+
+	<li class="" name="active">
+		<a href="javascript:cleanCache()">
+			<i class="icon-circle-blank"></i>
 			<span class="menu-text"> 清理缓存 </span>
 		</a>
 	</li>
@@ -190,7 +203,7 @@
 			<i class="icon-home home-icon"></i>
 			<a href="#">首页</a>
 		</li>
-		<li class="active">用户管理</li>
+		<li class="active">菜单管理</li>
 	</ul>
 
 						<!-- bodyheader end -->
@@ -199,66 +212,98 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				用户管理
+				菜单管理
 				<small>
 					<i class="icon-double-angle-right"></i>
-					添加用户
+					添加菜单
 				</small>
 			</h1>
 		</div>
 		<div class="row">
-			<div class="col-xs-12">					
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="table-header">
-							添加新的用户
-						</div>				
-						<div class="col-xs-12">
-							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform">
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 电子邮箱 </label>
-									<div class="col-sm-9">
-										<input type="email" id="admin_email" name="admin_email" placeholder="请输入126或163电子邮箱" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,1,1,'',1,'admin','admin_email')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 用户名 </label>
-									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 设置密码 </label>		
-									<div class="col-sm-9">
-										<input type="password" id="admin_password" name="admin_password" maxlength="16" required placeholder="5-16位数字、字母或两者组合" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'',0,'','')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 确认密码 </label>		
-									<div class="col-sm-9">
-										<input type="password" id="admin_checkpassword" name="admin_checkpassword" required placeholder="必须和设置密码一致" maxlength="16" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'admin_password',0,'','')"/><span style="color:red;display:inline">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 口令 </label>
-									<div class="col-sm-9">
-										<input type="text" id="admin_secret" name="admin_secret" placeholder="请输入口令" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,3,'',1,'admin','admin_secret')"/><span style="color:gray;margin-left: 2%">注：授权人允许你注册时输入的口令,可以为空！</span>
-									</div>
-								</div>
-								<div class="space-4"></div>									
-								<div class="col-md-offset-3 col-md-9" style="margin-left:7%">
-									<button class="btn btn-info" type="button" id="button" name="button">
-										<i class="icon-ok bigger-110"></i>
-										提交
-									</button>
-								</div>									
-							</form>
-						</div>					
+			<div class="col-xs-12">
+				<div class="table-header">
+					菜单列表
+				</div>
+				<div class="table-responsive">
+					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+						<div class="row">
+							<div class="col-sm-6" style="width:100%">
+								<div style="display:inline">
+									<a href="<?php echo url('admin/menu/add'); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
+								</div>											
+							</div>													
+						</div>
+						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
+							<thead>
+								<tr style="height:45px">
+									<th style="width:5%;text-align: center">排序</th>
+									<th style="width:16%;padding:8px 3px;text-align: center">前置标签</th>																									
+									<th style="width:9%;padding:8px 3px;text-align: center">一级模块</th>
+									<th style="width:9%;padding:8px 3px;text-align: center">二级模块</th>
+									<th style="width:9%;padding:8px 3px;text-align: center">三级模块</th>
+									<th style="width:9%;padding:8px 3px;text-align: center">控制器</th>	
+									<th class="hidden-480" style="width:10%;padding:8px 3px;text-align: center">方法名称</th>														
+									<th class="hidden-480" style="width:6%;padding:8px 3px;text-align: center">显示</th>
+									<th style="width:16%;padding:8px 3px;text-align: center">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										更新时间
+									</th>	
+									<th style="padding:8px 3px;text-align: center">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										操作
+									</th>														
+								</tr>
+							</thead>
+							<tbody>
+								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+								<tr style="height:40px">
+									<td class="center" style="vertical-align:middle;padding:4px"><?php echo htmlentities($list['fm_sort']); ?></td>
+									<td style="vertical-align:middle;padding:4px"><i class="<?php echo htmlentities($list['fm_icon']); ?>"></i>
+										<span style="margin-left:4px">
+											<?php echo htmlentities($list['fm_icon']); ?>
+										</span>
+									</td>																											
+									<td style="vertical-align:middle;padding:4px">
+										<a href="#" style="color:#393939"><?php echo htmlentities($list['fm_name']); ?></a>
+									</td>
+									<td style="vertical-align:middle;padding:4px">
+										<a href="#" style="color:#393939"><?php echo htmlentities($list['fm_name']); ?></a>
+									</td>
+									<td style="vertical-align:middle;padding:4px">
+										<a href="#" style="color:#393939"><?php echo htmlentities($list['fm_name']); ?></a>
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="">
+										<a href="#" style="color:#393939"><?php echo htmlentities($list['fm_controller']); ?></a>
+									</td>
+									<td style="vertical-align:middle;padding:4px">
+											<?php echo htmlentities($list['fm_method']); ?>
+									</td>
+									<td style="vertical-align:middle;padding:4px" id="fm_state<?php echo htmlentities($list['fm_id']); ?>">
+										<?php if($list['fm_state'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48)" >是</span>
+										<?php else: ?>
+											<span style="color:#8089a0" >否</span>
+										<?php endif; ?>
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px">
+										<?php echo htmlentities(date("Y-m-d H:i:s",!is_numeric($list['fm_addtime'])? strtotime($list['fm_addtime']) : $list['fm_addtime'])); ?>
+									</td>
+									<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
+										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+											<a class="green" href="" style="margin:0 1px">
+												<i class="icon-pencil bigger-130"></i>
+											</a>
+											<div id="" style="display:inline">
+												<a class="red" href="" style="margin:0 1px" >
+													<i class="icon-trash bigger-130"></i>
+												</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php endforeach; endif; else: echo "" ;endif; ?>
+							</tbody>
+						</table>	
 					</div>
 				</div>
 			</div>
@@ -428,46 +473,61 @@ function len(s) {
 	}
 	return l;
 }
-
-</script>
-		
-<script>
-	$("#button").click(function (){
-		var admin_name     			= $.trim($('#admin_name').val());
-		var admin_email     		= $.trim($('#admin_email').val());
-		var admin_password     		= $.trim($('#admin_password').val());
-		var admin_checkpassword     = $.trim($('#admin_checkpassword').val());
-		var admin_secret     		= $.trim($('#admin_secret').val());		
-		if(!admin_name || !admin_email || !admin_password || !admin_checkpassword){
-			layer.msg('内容不能为空',{time:600});
+// 清除缓存
+function cleanCache(){
+	$.ajax({
+		url: "<?php echo url('admin/clean/index'); ?>",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			console.log(res);
+			// if(res.status == 1){
+			// 	layer.msg(res.msg,{time:600,icon:1});
+			// 	return
+			// }
+			// else{
+			// 	layer.msg(res.msg,{time:600,icon:2});
+			// 	return
+			// }
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
 			return false;
 		}
-		else{
-			$.ajax({
-				url: "<?php echo url('admin/admin/add'); ?>",
-				data: $("#myform").serializeArray(),
-				datatype: 'json',
-				type: 'POST',
-				async: false,
-				success:function(res){
-					if(res.status == 1){
-						layer.msg(res.msg,{icon:1});
-						return
-					}
-					else{
-						layer.msg(res.msg,{icon:2});
-						return
-					}
-				},
-				error:function(){
-					layer.msg('系统未知错误');
-					return false;
-				}
-			})
+	})
+}
+// 退出平台
+function logout(){
+	$.ajax({
+		url: "<?php echo url('admin/logout/logout'); ?>",
+		data: {},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				setInterval(jumplogin, 1000);
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
 		}
-	});
+	})
+}
+function jumplogin(){
+	location.href = "<?php echo url('admin/login/index'); ?>";
+}
 </script>
-
+		
 	</body>
 </html>
 

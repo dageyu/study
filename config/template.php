@@ -35,14 +35,14 @@ return [
     // 自定义
     // 视图输出字符串内容替换  后台管理模块的配置
     'tpl_replace_string'       => [
-        '__STATIC__' => '/study/public/static/admin',
-        '__UPLOAD__' => '/study/public/static/admin/uploads',
-        '__IMAGES__' => '/study/public/static/admin/images',
-        '__JS__'     => '/study/public/static/admin/js',
-        '__CSS__'    => '/study/public/static/admin/css',
-        '__FONT__'    => '/study/public/static/admin/font',
-        '__AVATARS__' => '/study/public/static/admin/avatars',
-        '__PLUG__' => '/study/public/static/plug',
+        '__STATIC__'    => '/study/public/static/admin',
+        '__UPLOAD__'    => '/study/public/static/admin/uploads',
+        '__IMAGES__'    => '/study/public/static/admin/images',
+        '__JS__'        => '/study/public/static/admin/js',
+        '__CSS__'       => '/study/public/static/admin/css',
+        '__FONT__'      => '/study/public/static/admin/font',
+        '__AVATARS__'   => '/study/public/static/admin/avatars',
+        '__PLUG__'      => '/study/public/static/plug',
     ],
 
 ];

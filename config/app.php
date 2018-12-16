@@ -144,7 +144,9 @@ return [
     'exception_handle'       => '',
 
     /** 自定义  */  
-    //密码盐
+    //密码盐  加密参数
     'salt'  => 'PHPSTUDY',
+    'DATA_BACKUP_PATH' => 'static/sqldata', //数据库备份根路径
+    'DATA_BACKUP_PART_SIZE' => 104857600, //数据库备份卷大小 100M
 
 ];

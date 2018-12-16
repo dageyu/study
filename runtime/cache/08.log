@@ -1,5 +1,0 @@
----------------------------------------------------------------
-[ 2018-12-08T03:28:28+00:00 ] 0.0.0.0 GET localhost/tp5/public/index.php/
-[运行时间：0.024414s] [吞吐率：40.96req/s] [内存消耗：632.41kb] [文件加载：17]
-[ error ] [0]Fatal error: Class 'think\Container' not found[D:\wamp64\www\tp5\public\index.php:21]
-[ info ] [ LOG ] INIT File

@@ -1,4 +1,4 @@
-<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\admin\index.html";i:1544523850;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544524711;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1543399647;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:59:"D:\wamp64\www\study\application\admin\view\tools\index.html";i:1544944285;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1544524711;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1544944478;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -156,6 +156,19 @@
 	<li class="" name="active">
 		<a href="javascript:cleanCache()">
 			<i class="icon-circle-blank"></i>
+			<span class="menu-text"> 数据管理 </span>
+		</a>
+	</li>
+	<li class="" name="active">
+		<a href="javascript:logout()">
+			<i class="icon-off"></i>
+			<span class="menu-text"> 退出平台 </span>
+		</a>
+	</li>
+
+	<li class="" name="active">
+		<a href="javascript:cleanCache()">
+			<i class="icon-circle-blank"></i>
 			<span class="menu-text"> 清理缓存 </span>
 		</a>
 	</li>
@@ -190,7 +203,7 @@
 			<i class="icon-home home-icon"></i>
 			<a href="#">首页</a>
 		</li>
-		<li class="active">用户管理</li>
+		<li class="active">数据管理</li>
 	</ul>
 
 						<!-- bodyheader end -->
@@ -199,75 +212,118 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				用户管理
+				数据管理
 				<small>
 					<i class="icon-double-angle-right"></i>
-					添加用户
+					数据列表
 				</small>
 			</h1>
 		</div>
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="table-header">
-					后台管理员列表
-				</div>
-				<div class="table-responsive">
-					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
-						<div class="row">
-							<div class="col-sm-6" style="width:100%">
-								<div style="display:inline">
-									<a href="<?php echo url('admin/admin/add'); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加用户</a>
-								</div>											
-							</div>													
+			<div class="col-xs-12">					
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="table-header">
+							数据列表
 						</div>
-						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
-							<thead>
-								<tr style="height:45px">
-									<th style="width:5%;text-align: center">排序</th>																									
-									<th style="width:11%;padding:8px 3px">用户名</th>
-									<th style="width:13%;padding:8px 3px">昵称</th>	
-									<th class="hidden-480" style="width:9%;padding:8px 3px">头像</th>														
-									<th class="hidden-480" style="width:7%;padding:8px 3px">状态</th>
-									<th style="width:21%;padding:8px 3px">电子邮箱</th>													
-									<th style="width:18%;padding:8px 3px">
-										<i class="icon-time bigger-110 hidden-480"></i>
-										上次登录时间
-									</th>															
-									<th class="hidden-480" style="width:18%;padding:8px 3px">上次登录ip</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-								<tr style="height:40px">
-									<td class="center" style="vertical-align:middle;padding:4px"><?php echo htmlentities($i); ?></td>																											
-									<td style="vertical-align:middle;padding:4px">
-										<a href="#" style="color:#393939"><?php echo htmlentities($list['admin_name']); ?></a>
-									</td>
-									<td style="vertical-align:middle;padding:4px" id="admin_nickname<?php echo htmlentities($list['admin_id']); ?>">
-										<input type="text"  value="<?php echo htmlentities($list['admin_nickname']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['admin_nickname']); ?>','admin','admin_nickname',<?php echo htmlentities($list['admin_id']); ?>,'admin_id')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px">
-											<?php echo htmlentities($list['admin_image']); ?>
-									</td>
-									<td style="vertical-align:middle;padding:4px" id="admin_state<?php echo htmlentities($list['admin_id']); ?>">
-										<?php if($list['admin_state'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48)" <?php if(($list['admin_vip'] == 0)): ?>onclick="updateObjState(<?php echo htmlentities($list['admin_id']); ?>,'admin_id',<?php echo htmlentities($list['admin_state']); ?>,'admin_state','admin')"<?php endif; ?>>正常</span>
-										<?php else: ?>
-											<span style="color:#8089a0" <?php if(($list['admin_vip'] == 0)): ?>onclick="updateObjState(<?php echo htmlentities($list['admin_id']); ?>,'admin_id',<?php echo htmlentities($list['admin_state']); ?>,'admin_state','admin')"<?php endif; ?>>禁止</span>
-										<?php endif; ?>
-									</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px"><?php echo htmlentities($list['admin_email']); ?></td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px"><?php echo htmlentities(date("Y-m-d H:i:s",!is_numeric($list['admin_time'])? strtotime($list['admin_time']) : $list['admin_time'])); ?></td>
-									<td style="vertical-align:middle;padding:4px"><?php echo htmlentities($list['admin_ip']); ?></td>															
-								</tr>
-								<?php endforeach; endif; else: echo "" ;endif; ?>
-							</tbody>
-						</table>	
+						<div class="table-responsive">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+								<div class="row">
+									<div class="col-sm-6" style="width:100%">
+										<div style="display:inline">
+											<a href="javascript:void(0)" onclick="gobackup(this)" ><i class="icon-plus" style="margin-right: 0.5%"></i>备份数据</a>
+										</div>
+										<div style="float:right;">
+											数据库中共有<?php echo htmlentities($tableNum); ?>张表，共计<?php echo htmlentities($total); ?>
+										</div>
+									</div>													
+								</div>
+								<div style="overflow-y:auto;height:615px;">
+									<table id="goodstable" class="table table-striped table-bordered table-hover" style="font-size: 8px;padding: 1px 1px;">
+										<thead>
+											<tr style="text-align: center">
+												<th class="center" style="width:5%;text-align: center">
+													选择
+												</th>
+												<th style="width:6%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">排序</th>														
+												<th style="width:22%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">数据库表</th>
+												<th style="width:8%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">记录条数</th>
+												<th style="width:8%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">占用空间</th>
+												<th style="width:12%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">编码</th>
+												<th style="width:16%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">创建时间</th>
+												<th style="width:15%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">说明</th>
+												<th style="padding:2px;vertical-align:middle;line-height: 0;text-align: center">操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+												<tr style="padding: 6px;height:36px;vertical-align: middle;text-align: center">
+													<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
+														<label>
+															<input type="checkbox" class="ace" value="<?php echo htmlentities($list['Name']); ?>" name="backs" />
+															<span class="lbl"></span>
+														</label>
+													</td>
+													<td style="padding:2px;line-height: 0;vertical-align: middle">
+														<?php echo htmlentities($i); ?>
+													</td>															
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities($list['Name']); ?>
+													</td>
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities($list['Rows']); ?>
+													</td>
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities(format_bytes($list['Data_length'])); ?>
+													</td>
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities($list['Collation']); ?>
+													</td>
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities($list['Create_time']); ?>
+													</td>
+													<td style="padding:2px;vertical-align: middle;text-align: left">
+														<?php echo htmlentities($list['Comment']); ?>
+													</td>
+													<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
+														<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+															<a class="blue" href="javascript:manageSql('<?php echo htmlentities($list['Name']); ?>','optimize')" >
+																优化
+															</a>
+															<a class="red" href="javascript:manageSql('<?php echo htmlentities($list['Name']); ?>','repair')" >
+																修复
+															</a>
+														</div>
+													</td>
+												</tr>
+											<?php endforeach; endif; else: echo "" ;endif; ?>
+										</tbody>
+									</table>
+								</div>
+								<div class="space-4"></div>
+								<div style="border:none;">
+									<div>
+										<div style="display:inline;vertical-align: middle;">
+											<label>
+												<input type="checkbox" class="ace" id="checkall" />
+												<span class="lbl" style="font-size: 8px">全选</span>
+											</label>
+											<label style="margin-left:10px">
+												<input type="checkbox" class="ace" id="checkpart" />
+												<span class="lbl" style="font-size: 8px">反选</span>
+											</label>
+											<a href="javascript:manageSql('tables','optimize')" class="blue" style="text-decoration:none;margin-left: 10px">优化</a>
+											<a href="javascript:manageSql('tables','repair')" class="red" style="text-decoration:none;margin-left: 10px">修复</a>
+										</div>
+									</div>  
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.page-content -->
 
 				</div>
 				﻿<div class="ace-settings-container" id="ace-settings-container">
@@ -487,45 +543,87 @@ function jumplogin(){
 }
 </script>
 		
-<script>
-/**
-* 公共函数:update
-* updateObj    失去光标时，修改对象，验证是否重复，是否为空
-* @param
-*       obj      	当前对象
-*       oldval      原值
-*		tbname		相关表名称
-*		field       表字段
-*		id       	主键值
-*		idfield     主键字段
-*/
-function updateObj(obj,oldval,tbname,field,id,idfield){
-	var newval = $.trim($(obj).val());
-	if(!newval || newval == oldval && oldval){
-		$(obj).val(oldval);
-		return false;
-	}
-	else{
-		$.ajax({
-			url: "<?php echo url('admin/Check/checkUpdate'); ?>",
-			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield},
-			datatype: 'json',
-			type: 'POST',
-			async: false,
-			success:function(res){
-				if(res.status == 1){
-					layer.msg(res.msg,{time:600,icon:1});
-					if(tbname == 'admin'){
-						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
+	<script>
+	//全选
+	$("#checkall").click(function(){
+   	  	if(this.checked){
+			$("#checkpart").attr('checked',false);
+			$("[name=backs]:checkbox").each(function() {
+				this.checked = 'checked';
+			});
+		}
+		else{
+			$("[name=backs]:checkbox").each(function() {
+				this.checked = '';
+			});
+		}
+   	});
+	//反选
+	$("#checkpart").click(function(){
+		if(this.checked){
+			$("#checkall").attr('checked',false);
+		}
+		$("[name=backs]:checkbox").each(function() {
+			this.checked = !this.checked;
+		});
+   	});
+	//备份数据
+	function gobackup(obj){
+		var a = [];
+		$('input[name*=backs]').each(function(i,o){
+			if($(o).is(':checked')){
+				a.push($(o).val());
+			}
+		});
+		if(a.length == 0){
+			layer.msg('请选择要备份的数据表', {icon: 2});
+			return;
+		}else{
+			$(obj).attr('style','color:#999');
+			$(obj).html('备份进行中...');
+			$.ajax({
+				type :'POST',
+				url : "<?php echo url('admin/Tools/export'); ?>",
+				datatype : 'json',
+				data : {tables:a},
+				success : function(data){
+					if(data.status == 1){
+						$(obj).html(data.info + "开始备份，请不要关闭本页面！");
+						layer.msg(data.info, {icon: 1,time:500});
+						backup(obj , data.tab);
+					}else{
+						$(obj).removeAttr('style');
+						$(obj).html("立即备份");
+						layer.msg(data.info, {icon: 2});
 					}
-					return
+				},
+				error:function(){
+					layer.msg('系统未知错误');
+					return false;
+				}
+			})
+		}
+	}
+	function backup(obj, tab, status){
+		$.ajax({
+			type :'GET',
+			url : "<?php echo url('admin/Tools/export'); ?>",
+			datatype : 'json',
+			data : {id:tab.id,start:tab.start},
+			success : function(data){
+				if(data.status == 2){
+					layer.msg(data.info, {icon: 1});
+					$(obj).removeAttr('style');
+					$(obj).html(data.info);
+				}
+				else if(data.status == 1){
+					$(obj).html(data.info);
+					backup(obj , data.tab, tab.id != data.tab.id);
 				}
 				else{
-					layer.msg(res.msg,{time:600,icon:2});
-					if(tbname == 'admin'){
-						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
-					}
-					return
+					$(obj).removeAttr('style');
+					$(obj).html("立即备份");
+					layer.msg(data.info, {icon: 2});
 				}
 			},
 			error:function(){
@@ -534,38 +632,49 @@ function updateObj(obj,oldval,tbname,field,id,idfield){
 			}
 		})
 	}
-}
-//修改状态(用户管理)
-function updateObjState(id,idfield,stateval,statefield,tbname){
-	$.ajax({
-		url: "<?php echo url('admin/Check/updateObjState'); ?>",
-		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname},
-		datatype: 'json',
-		type: 'POST',
-		async: false,
-		success:function(res){
-			if(res.status == 1){
-				layer.msg(res.msg,{time:600,icon:1});
-				if(stateval == 0){
-					$('#'+statefield+id).html('<span style="color:rgb(10, 184, 48)" onclick="updateObjState('+id+',\''+idfield+'\',1,\''+statefield+'\',\''+tbname+'\')" >正常</span>');
+	//优化  修复
+	function manageSql(table,type){
+		if(table == 'tables'){
+			var b = [];
+			$('input[name*=backs]').each(function(i,o){
+				if($(o).is(':checked')){
+					b.push($(o).val());
 				}
-				else{
-					$('#'+statefield+id).html('<span style="color:#8089a0"  onclick="updateObjState('+id+',\''+idfield+'\',0,\''+statefield+'\',\''+tbname+'\')" >禁止</span>');
-				}
-				return
+			});
+			if(b.length == 0){
+				layer.msg('请选择要优化的数据表', {icon: 2});
+				return;
 			}
 			else{
-				layer.msg(res.msg,{time:600,icon:2});
-				return
+				manageSqlData(b,type);
 			}
-		},
-		error:function(){
-			layer.msg('系统未知错误');
-			return false;
 		}
-	})
-}
-</script>
+		else{
+			manageSqlData(table,type);
+		}
+	}
+	function manageSqlData(table,type){
+		$.ajax({
+			type :'POST',
+			url : "<?php echo url('admin/Tools/manage'); ?>",
+			datatype : 'json',
+			data : {table:table,type:type},
+			success : function(res){
+				if(res.status == 1){
+					layer.msg(res.msg, {icon: 1,time:600});
+				}
+				else{
+					layer.msg(res.msg, {icon: 2,time:600});
+				}
+				return;
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return false;
+			}
+		})
+	}
+	</script>
 
 	</body>
 </html>
