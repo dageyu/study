@@ -2130,3 +2130,32 @@
 [ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  `fm_state` = 1 [ RunTime:0.001566s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.002139s ]
 [ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  `sm_state` = 1 [ RunTime:0.001531s ]
+---------------------------------------------------------------
+[ 2018-12-17T18:40:35+08:00 ] ::1 GET localhost/study/public/index.php/admin/menu/index
+[运行时间：0.078154s] [吞吐率：12.80req/s] [内存消耗：4,434.77kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; thinkphp_show_page_trace=0|0; pgv_pvi=3853760512; PHPSESSID=5msf898ti6q36o3s27314ca897',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\menu\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001771s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001511s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  `fm_state` = 1 [ RunTime:0.000849s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.000995s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  `sm_state` = 1 [ RunTime:0.000638s ]
