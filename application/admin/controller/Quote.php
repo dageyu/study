@@ -1,13 +1,17 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
+use think\facade\Config;
 class Quote extends Controller {
 
     /**
      * 引用管理：
      */
     public function index(){
-        return $this->fetch();
+        // return $this->fetch();
+        // var_dump(Config::get());
+        echo $_SERVER['SCRIPT_FILENAME'];
+        // return Config::get('runtimePath');
     }
 
     /**

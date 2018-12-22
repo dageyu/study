@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="__CSS__/ace.min.css" />
 		<link rel="stylesheet" href="__CSS__/ace-rtl.min.css" />
 		<link rel="stylesheet" href="__CSS__/ace-skins.min.css" />
+		<link rel="stylesheet" href="__PLUG__/fontawesome/css/all.min.css" />
 		<script src="__JS__/ace-extra.min.js"></script>
 		<script src="__JS__/jquery-2.0.3.min.js"></script>
 		<script src="__PLUG__/layer/layer.js" ></script>
@@ -62,7 +63,7 @@
 * checkObj    失去光标时，验证对象是否为空，是否符合正则表达式，是否比较相等
 * @param
 *       obj      	当前对象
-*       ischeck     验证0否1是
+*       ischeck     验证规则0否1是
 *       type        类型0无类型1：126或163邮箱 2：密码5-16位数字、字母或两者组合  3：英文，数字，汉字长度
 *       compareobj  比较对象相等
 *		isrepeat	验证是否重复0否1是
@@ -117,6 +118,7 @@ function checkObj(obj,ischeck,type,compareobj,isrepeat,tbname,field){
 		repeatObj(obj,objval,field,tbname);
 	}
 }
+//内容对比
 function compareObj(obj,compareobj){
 	if($.trim($(obj).val()) != $.trim($('#'+compareobj).val())){
 		layer.msg('两次输入的内容不一致',{time:600});
@@ -124,6 +126,7 @@ function compareObj(obj,compareobj){
 		return false;
 	}
 }
+//验证是否重复
 function repeatObj(obj,objval,field,tbname){
 	$.ajax({
 		url: "{:url('admin/Check/checkAdd')}",
@@ -161,24 +164,24 @@ function len(s) {
 	}
 	return l;
 }
-// 清除缓存
+/**
+ *清除缓存：
+ */
 function cleanCache(){
 	$.ajax({
-		url: "{:url('admin/clean/index')}",
+		url: "{:url('admin/Clean/cleanCache')}",
 		data: {},
 		datatype: 'json',
 		type: 'POST',
 		async: false,
 		success:function(res){
-			console.log(res);
-			// if(res.status == 1){
-			// 	layer.msg(res.msg,{time:600,icon:1});
-			// 	return
-			// }
-			// else{
-			// 	layer.msg(res.msg,{time:600,icon:2});
-			// 	return
-			// }
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+			}
+			return 
 		},
 		error:function(){
 			layer.msg('系统未知错误',{time:600,icon:3});
@@ -186,7 +189,9 @@ function cleanCache(){
 		}
 	})
 }
-// 退出平台
+/**
+ * 退出平台:
+ */
 function logout(){
 	$.ajax({
 		url: "{:url('admin/logout/logout')}",
@@ -211,8 +216,153 @@ function logout(){
 		}
 	})
 }
+//跳转网页
 function jumplogin(){
 	location.href = "{:url('admin/login/index')}";
+}
+/**
+* 公共函数:修改对象
+* updateObj    失去光标时，修改对象，验证是否重复，是否为空
+* @param
+*       obj      	当前对象
+*       oldval      原值
+*		tbname		相关表名称
+*		field       表字段
+*		id       	主键值
+*		idfield     主键字段
+*		isrepeat    是否验证重复 0否 1是
+*/
+function updateObj(obj,oldval,tbname,field,id,idfield,isrepeat){
+	var newval = $.trim($(obj).val());
+	if(!newval || newval == oldval && oldval){
+		$(obj).val(oldval);
+		return false;
+	}
+	else{
+		$.ajax({
+			url: "{:url('admin/Check/checkUpdate')}",
+			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield,'isrepeat':isrepeat},
+			datatype: 'json',
+			type: 'POST',
+			async: false,
+			success:function(res){
+				if(res.status == 1){
+					layer.msg(res.msg,{time:600,icon:1});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
+					} else if((tbname == 'first_module' && field == 'fm_icon') || (tbname == 'second_module' && field == 'sm_icon') || (tbname == 'three_module' && field == 'tm_icon')){
+						$('#'+field+id).html('<i class="'+newval+'"></i><input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if((tbname == 'first_module' && field == 'fm_name') || (tbname == 'three_module' && field == 'tm_name')){
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if(tbname == 'first_module' && field == 'fm_controller' || field == 'fm_method' || (tbname == 'second_module' && field == 'sm_controller' || field == 'sm_method') || (tbname == 'three_module' && field == 'tm_controller' || field == 'tm_method')){
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if(tbname == 'second_module' && field == 'sm_name'){
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} 
+				}
+				else{
+					layer.msg(res.msg,{time:600,icon:2});
+					if(tbname == 'admin'){
+						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
+					} else if((tbname == 'first_module' && field == 'fm_icon') || (tbname == 'second_module' && field == 'sm_icon') || (tbname == 'three_module' && field == 'tm_icon')){
+						$('#'+field+id).html('<i class="'+oldval+'"></i><input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if((tbname == 'first_module' && field == 'fm_name') || (tbname == 'three_module' && field == 'tm_name')){
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if(tbname == 'first_module' && field == 'fm_controller' || field == 'fm_method' || (tbname == 'second_module' && field == 'sm_controller' || field == 'sm_method') || (tbname == 'three_module' && field == 'tm_controller' || field == 'tm_method')){
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					} else if(tbname == 'second_module' && field == 'sm_name'){
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+					}
+				}
+				return
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return false;
+			}
+		})
+	}
+}
+/**
+* 公共函数:修改状态(用户管理)
+* updateObjState    点击修改状态值
+* @param
+*		id       	主键值
+*		idfield     主键字段
+*		stateval    状态值
+*       statefield  状态相关字段
+*		tbname		相关表名称
+*		ismain		是否主要(只有显示与不显示才是主要，其他为不主要) 0否 1是
+*		appendfield	附加字段
+*		appendval	附加值
+*/
+function updateObjState(id,idfield,stateval,statefield,tbname,ismain,appendfield,appendval){
+	$.ajax({
+		url: "{:url('admin/Check/updateObjState')}",
+		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname,'ismain':ismain,'appendfield':appendfield,'appendval':appendval},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				if(stateval == 0){
+					if(tbname == 'admin'){
+						$('#'+statefield+id).html('<span style="color:rgb(10, 184, 48)" onclick="updateObjState('+id+',\''+idfield+'\',1,\''+statefield+'\',\''+tbname+'\',\''+ismain+'\',\''+appendfield+'\',\''+appendval+'\')" >正常</span>');
+					} else if(tbname == 'first_module' || tbname == 'second_module' || tbname == 'three_module'){
+						$('#'+statefield+id).html('<span style="color:rgb(10, 184, 48)" onclick="updateObjState('+id+',\''+idfield+'\',1,\''+statefield+'\',\''+tbname+'\',\''+ismain+'\',\''+appendfield+'\',\''+appendval+'\')" >是</span>');
+					}
+				}
+				else{
+					if(tbname == 'admin'){
+						$('#'+statefield+id).html('<span style="color:#8089a0"  onclick="updateObjState('+id+',\''+idfield+'\',0,\''+statefield+'\',\''+tbname+'\',\''+ismain+'\',\''+appendfield+'\',\''+appendval+'\')" >禁止</span>');
+					} else if(tbname == 'first_module' || tbname == 'second_module' || tbname == 'three_module'){
+						$('#'+statefield+id).html('<span style="color:#8089a0" onclick="updateObjState('+id+',\''+idfield+'\',0,\''+statefield+'\',\''+tbname+'\',\''+ismain+'\',\''+appendfield+'\',\''+appendval+'\')">否</span>');
+					}
+				}
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	})
+}
+/**
+ * 删除数据:(软删除)
+ * @param
+ *		id       	主键值
+ *		idfield     主键字段
+ *		tbname		相关表名称
+ */
+ function deleteObjOne(id,idfield,tbname){
+	$.ajax({
+		url: "{:url('admin/check/deleteObjOne')}",
+		data: {'id':id,'idfield':idfield,'tbname':tbname},
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			if(res.status == 1){
+				layer.msg(res.msg,{time:600,icon:1});
+				$('#'+tbname+id).remove();
+				return
+			}
+			else{
+				layer.msg(res.msg,{time:600,icon:2});
+				return
+			}
+		},
+		error:function(){
+			layer.msg('系统未知错误',{time:600,icon:3});
+			return false;
+		}
+	})
 }
 </script>
 		{block name="js"}{/block}

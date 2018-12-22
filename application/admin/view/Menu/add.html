@@ -27,49 +27,116 @@
 							添加新的菜单
 						</div>				
 						<div class="col-xs-12">
-							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
+							{eq name="data.tbname" value="first_module"}
 								<div class="space-4"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 一级模块 </label>
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 模块名称 </label>
 									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入或选择一级模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 二级模块 </label>
-									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入或选择二级模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 三级模块 </label>
-									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入三级模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+										<input type="text" id="model" name="fm_name" placeholder="请输入模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'{$data.tbname}','{$data.field}')"/><span style="color:red">*</span>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 控制器 </label>
 									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+										<input type="text" id="controller" name="fm_controller" placeholder="请输入控制器名称" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 自定义方法 </label>
 									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+										<input type="text" id="method" name="fm_method" value="index" placeholder="请输入自定义方法" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 前置标签 </label>
 									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+										<input type="text" id="icon" name="fm_icon" placeholder="请输入前置标签" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
 									</div>
 								</div>
+								<input type="text" name="fm_addtime" value="<?php echo time();?>" hidden="hidden" />
+								{else/}
+									{eq name="data.tbname" value="second_module"}
+										<input type="text" id="fm_id" name="fm_id" value="{$data.parent_id}" hidden="hidden" />
+										<div class="space-4"></div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 模块名称 </label>
+											<div class="col-sm-9">
+												<input type="text" id="model" name="sm_name" placeholder="请输入模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'{$data.tbname}','{$data.field}')"/><span style="color:red">*</span>
+											</div>
+										</div>
+										<div class="space-4"></div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 控制器 </label>
+											<div class="col-sm-9">
+												<input type="text" id="controller" name="sm_controller" placeholder="请输入控制器名称" maxlength="20" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
+											</div>
+										</div>
+										<div class="space-4"></div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 自定义方法 </label>
+											<div class="col-sm-9">
+												<input type="text" id="method" name="sm_method" value="index" placeholder="请输入自定义方法" maxlength="10" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
+											</div>
+										</div>
+										<div class="space-4"></div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 前置标签 </label>
+											<div class="col-sm-9">
+												<input type="text" id="icon" name="sm_icon" placeholder="请输入前置标签" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
+											</div>
+										</div>
+										<div class="space-4"></div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 排序 </label>
+											<div class="col-sm-9">
+												<input type="text" id="sort" name="sm_sort" placeholder="请输入排序数字" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
+											</div>
+										</div>
+										<input type="text" name="sm_addtime" value="<?php echo time();?>" hidden="hidden" />
+									{else/}
+											<input type="text" id="sm_id" name="sm_id" value="{$data.parent_id}" hidden="hidden" />
+											<div class="space-4"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 模块名称 </label>
+												<div class="col-sm-9">
+													<input type="text" id="model" name="tm_name" placeholder="请输入模块名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'{$data.tbname}','{$data.field}')"/><span style="color:red">*</span>
+												</div>
+											</div>
+											<div class="space-4"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 控制器 </label>
+												<div class="col-sm-9">
+													<input type="text" id="controller" name="tm_controller" placeholder="请输入控制器名称" maxlength="30" required class="col-xs-10 col-sm-5" /><span style="color:red">*</span>
+												</div>
+											</div>
+											<div class="space-4"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 自定义方法 </label>
+												<div class="col-sm-9">
+													<input type="text" id="method" name="tm_method" value="index" placeholder="请输入自定义方法" maxlength="30" required class="col-xs-10 col-sm-5" /><span style="color:red">*</span>
+												</div>
+											</div>
+											<div class="space-4"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 前置标签 </label>
+												<div class="col-sm-9">
+													<input type="text" id="icon" name="tm_icon" placeholder="请输入前置标签" maxlength="30" required class="col-xs-10 col-sm-5" /><span style="color:red">*</span>
+												</div>
+											</div>
+											<div class="space-4"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 排序 </label>
+												<div class="col-sm-9">
+													<input type="text" id="sort" name="tm_sort" placeholder="请输入排序数字" maxlength="30" required class="col-xs-10 col-sm-5"/><span style="color:red">*</span>
+												</div>
+											</div>
+											<input type="text" name="tm_addtime" value="<?php echo time();?>" hidden="hidden" />
+									{/eq}
+								{/eq}
 								<div class="space-4"></div>									
 								<div class="col-md-offset-3 col-md-9" style="margin-left:9%">
 									<button class="btn btn-info" type="button" id="button" name="button">
@@ -78,7 +145,7 @@
 									</button>
 								</div>									
 							</form>
-						</div>					
+						</div>
 					</div>
 				</div>
 			</div>
@@ -88,18 +155,17 @@
 {block name="js"}
 <script>
 	$("#button").click(function (){
-		var admin_name     			= $.trim($('#admin_name').val());
-		var admin_email     		= $.trim($('#admin_email').val());
-		var admin_password     		= $.trim($('#admin_password').val());
-		var admin_checkpassword     = $.trim($('#admin_checkpassword').val());
-		var admin_secret     		= $.trim($('#admin_secret').val());		
-		if(!admin_name || !admin_email || !admin_password || !admin_checkpassword){
+		var model     		= $.trim($('#model').val());
+		var controller     	= $.trim($('#controller').val());
+		var method     		= $.trim($('#method').val());
+		var icon     		= $.trim($('#icon').val());
+		var sort			= $.trim($('#sort').val());
+		if(!model || !controller || !method || !icon || !sort){
 			layer.msg('内容不能为空',{time:600});
 			return false;
-		}
-		else{
+		} else {
 			$.ajax({
-				url: "{:url('admin/admin/add')}",
+				url: "{:url('admin/menu/add')}",
 				data: $("#myform").serializeArray(),
 				datatype: 'json',
 				type: 'POST',
@@ -108,8 +174,7 @@
 					if(res.status == 1){
 						layer.msg(res.msg,{icon:1});
 						return
-					}
-					else{
+					} else {
 						layer.msg(res.msg,{icon:2});
 						return
 					}

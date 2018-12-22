@@ -53,7 +53,7 @@ function format_bytes($size, $delimiter = '') {
 /**
  * 清理缓存:清除缓存的所有文件
  */
-function deldir($dir = RUNTIME_PATH) {     
+function deldir($dir) {     
     $dh = @opendir($dir);
     while ($file = @readdir($dh)) {
         if($file !="." && $file !="..") {

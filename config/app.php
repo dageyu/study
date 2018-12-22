@@ -91,7 +91,7 @@ return [
     // URL伪静态后缀
     'url_html_suffix'        => 'html',
     // URL普通方式参数 用于自动生成
-    'url_common_param'       => false,
+    'url_common_param'       => true,
     // URL参数方式 0 按名称成对解析 1 按顺序解析
     'url_param_type'         => 0,
     // 是否开启路由延迟解析
@@ -148,5 +148,6 @@ return [
     'salt'  => 'PHPSTUDY',
     'DATA_BACKUP_PATH' => 'static/sqldata', //数据库备份根路径
     'DATA_BACKUP_PART_SIZE' => 104857600, //数据库备份卷大小 100M
-
+    //缓存路径
+    'runtime_path' => '../runtime/',
 ];

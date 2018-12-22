@@ -5,4 +5,6 @@ use think\Model;
 
 class SecondModule extends Model {
 
+    protected $createTime = 'sm_addtime';
+
 }
