@@ -44,7 +44,7 @@ class Tools extends Controller {
 	public function export($tables = null, $id = null, $start = null){
 		//防止备份数据过程超时
 		function_exists('set_time_limit') && set_time_limit(0);
-		if($this->request->isPost() && !empty($tables) && is_array($tables)){ //初始化
+		if($this->request->isPost() && !empty($tables) && is_array($tables)){
 			$path = Config::get('DATA_BACKUP_PATH');
 			if(!is_dir($path)){
 				mkdir($path, 0755, true);
@@ -59,7 +59,7 @@ class Tools extends Controller {
 			if(is_file($lock)){
 				return array('info'=>'检测到有一个备份任务正在执行，请稍后再试！', 'status'=>0, 'url'=>'');
             } 
-            else {
+            else {  //创建锁文件
 				file_put_contents($lock, $_SERVER['REQUEST_TIME']);
 			}
 			//检查备份目录是否可写
@@ -117,9 +117,9 @@ class Tools extends Controller {
         $sql  = "-- -----------------------------\n";
         $sql .= "-- Think MySQL Data Transfer \n";
         $sql .= "-- \n";
-        $sql .= "-- Host     : " . Config::get('hostname') . "\n";
-        $sql .= "-- Port     : " . Config::get('hostport') . "\n";
-        $sql .= "-- Database : " . Config::get('database') . "\n";
+        $sql .= "-- Host     : " . Config::get('database.hostname') . "\n";
+        $sql .= "-- Port     : " . Config::get('database.hostport') . "\n";
+        $sql .= "-- Database : " . Config::get('database.database') . "\n";
         $sql .= "-- \n";
         $sql .= "-- Part : #{ " . Session::get('backup_file.part') . "\n";
         $sql .= "-- Date : " . date("Y-m-d H:i:s") . "\n";
@@ -167,13 +167,13 @@ class Tools extends Controller {
      * @param  integer $start 起始行数
      * @return boolean        false - 备份失败
      */
-    public function backup($table, $start){
+    private function backup($table, $start){
         //备份表结构
         if(0 == $start){
             $result = Db::query("SHOW CREATE TABLE `{$table}`");
             $sql  = "\n";
             $sql .= "-- -----------------------------\n";
-            $sql .= "-- Table structure for `{$table}`\n";
+            $sql .= "-- Table structure for {$table}\n";
             $sql .= "-- -----------------------------\n";
             $sql .= "DROP TABLE IF EXISTS `{$table}`;\n";
             $sql .= trim($result[0]['Create Table']) . ";\n\n";
@@ -189,15 +189,15 @@ class Tools extends Controller {
             //写入数据注释
             if(0 == $start){
                 $sql  = "-- -----------------------------\n";
-                $sql .= "-- Records of `{$table}`\n";
+                $sql .= "-- Records of {$table}\n";
                 $sql .= "-- -----------------------------\n";
                 $this->write($sql);
             }
             //备份数据记录
             $result = Db::query("SELECT * FROM `{$table}` LIMIT {$start}, 1000");
             foreach ($result as $row) {
-                $row = array_map('addslashes', $row);
-                $sql = "INSERT INTO `{$table}` VALUES ('" . str_replace(array("\r","\n"),array('\r','\n'),implode("', '", $row)) . "');\n";
+                $row = array_map(array($this,'changeType'), $row);
+                $sql = "INSERT INTO `{$table}` VALUES (" . rtrim(implode(' ',$row),',') . ");\n";
                 if(false === $this->write($sql)){
                     return false;
                 }
@@ -208,10 +208,23 @@ class Tools extends Controller {
     }
 
     /**
+     * 数据类型转化
+     */
+    function changeType($val){
+        if(is_int($val)){
+            $val = $val.',';
+        }
+        else{
+            $val = '\''.$val.'\',';
+        }
+        return $val;
+    }
+
+    /**
      * 优化表  修复表
      * @param  string  $table 表名
      * @param  string  $type  类型：优化  修复
-     * @return boolean        0 - 失败
+     * @return boolean        0 - 失败  1 - 成功
      */
     public function manage($table, $type){
         $strTable = is_array($table) ? implode(',', $table) : $table;
@@ -234,5 +247,156 @@ class Tools extends Controller {
     	return $res;
     }
 
+    /**
+     * 还原表结构：首页
+     * @return  array       $lists      文件清单
+     * @return  integer     $filenum    文件数量
+     * @return  float       $total      空间大小   
+     */
+    public function restore(){
+		$path = Config::get('DATA_BACKUP_PATH');
+		if(!is_dir($path)){
+			mkdir($path, 0755, true);
+		}
+		$path = realpath($path);
+		$flag = \FilesystemIterator::KEY_AS_FILENAME;
+		$glob = new \FilesystemIterator($path,  $flag);
+		$list = array();$filenum = $total = 0;
+		foreach ($glob as $name => $file) {
+			if(preg_match('/^\d{8,8}-\d{6,6}-\d+\.sql$/', $name)){
+				$name = sscanf($name, '%4s%2s%2s-%2s%2s%2s-%d');
+				$date = "{$name[0]}-{$name[1]}-{$name[2]}";
+				$time = "{$name[3]}:{$name[4]}:{$name[5]}";
+                $part = $name[6];
+				$info = pathinfo($file);
+				if(isset($list["{$date} {$time}"])){
+					$info = $list["{$date} {$time}"];
+					$info['part'] = max($info['part'], $part);
+					$info['size'] = $info['size'] + $file->getSize();
+				} else {
+					$info['part'] = $part;
+					$info['size'] = $file->getSize();
+				}
+				$info['compress'] = ($info['extension'] === 'sql') ? '-' : $info['extension'];
+				$info['time']  = strtotime("{$date} {$time}");
+				$filenum++;
+				$total += $info['size'];
+				$list["{$date} {$time}"] = $info;
+			}
+		}
+		$this->assign('lists', $list);
+		$this->assign('filenum',$filenum);
+		$this->assign('total',$total);
+		return $this->fetch();
+	}
+
+	/**
+	 * 执行还原数据库操作
+	 * @param   integer  $time  备份时间
+	 * @param   null integer    $start
+     * @param   integer    $start
+	 */
+	public function recoverSql($time = 0, $start = null){
+		function_exists('set_time_limit') && set_time_limit(0);
+		if(is_numeric($time) && is_null($start)){ 
+			//获取备份文件信息
+			$name  = date('Ymd-His', $time) . '-*.sql';
+			$path  = realpath(Config::get('DATA_BACKUP_PATH')) . DIRECTORY_SEPARATOR . $name;
+			$files = glob($path);
+			foreach($files as $name){
+				$basename = basename($name);
+			}
+			if($name){
+                Session::set('recover_file', $name); //缓存备份列表
+                return array('status' => 1,'msg' => '初始化完成！','start' => 0);
+			} else {
+                return array('status' => 0,'msg' => '备份文件可能已经损坏，请检查！');
+            }
+		} elseif(is_numeric($start)) {
+            $name  = Session::get('recover_file');
+            $start = $this->importSql($name,$start);
+			if(false === $start){
+                return array('status' => 0,'msg' => '还原数据出错！');
+            } elseif(0 === $start){
+                Session::set('recover_file',null);
+                return array('status' => 2,'msg' => '还原完成！');
+            } else {
+				if($start[1]){
+					$rate = floor(100 * ($start[0] / $start[1]));
+                    return array('status' => 1,'msg' => "正在还原... ({$rate}%)" ,'start' => $start[0]);
+				} 
+			}
+		} else {
+            return array('status' => 0 , 'msg'=>'参数错误!');
+		}
+    }
+
+    /**
+	 * 执行还原数据库
+	 * @param   string   $file  还原文件
+	 * @param   integer  $start
+	 */
+    private function importSql($file,$start){
+        $size = filesize($file);
+        $gz   = fopen($file, 'r');
+        $sql  = '';
+        if($start){
+            fseek($gz, $start);
+        }
+        for($i = 0; $i < 1000; $i++){
+            $sql .= fgets($gz);
+            if(preg_match('/.*;$/', trim($sql))){
+                if(false !== Db::execute($sql)){
+                    $start += strlen($sql);
+                } else {
+                    return false;
+                }
+                $sql = '';
+            } else if(feof($gz)){
+                return 0;
+            }
+        }
+        return array($start, $size);
+    }
+
+	/**
+	 * 下载
+	 * @param  integer $time 备份时间
+	 */
+	public function downSql($time = 0) {
+		$name  = date('Ymd-His', $time) . '-*.sql*';
+		$path  = realpath(Config::get('DATA_BACKUP_PATH')) . DIRECTORY_SEPARATOR . $name;
+        $files = glob($path);
+		if(is_array($files)){
+			foreach ($files as $filePath){
+                $filename = basename($filePath);
+                header("Content-type: application/octet-stream");
+                header('Content-Disposition: attachment; filename="' . $filename . '"');
+                header("Content-Length: " . filesize($filePath));
+                readfile($filePath);
+			}
+        }
+	}
+
+	/**
+	 * 删除备份文件
+	 * @param  integer $time 备份时间
+     * @return array   $res
+	 */
+	public function deleteSql($time = 0){
+		if($time){
+			$name  = date('Ymd-His', $time) . '-*.sql*';
+			$path  = realpath(Config::get('DATA_BACKUP_PATH')) . DIRECTORY_SEPARATOR . $name;
+			array_map("unlink", glob($path));
+			if(count(glob($path))){
+			    $res = array('status' => 0 , 'msg' => '删除失败!');
+            } else {
+                $res = array('status' => 1 , 'msg' => '删除成功!');
+            }
+		} else {
+			$res = array('status' => 0 , 'msg' => '参数错误!');
+        }
+        return $res;
+	}
 	
 }

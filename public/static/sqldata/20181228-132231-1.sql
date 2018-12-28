@@ -1,53 +1,53 @@
 -- -----------------------------
 -- Think MySQL Data Transfer 
 -- 
--- Host     : 
--- Port     : 
--- Database : 
+-- Host     : 127.0.0.1
+-- Port     : 3306
+-- Database : study
 -- 
 -- Part : #{ 1
--- Date : 2018-12-16 16:28:10
+-- Date : 2018-12-28 13:22:31
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
 
 
 -- -----------------------------
--- Table structure for `study_admin`
+-- Table structure for study_admin
 -- -----------------------------
 DROP TABLE IF EXISTS `study_admin`;
 CREATE TABLE `study_admin` (
-  `admin_id` smallint(6) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `admin_id` smallint(6) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `admin_name` varchar(20) NOT NULL COMMENT '用户名',
   `admin_password` varchar(32) NOT NULL COMMENT '密码',
   `admin_email` varchar(32) NOT NULL COMMENT '邮箱',
-  `admin_nickname` varchar(20) DEFAULT NULL COMMENT '昵称',
-  `admin_time` int(11) DEFAULT NULL COMMENT '上次登录时间',
-  `admin_ip` varchar(15) DEFAULT NULL COMMENT '上次登录ip',
-  `admin_image` varchar(50) DEFAULT NULL COMMENT '管理员头像',
-  `admin_lasttime` int(11) DEFAULT NULL COMMENT '最后登录时间',
-  `admin_lastip` varchar(15) DEFAULT NULL COMMENT '最后登录ip',
+  `admin_nickname` varchar(20) DEFAULT '' COMMENT '昵称',
+  `admin_time` int(11) DEFAULT '0' COMMENT '上次登录时间',
+  `admin_ip` varchar(15) DEFAULT '' COMMENT '上次登录ip',
+  `admin_image` varchar(50) DEFAULT '' COMMENT '管理员头像',
+  `admin_lasttime` int(11) DEFAULT '0' COMMENT '最后登录时间',
+  `admin_lastip` varchar(15) DEFAULT '' COMMENT '最后登录ip',
   `admin_vip` tinyint(1) NOT NULL DEFAULT '1' COMMENT '用户等级 0高级 默认1普通',
   `admin_state` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态 默认1启用0禁用',
-  `admin_addtime` int(10) DEFAULT NULL COMMENT '注册时间',
-  `admin_secret` varchar(100) DEFAULT NULL COMMENT '口令',
-  `parent_id` tinyint(4) DEFAULT NULL COMMENT '介绍人id',
-  `identifier` varchar(32) DEFAULT NULL COMMENT '第二身份标识',
-  `token` varchar(32) DEFAULT NULL COMMENT '永久登录标识',
-  `timeout` int(10) DEFAULT NULL COMMENT '永久登录超时时间',
-  PRIMARY KEY (`admin_id`),
-  UNIQUE KEY `admin_email` (`admin_email`),
+  `admin_addtime` int(10) DEFAULT '0' COMMENT '注册时间',
+  `admin_secret` varchar(100) DEFAULT '' COMMENT '口令',
+  `parent_id` tinyint(4) DEFAULT '0' COMMENT '介绍人id',
+  `identifier` varchar(32) DEFAULT '' COMMENT '第二身份标识',
+  `token` varchar(32) DEFAULT '' COMMENT '永久登录标识',
+  `timeout` int(10) DEFAULT '0' COMMENT '永久登录超时时间',
+  PRIMARY KEY (`admin_id`) USING BTREE,
+  UNIQUE KEY `admin_email` (`admin_email`) USING BTREE,
   KEY `admin_vip` (`admin_vip`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- -----------------------------
--- Records of `study_admin`
+-- Records of study_admin
 -- -----------------------------
-INSERT INTO `study_admin` VALUES ('1', 'admin', '1e78f717bd679a083d54142517a667f5', 'cuiyu1478@126.com', '大哥玉', '1543809193', '', '', '1543842113', '0.0.0.0', '0', '1', '', '你妈喊你回家吃饭了。', '', 'c44b5f1d055fc53d72bacdabc153c11a', '6d489690e421c5be4c811bb4841b52f8', '1543843000');
-INSERT INTO `study_admin` VALUES ('2', 'cuiyu1478', '07a0ac3365a4efd51b90556101f08481', 'cuiyu1478@163.com', '小青龙', '', '', '', '1544514749', '::1', '1', '1', '', '长生，你妈喊你回家吃饭了', '', 'ad7f1e6a7e0f6bc94df9b4a373435a85', 'd82905d8fb6eccbc77216ab02af5aee9', '1544518349');
+INSERT INTO `study_admin` VALUES (1, 'admin', '1e78f717bd679a083d54142517a667f5', 'cuiyu1478@126.com', '大哥玉', 1543809193, '', '', 1543842113, '0.0.0.0', 0, 1, 1543809193, '你妈喊你回家吃饭了。', 1, 'c44b5f1d055fc53d72bacdabc153c11a', '6d489690e421c5be4c811bb4841b52f8', 1543843000);
+INSERT INTO `study_admin` VALUES (2, 'cuiyu1478', '07a0ac3365a4efd51b90556101f08481', 'cuiyu1478@163.com', '小青龙', 0, '', '', 1544514749, '::1', 1, 1, 1543809193, '长生，你妈喊你回家吃饭了', 1, 'ad7f1e6a7e0f6bc94df9b4a373435a85', 'd82905d8fb6eccbc77216ab02af5aee9', 1544518349);
 
 -- -----------------------------
--- Table structure for `study_csst_act`
+-- Table structure for study_csst_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_act`;
 CREATE TABLE `study_csst_act` (
@@ -57,15 +57,15 @@ CREATE TABLE `study_csst_act` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_errors`
+-- Table structure for study_csst_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_errors`;
 CREATE TABLE `study_csst_errors` (
@@ -75,15 +75,15 @@ CREATE TABLE `study_csst_errors` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_others`
+-- Table structure for study_csst_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_others`;
 CREATE TABLE `study_csst_others` (
@@ -92,15 +92,15 @@ CREATE TABLE `study_csst_others` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_act`
+-- Table structure for study_csst_plug_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_act`;
 CREATE TABLE `study_csst_plug_act` (
@@ -110,15 +110,15 @@ CREATE TABLE `study_csst_plug_act` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_errors`
+-- Table structure for study_csst_plug_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_errors`;
 CREATE TABLE `study_csst_plug_errors` (
@@ -128,15 +128,15 @@ CREATE TABLE `study_csst_plug_errors` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_others`
+-- Table structure for study_csst_plug_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_others`;
 CREATE TABLE `study_csst_plug_others` (
@@ -146,15 +146,15 @@ CREATE TABLE `study_csst_plug_others` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_questions`
+-- Table structure for study_csst_plug_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_questions`;
 CREATE TABLE `study_csst_plug_questions` (
@@ -164,15 +164,15 @@ CREATE TABLE `study_csst_plug_questions` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '解决方案',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_specials`
+-- Table structure for study_csst_plug_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_specials`;
 CREATE TABLE `study_csst_plug_specials` (
@@ -182,28 +182,28 @@ CREATE TABLE `study_csst_plug_specials` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_plug_type`
+-- Table structure for study_csst_plug_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_plug_type`;
 CREATE TABLE `study_csst_plug_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_questions`
+-- Table structure for study_csst_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_questions`;
 CREATE TABLE `study_csst_questions` (
@@ -213,15 +213,15 @@ CREATE TABLE `study_csst_questions` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_specials`
+-- Table structure for study_csst_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_specials`;
 CREATE TABLE `study_csst_specials` (
@@ -231,28 +231,28 @@ CREATE TABLE `study_csst_specials` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_csst_type`
+-- Table structure for study_csst_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_csst_type`;
 CREATE TABLE `study_csst_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_first_module`
+-- Table structure for study_first_module
 -- -----------------------------
 DROP TABLE IF EXISTS `study_first_module`;
 CREATE TABLE `study_first_module` (
@@ -264,20 +264,24 @@ CREATE TABLE `study_first_module` (
   `fm_method` varchar(20) NOT NULL COMMENT '方法名称  默认输出页',
   `fm_state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '显示状态  默认0否1是',
   `is_parent` tinyint(1) NOT NULL DEFAULT '0' COMMENT '有无子类  默认0否1是',
-  `fm_addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`fm_id`),
+  `fm_addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`fm_id`) USING BTREE,
   KEY `fm_sort` (`fm_id`,`fm_sort`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- -----------------------------
--- Records of `study_first_module`
+-- Records of study_first_module
 -- -----------------------------
-INSERT INTO `study_first_module` VALUES ('1', '1', 'icon-dashboard', '控制平台', 'Index', 'index', '1', '0', '');
-INSERT INTO `study_first_module` VALUES ('2', '2', 'icon-user', '用户管理', 'Admin', 'list', '1', '0', '');
-INSERT INTO `study_first_module` VALUES ('3', '3', 'icon-edit', '修改密码', 'Password', 'changePassword', '1', '0', '');
+INSERT INTO `study_first_module` VALUES (1, 1, 'icon-dashboard', '控制平台', 'Index', 'index', 1, 0, 1545386748);
+INSERT INTO `study_first_module` VALUES (2, 2, 'icon-user', '用户管理', 'Admin', 'list', 1, 0, 1545381827);
+INSERT INTO `study_first_module` VALUES (3, 3, 'icon-key', '修改密码', 'Password', 'change', 1, 0, 1545381829);
+INSERT INTO `study_first_module` VALUES (4, 4, 'fas fa-database', '数据管理', 'Tools', 'index', 1, 1, 1545391981);
+INSERT INTO `study_first_module` VALUES (5, 5, 'fas fa-user-tie', '权限管理', 'Power', 'index', 1, 0, 1545381833);
+INSERT INTO `study_first_module` VALUES (6, 6, 'fab fa-php', 'Php管理', 'Php', 'index', 1, 1, 1545395468);
+INSERT INTO `study_first_module` VALUES (7, 7, 'fab fa-connectdevelop', '开发工具', 'Develop', 'index', 1, 1, 1545395467);
 
 -- -----------------------------
--- Table structure for `study_htmlf_attrs`
+-- Table structure for study_htmlf_attrs
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_attrs`;
 CREATE TABLE `study_htmlf_attrs` (
@@ -287,15 +291,15 @@ CREATE TABLE `study_htmlf_attrs` (
   `zn_name` varchar(100) NOT NULL,
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_errors`
+-- Table structure for study_htmlf_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_errors`;
 CREATE TABLE `study_htmlf_errors` (
@@ -304,15 +308,15 @@ CREATE TABLE `study_htmlf_errors` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_others`
+-- Table structure for study_htmlf_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_others`;
 CREATE TABLE `study_htmlf_others` (
@@ -321,15 +325,15 @@ CREATE TABLE `study_htmlf_others` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_act`
+-- Table structure for study_htmlf_plug_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_act`;
 CREATE TABLE `study_htmlf_plug_act` (
@@ -339,15 +343,15 @@ CREATE TABLE `study_htmlf_plug_act` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_errors`
+-- Table structure for study_htmlf_plug_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_errors`;
 CREATE TABLE `study_htmlf_plug_errors` (
@@ -357,15 +361,15 @@ CREATE TABLE `study_htmlf_plug_errors` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_others`
+-- Table structure for study_htmlf_plug_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_others`;
 CREATE TABLE `study_htmlf_plug_others` (
@@ -375,15 +379,15 @@ CREATE TABLE `study_htmlf_plug_others` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_questions`
+-- Table structure for study_htmlf_plug_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_questions`;
 CREATE TABLE `study_htmlf_plug_questions` (
@@ -393,15 +397,15 @@ CREATE TABLE `study_htmlf_plug_questions` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '解决方案',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_specials`
+-- Table structure for study_htmlf_plug_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_specials`;
 CREATE TABLE `study_htmlf_plug_specials` (
@@ -411,28 +415,28 @@ CREATE TABLE `study_htmlf_plug_specials` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_plug_type`
+-- Table structure for study_htmlf_plug_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_plug_type`;
 CREATE TABLE `study_htmlf_plug_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_questions`
+-- Table structure for study_htmlf_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_questions`;
 CREATE TABLE `study_htmlf_questions` (
@@ -441,15 +445,15 @@ CREATE TABLE `study_htmlf_questions` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_specials`
+-- Table structure for study_htmlf_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_specials`;
 CREATE TABLE `study_htmlf_specials` (
@@ -458,15 +462,15 @@ CREATE TABLE `study_htmlf_specials` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_htmlf_tags`
+-- Table structure for study_htmlf_tags
 -- -----------------------------
 DROP TABLE IF EXISTS `study_htmlf_tags`;
 CREATE TABLE `study_htmlf_tags` (
@@ -476,15 +480,15 @@ CREATE TABLE `study_htmlf_tags` (
   `zn_name` varchar(100) NOT NULL,
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_actions`
+-- Table structure for study_js_actions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_actions`;
 CREATE TABLE `study_js_actions` (
@@ -493,15 +497,15 @@ CREATE TABLE `study_js_actions` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_errors`
+-- Table structure for study_js_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_errors`;
 CREATE TABLE `study_js_errors` (
@@ -510,15 +514,15 @@ CREATE TABLE `study_js_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_extends`
+-- Table structure for study_js_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_extends`;
 CREATE TABLE `study_js_extends` (
@@ -527,15 +531,15 @@ CREATE TABLE `study_js_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_errors`
+-- Table structure for study_js_frame_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_errors`;
 CREATE TABLE `study_js_frame_errors` (
@@ -545,15 +549,15 @@ CREATE TABLE `study_js_frame_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_event`
+-- Table structure for study_js_frame_event
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_event`;
 CREATE TABLE `study_js_frame_event` (
@@ -564,15 +568,15 @@ CREATE TABLE `study_js_frame_event` (
   `zn_name` varchar(60) NOT NULL COMMENT '事件中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_others`
+-- Table structure for study_js_frame_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_others`;
 CREATE TABLE `study_js_frame_others` (
@@ -582,15 +586,15 @@ CREATE TABLE `study_js_frame_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_questions`
+-- Table structure for study_js_frame_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_questions`;
 CREATE TABLE `study_js_frame_questions` (
@@ -600,15 +604,15 @@ CREATE TABLE `study_js_frame_questions` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_specials`
+-- Table structure for study_js_frame_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_specials`;
 CREATE TABLE `study_js_frame_specials` (
@@ -618,28 +622,28 @@ CREATE TABLE `study_js_frame_specials` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_frame_type`
+-- Table structure for study_js_frame_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_frame_type`;
 CREATE TABLE `study_js_frame_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '说明',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_nouns`
+-- Table structure for study_js_nouns
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_nouns`;
 CREATE TABLE `study_js_nouns` (
@@ -649,15 +653,15 @@ CREATE TABLE `study_js_nouns` (
   `zn_name` varchar(100) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_operators`
+-- Table structure for study_js_operators
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_operators`;
 CREATE TABLE `study_js_operators` (
@@ -667,15 +671,15 @@ CREATE TABLE `study_js_operators` (
   `zn_name` varchar(60) NOT NULL COMMENT '符号中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_plug_act`
+-- Table structure for study_js_plug_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_plug_act`;
 CREATE TABLE `study_js_plug_act` (
@@ -685,15 +689,15 @@ CREATE TABLE `study_js_plug_act` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_plug_others`
+-- Table structure for study_js_plug_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_plug_others`;
 CREATE TABLE `study_js_plug_others` (
@@ -703,28 +707,28 @@ CREATE TABLE `study_js_plug_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_plug_type`
+-- Table structure for study_js_plug_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_plug_type`;
 CREATE TABLE `study_js_plug_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '说明',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_questions`
+-- Table structure for study_js_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_questions`;
 CREATE TABLE `study_js_questions` (
@@ -733,15 +737,15 @@ CREATE TABLE `study_js_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_js_specials`
+-- Table structure for study_js_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_js_specials`;
 CREATE TABLE `study_js_specials` (
@@ -750,15 +754,15 @@ CREATE TABLE `study_js_specials` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_others_questions`
+-- Table structure for study_others_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_others_questions`;
 CREATE TABLE `study_others_questions` (
@@ -768,28 +772,28 @@ CREATE TABLE `study_others_questions` (
   `title` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_others_type`
+-- Table structure for study_others_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_others_type`;
 CREATE TABLE `study_others_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_develop_plug`
+-- Table structure for study_php_develop_plug
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_develop_plug`;
 CREATE TABLE `study_php_develop_plug` (
@@ -800,15 +804,15 @@ CREATE TABLE `study_php_develop_plug` (
   `zn_name` varchar(100) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_develop_questions`
+-- Table structure for study_php_develop_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_develop_questions`;
 CREATE TABLE `study_php_develop_questions` (
@@ -818,28 +822,28 @@ CREATE TABLE `study_php_develop_questions` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_develop_type`
+-- Table structure for study_php_develop_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_develop_type`;
 CREATE TABLE `study_php_develop_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '说明',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_errors`
+-- Table structure for study_php_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_errors`;
 CREATE TABLE `study_php_errors` (
@@ -848,15 +852,15 @@ CREATE TABLE `study_php_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决办法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_extends`
+-- Table structure for study_php_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_extends`;
 CREATE TABLE `study_php_extends` (
@@ -865,15 +869,15 @@ CREATE TABLE `study_php_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_errors`
+-- Table structure for study_php_frame_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_errors`;
 CREATE TABLE `study_php_frame_errors` (
@@ -883,15 +887,15 @@ CREATE TABLE `study_php_frame_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决办法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_extends`
+-- Table structure for study_php_frame_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_extends`;
 CREATE TABLE `study_php_frame_extends` (
@@ -901,15 +905,15 @@ CREATE TABLE `study_php_frame_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_functions`
+-- Table structure for study_php_frame_functions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_functions`;
 CREATE TABLE `study_php_frame_functions` (
@@ -920,15 +924,15 @@ CREATE TABLE `study_php_frame_functions` (
   `zn_name` varchar(60) NOT NULL COMMENT '函数中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_others`
+-- Table structure for study_php_frame_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_others`;
 CREATE TABLE `study_php_frame_others` (
@@ -938,15 +942,15 @@ CREATE TABLE `study_php_frame_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_questions`
+-- Table structure for study_php_frame_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_questions`;
 CREATE TABLE `study_php_frame_questions` (
@@ -956,28 +960,28 @@ CREATE TABLE `study_php_frame_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_frame_type`
+-- Table structure for study_php_frame_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_frame_type`;
 CREATE TABLE `study_php_frame_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '说明',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_functions`
+-- Table structure for study_php_functions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_functions`;
 CREATE TABLE `study_php_functions` (
@@ -987,15 +991,15 @@ CREATE TABLE `study_php_functions` (
   `zn_name` varchar(30) NOT NULL COMMENT '函数中文名称',
   `content` text NOT NULL COMMENT '使用说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_lamp`
+-- Table structure for study_php_lamp
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_lamp`;
 CREATE TABLE `study_php_lamp` (
@@ -1005,15 +1009,15 @@ CREATE TABLE `study_php_lamp` (
   `zn_name` varchar(30) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_operators`
+-- Table structure for study_php_operators
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_operators`;
 CREATE TABLE `study_php_operators` (
@@ -1023,15 +1027,15 @@ CREATE TABLE `study_php_operators` (
   `zn_name` varchar(30) NOT NULL COMMENT '符号中文名称',
   `content` text NOT NULL COMMENT '使用说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_others`
+-- Table structure for study_php_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_others`;
 CREATE TABLE `study_php_others` (
@@ -1040,15 +1044,15 @@ CREATE TABLE `study_php_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_phpstudy`
+-- Table structure for study_php_phpstudy
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_phpstudy`;
 CREATE TABLE `study_php_phpstudy` (
@@ -1058,15 +1062,15 @@ CREATE TABLE `study_php_phpstudy` (
   `zn_name` varchar(30) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_questions`
+-- Table structure for study_php_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_questions`;
 CREATE TABLE `study_php_questions` (
@@ -1075,15 +1079,15 @@ CREATE TABLE `study_php_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题办法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_php_wamp`
+-- Table structure for study_php_wamp
 -- -----------------------------
 DROP TABLE IF EXISTS `study_php_wamp`;
 CREATE TABLE `study_php_wamp` (
@@ -1093,15 +1097,15 @@ CREATE TABLE `study_php_wamp` (
   `zn_name` varchar(30) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '说明',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_act`
+-- Table structure for study_plug_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_act`;
 CREATE TABLE `study_plug_act` (
@@ -1111,15 +1115,15 @@ CREATE TABLE `study_plug_act` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_errors`
+-- Table structure for study_plug_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_errors`;
 CREATE TABLE `study_plug_errors` (
@@ -1129,15 +1133,15 @@ CREATE TABLE `study_plug_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_extends`
+-- Table structure for study_plug_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_extends`;
 CREATE TABLE `study_plug_extends` (
@@ -1147,15 +1151,15 @@ CREATE TABLE `study_plug_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_others`
+-- Table structure for study_plug_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_others`;
 CREATE TABLE `study_plug_others` (
@@ -1165,15 +1169,15 @@ CREATE TABLE `study_plug_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_questions`
+-- Table structure for study_plug_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_questions`;
 CREATE TABLE `study_plug_questions` (
@@ -1183,15 +1187,15 @@ CREATE TABLE `study_plug_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_specials_act`
+-- Table structure for study_plug_specials_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_specials_act`;
 CREATE TABLE `study_plug_specials_act` (
@@ -1201,41 +1205,41 @@ CREATE TABLE `study_plug_specials_act` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_plug_type`
+-- Table structure for study_plug_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_plug_type`;
 CREATE TABLE `study_plug_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_role`
+-- Table structure for study_role
 -- -----------------------------
 DROP TABLE IF EXISTS `study_role`;
 CREATE TABLE `study_role` (
   `role_id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `role_name` varchar(30) NOT NULL COMMENT '角色名称',
   `role_state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '显示状态  默认0否1是',
-  `role_addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `role_addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`role_id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_rule`
+-- Table structure for study_rule
 -- -----------------------------
 DROP TABLE IF EXISTS `study_rule`;
 CREATE TABLE `study_rule` (
@@ -1244,11 +1248,11 @@ CREATE TABLE `study_rule` (
   `fm_id` tinyint(4) NOT NULL COMMENT '一级模块id',
   `sm_id` tinyint(4) NOT NULL COMMENT '二级模块id',
   `tm_id` tinyint(4) NOT NULL COMMENT '三级模块id'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
 
 -- -----------------------------
--- Table structure for `study_save_actions`
+-- Table structure for study_save_actions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_actions`;
 CREATE TABLE `study_save_actions` (
@@ -1258,15 +1262,15 @@ CREATE TABLE `study_save_actions` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_errors`
+-- Table structure for study_save_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_errors`;
 CREATE TABLE `study_save_errors` (
@@ -1276,15 +1280,15 @@ CREATE TABLE `study_save_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_extends`
+-- Table structure for study_save_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_extends`;
 CREATE TABLE `study_save_extends` (
@@ -1294,15 +1298,15 @@ CREATE TABLE `study_save_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_functions`
+-- Table structure for study_save_functions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_functions`;
 CREATE TABLE `study_save_functions` (
@@ -1313,15 +1317,15 @@ CREATE TABLE `study_save_functions` (
   `zn_name` varchar(60) NOT NULL COMMENT '函数中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_operators`
+-- Table structure for study_save_operators
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_operators`;
 CREATE TABLE `study_save_operators` (
@@ -1332,15 +1336,15 @@ CREATE TABLE `study_save_operators` (
   `zn_name` varchar(60) NOT NULL COMMENT '符号中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_orders`
+-- Table structure for study_save_orders
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_orders`;
 CREATE TABLE `study_save_orders` (
@@ -1350,15 +1354,15 @@ CREATE TABLE `study_save_orders` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_others`
+-- Table structure for study_save_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_others`;
 CREATE TABLE `study_save_others` (
@@ -1368,15 +1372,15 @@ CREATE TABLE `study_save_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_questions`
+-- Table structure for study_save_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_questions`;
 CREATE TABLE `study_save_questions` (
@@ -1386,15 +1390,15 @@ CREATE TABLE `study_save_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决问题方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_specials`
+-- Table structure for study_save_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_specials`;
 CREATE TABLE `study_save_specials` (
@@ -1404,15 +1408,15 @@ CREATE TABLE `study_save_specials` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_specials_act`
+-- Table structure for study_save_specials_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_specials_act`;
 CREATE TABLE `study_save_specials_act` (
@@ -1422,28 +1426,28 @@ CREATE TABLE `study_save_specials_act` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_save_type`
+-- Table structure for study_save_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_save_type`;
 CREATE TABLE `study_save_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '说明',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_second_module`
+-- Table structure for study_second_module
 -- -----------------------------
 DROP TABLE IF EXISTS `study_second_module`;
 CREATE TABLE `study_second_module` (
@@ -1453,16 +1457,28 @@ CREATE TABLE `study_second_module` (
   `sm_icon` varchar(30) NOT NULL COMMENT '前置标签',
   `sm_name` varchar(30) NOT NULL COMMENT '二级模块名称',
   `sm_controller` varchar(20) NOT NULL COMMENT '控制器名称/文件夹名称',
-  `sm_method` varchar(20) NOT NULL COMMENT '方法名称  默认输出页',
+  `sm_method` varchar(20) DEFAULT '' COMMENT '方法名称  默认输出页',
   `sm_state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '显示状态  默认0否1是',
-  `is_parent` tinyint(1) NOT NULL DEFAULT '0' COMMENT '有无子类  默认0否1是',
-  `sm_addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`sm_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
+  `is_parents` tinyint(1) NOT NULL DEFAULT '0' COMMENT '有无子类  默认0否1是',
+  `sm_addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`sm_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- -----------------------------
--- Table structure for `study_software_act`
+-- Records of study_second_module
+-- -----------------------------
+INSERT INTO `study_second_module` VALUES (1, 4, 1, 'fas fa-table', '数据列表', 'Tools', 'index', 1, 0, 1545395467);
+INSERT INTO `study_second_module` VALUES (2, 4, 2, 'fas fa-history', '还原列表', 'Tools', 'list', 1, 0, 1545395467);
+INSERT INTO `study_second_module` VALUES (3, 6, 1, 'fab fa-themeco', 'Php源码管理', 'Php', 'index', 1, 1, 1545395467);
+INSERT INTO `study_second_module` VALUES (4, 7, 1, 'fas fa-clipboard-list', '分类管理', 'type', 'index', 1, 1, 1545395464);
+INSERT INTO `study_second_module` VALUES (5, 6, 2, 'fas fa-cog', 'Php环境配置', 'dddd', 'index', 1, 1, 1545813458);
+INSERT INTO `study_second_module` VALUES (6, 6, 4, 'ffff', 'ddddd', 'ffff', 'index', 1, 1, 0);
+INSERT INTO `study_second_module` VALUES (7, 6, 3, 'ggg', 'fff', 'ddd', 'index', 0, 0, 0);
+INSERT INTO `study_second_module` VALUES (8, 6, 5, 'ss', 'dd', 'gg', 'index', 0, 0, 0);
+INSERT INTO `study_second_module` VALUES (9, 6, 0, 'rr', 'hh', 'ff', 'index', 0, 0, 0);
+
+-- -----------------------------
+-- Table structure for study_software_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_act`;
 CREATE TABLE `study_software_act` (
@@ -1472,15 +1488,15 @@ CREATE TABLE `study_software_act` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_software_errors`
+-- Table structure for study_software_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_errors`;
 CREATE TABLE `study_software_errors` (
@@ -1490,15 +1506,15 @@ CREATE TABLE `study_software_errors` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_software_extends`
+-- Table structure for study_software_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_extends`;
 CREATE TABLE `study_software_extends` (
@@ -1508,15 +1524,15 @@ CREATE TABLE `study_software_extends` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_software_others`
+-- Table structure for study_software_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_others`;
 CREATE TABLE `study_software_others` (
@@ -1525,15 +1541,15 @@ CREATE TABLE `study_software_others` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_software_specials`
+-- Table structure for study_software_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_specials`;
 CREATE TABLE `study_software_specials` (
@@ -1543,28 +1559,28 @@ CREATE TABLE `study_software_specials` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_software_type`
+-- Table structure for study_software_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_software_type`;
 CREATE TABLE `study_software_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_errors`
+-- Table structure for study_system_errors
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_errors`;
 CREATE TABLE `study_system_errors` (
@@ -1574,15 +1590,15 @@ CREATE TABLE `study_system_errors` (
   `title` varchar(255) NOT NULL COMMENT '错误标题',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_extends`
+-- Table structure for study_system_extends
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_extends`;
 CREATE TABLE `study_system_extends` (
@@ -1592,15 +1608,15 @@ CREATE TABLE `study_system_extends` (
   `name` varchar(255) NOT NULL COMMENT '扩展知识名称',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_nouns`
+-- Table structure for study_system_nouns
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_nouns`;
 CREATE TABLE `study_system_nouns` (
@@ -1611,15 +1627,15 @@ CREATE TABLE `study_system_nouns` (
   `zn_name` varchar(100) NOT NULL COMMENT '中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_operators`
+-- Table structure for study_system_operators
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_operators`;
 CREATE TABLE `study_system_operators` (
@@ -1630,15 +1646,15 @@ CREATE TABLE `study_system_operators` (
   `zn_name` varchar(100) NOT NULL COMMENT '符号中文名称',
   `content` text NOT NULL COMMENT '使用手册',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_orders`
+-- Table structure for study_system_orders
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_orders`;
 CREATE TABLE `study_system_orders` (
@@ -1648,15 +1664,15 @@ CREATE TABLE `study_system_orders` (
   `name` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_others`
+-- Table structure for study_system_others
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_others`;
 CREATE TABLE `study_system_others` (
@@ -1666,15 +1682,15 @@ CREATE TABLE `study_system_others` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_questions`
+-- Table structure for study_system_questions
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_questions`;
 CREATE TABLE `study_system_questions` (
@@ -1684,15 +1700,15 @@ CREATE TABLE `study_system_questions` (
   `name` varchar(255) NOT NULL COMMENT '问题名称',
   `content` text NOT NULL COMMENT '解决方法',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_specials`
+-- Table structure for study_system_specials
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_specials`;
 CREATE TABLE `study_system_specials` (
@@ -1702,15 +1718,15 @@ CREATE TABLE `study_system_specials` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_specials_act`
+-- Table structure for study_system_specials_act
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_specials_act`;
 CREATE TABLE `study_system_specials_act` (
@@ -1720,28 +1736,28 @@ CREATE TABLE `study_system_specials_act` (
   `name` varchar(255) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '详述',
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '验证状态  默认0否1是',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
   `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '标记  默认0普通1重要',
   `is_ok` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否解决  默认0否1是',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_system_type`
+-- Table structure for study_system_type
 -- -----------------------------
 DROP TABLE IF EXISTS `study_system_type`;
 CREATE TABLE `study_system_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) NOT NULL COMMENT '分类名称',
   `content` text NOT NULL COMMENT '详述',
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 -- -----------------------------
--- Table structure for `study_three_module`
+-- Table structure for study_three_module
 -- -----------------------------
 DROP TABLE IF EXISTS `study_three_module`;
 CREATE TABLE `study_three_module` (
@@ -1753,7 +1769,12 @@ CREATE TABLE `study_three_module` (
   `tm_controller` varchar(20) NOT NULL COMMENT '控制器名称/文件夹名称',
   `tm_method` varchar(20) NOT NULL COMMENT '方法名称  默认输出页',
   `tm_state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '显示状态  默认0否1是',
-  `tm_addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`tm_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `tm_addtime` int(10) DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`tm_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
+-- -----------------------------
+-- Records of study_three_module
+-- -----------------------------
+INSERT INTO `study_three_module` VALUES (1, 4, 1, 'fab fa-foursquare', '函数管理', 'type', 'index', 1, 1545395461);
+INSERT INTO `study_three_module` VALUES (2, 4, 2, 'fas fa-plug', '插件使用', 'type', 'index', 1, 1545394592);

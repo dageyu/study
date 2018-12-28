@@ -150,4 +150,5 @@ return [
     'DATA_BACKUP_PART_SIZE' => 104857600, //数据库备份卷大小 100M
     //缓存路径
     'runtime_path' => '../runtime/',
+    
 ];
