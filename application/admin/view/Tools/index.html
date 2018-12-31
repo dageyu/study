@@ -48,11 +48,11 @@
 												</th>
 												<th style="width:6%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">排序</th>														
 												<th style="width:22%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">数据库表</th>
-												<th style="width:8%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">记录条数</th>
-												<th style="width:8%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">占用空间</th>
+												<th style="width:7%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">记录条数</th>
+												<th style="width:7%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">占用空间</th>
 												<th style="width:12%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">编码</th>
 												<th style="width:16%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">创建时间</th>
-												<th style="width:15%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">说明</th>
+												<th style="width:17%;padding:2px;vertical-align:middle;line-height: 0;text-align: center">说明</th>
 												<th style="padding:2px;vertical-align:middle;line-height: 0;text-align: center">操作</th>
 											</tr>
 										</thead>
@@ -166,7 +166,6 @@
 		}else{
 			$(obj).attr('style','color:#999');
 			$(obj).html('备份进行中...');
-			
 			$.ajax({
 				type :'POST',
 				url : "{:url('admin/Tools/export')}",

@@ -251,13 +251,13 @@ function updateObj(obj,oldval,tbname,field,id,idfield,isrepeat){
 					if(tbname == 'admin'){
 						$('#'+field+id).html('<input type="text"  value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
 					} else if((tbname == 'first_module' && field == 'fm_icon') || (tbname == 'second_module' && field == 'sm_icon') || (tbname == 'three_module' && field == 'tm_icon')){
-						$('#'+field+id).html('<i class="'+newval+'"></i><input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<i class="'+newval+'"></i><input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if((tbname == 'first_module' && field == 'fm_name') || (tbname == 'three_module' && field == 'tm_name')){
-						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if(tbname == 'first_module' && field == 'fm_controller' || field == 'fm_method' || (tbname == 'second_module' && field == 'sm_controller' || field == 'sm_method') || (tbname == 'three_module' && field == 'tm_controller' || field == 'tm_method')){
-						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if(tbname == 'second_module' && field == 'sm_name'){
-						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+newval+'" onblur="updateObj(this,\''+newval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} 
 				}
 				else{
@@ -265,13 +265,13 @@ function updateObj(obj,oldval,tbname,field,id,idfield,isrepeat){
 					if(tbname == 'admin'){
 						$('#'+field+id).html('<input type="text"  value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:black;width:95px;height:30px;border:none; background:transparent;padding: 0px"/>');
 					} else if((tbname == 'first_module' && field == 'fm_icon') || (tbname == 'second_module' && field == 'sm_icon') || (tbname == 'three_module' && field == 'tm_icon')){
-						$('#'+field+id).html('<i class="'+oldval+'"></i><input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<i class="'+oldval+'"></i><input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if((tbname == 'first_module' && field == 'fm_name') || (tbname == 'three_module' && field == 'tm_name')){
-						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if(tbname == 'first_module' && field == 'fm_controller' || field == 'fm_method' || (tbname == 'second_module' && field == 'sm_controller' || field == 'sm_method') || (tbname == 'three_module' && field == 'tm_controller' || field == 'tm_method')){
-						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					} else if(tbname == 'second_module' && field == 'sm_name'){
-						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;"/>');
+						$('#'+field+id).html('<input type="text" value="'+oldval+'" onblur="updateObj(this,\''+oldval+'\',\''+tbname+'\',\''+field+'\','+id+',\''+idfield+'\',\''+isrepeat+'\')" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>');
 					}
 				}
 				return

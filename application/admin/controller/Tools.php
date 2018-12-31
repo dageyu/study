@@ -397,6 +397,6 @@ class Tools extends Controller {
 			$res = array('status' => 0 , 'msg' => '参数错误!');
         }
         return $res;
-	}
-	
+    }
+    
 }

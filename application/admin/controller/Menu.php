@@ -16,12 +16,9 @@ class Menu extends Controller {
      * @return array  $tm_lists  三级模块
      */
     public function index(){
-        // $fm_lists = First::where('is_delete' , 0)->select();
-        // $sm_lists = Second::where('is_delete' , 0)->select();
-        // $tm_lists = Three::where('is_delete' , 0)->select();
-        $fm_lists = First::select();
-        $sm_lists = Second::select();
-        $tm_lists = Three::select();
+        $fm_lists = First::where('is_delete' , 0)->select();
+        $sm_lists = Second::where('is_delete' , 0)->select();
+        $tm_lists = Three::where('is_delete' , 0)->select();
         return $this->fetch('index',compact('fm_lists','sm_lists','tm_lists'));
     }
 
