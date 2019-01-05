@@ -1,4 +1,4 @@
-<?php /*a:7:{s:58:"D:\wamp64\www\study\application\admin\view\menu\index.html";i:1546672126;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1546537642;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1546518218;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
+<?php /*a:7:{s:58:"D:\wamp64\www\study\application\admin\view\role\index.html";i:1546672842;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1546537642;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1546518218;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -195,7 +195,7 @@
 			<i class="icon-home home-icon"></i>
 			<a href="#">首页</a>
 		</li>
-		<li class="active">菜单管理</li>
+		<li class="active">角色管理</li>
 	</ul>
 
 						<!-- bodyheader end -->
@@ -204,43 +204,37 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				菜单管理
+				角色管理
 				<small>
 					<i class="icon-double-angle-right"></i>
-					菜单列表
+					角色列表
 				</small>
 			</h1>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="table-header">
-					菜单列表
+					角色列表
 				</div>
 				<div class="table-responsive">
 					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
 						<div class="row">
 							<div class="col-sm-6" style="width:100%">
 								<div style="display:inline">
-									<a href="<?php echo url('admin/menu/add',['is_parent'=>0,'tbname'=>'first_module','field'=>'fm_name','parent_id'=>0,'parent_field'=>'']); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加一级模块</a>
+									<a href="<?php echo url('admin/Role/add'); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加角色</a>
 								</div>											
 							</div>													
 						</div>
-						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
+						<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
 							<thead>
 								<tr style="height:45px">
+									<th class="center" style="width:5%;text-align: center">	选择 </th>
 									<th style="width:5%;text-align: center">排序</th>
-									<th style="width:14%;padding:8px 3px;text-align: center">前置标签</th>																									
-									<th style="width:7%;padding:8px 3px;text-align: center">一级模块</th>
-									<th style="width:7%;padding:8px 3px;text-align: center">二级模块</th>
-									<th style="width:7%;padding:8px 3px;text-align: center">三级模块</th>
-									<th style="width:9%;padding:8px 3px;text-align: center">控制器</th>	
-									<th class="hidden-480" style="width:5.5%;padding:8px 3px;text-align: center">方法</th>
-									<th class="hidden-480" style="width:17%;padding:8px 3px;text-align: center">表名</th>														
-									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">显示</th>
-									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">父类</th>
-									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">设权</th>
-									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">公开</th>
-									<th style="width:9%;padding:8px 3px;text-align: center">
+									<th style="width:11%;padding:8px 3px;text-align: center">角色名称</th>																									
+									<th style="width:42%;padding:8px 3px;text-align: center">角色描述</th>
+									<th style="width:11%;padding:8px 3px;text-align: center">角色模块</th>
+									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">显示</th>
+									<th style="width:16%;padding:8px 3px;text-align: center">
 										<i class="icon-time bigger-110 hidden-480"></i>
 										更新时间
 									</th>	
@@ -248,209 +242,49 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php if(is_array($fm_lists) || $fm_lists instanceof \think\Collection || $fm_lists instanceof \think\Paginator): $fkey = 0; $__LIST__ = $fm_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$fm_list): $mod = ($fkey % 2 );++$fkey;?>
-								<tr style="height:40px" id="first_module<?php echo htmlentities($fm_list['fm_id']); ?>">
-									<td class="center" style="vertical-align:middle;padding:4px 1px;font-weight: 600"><?php echo htmlentities($fkey); ?></td>
-									<td style="vertical-align:middle;padding:4px 1px;" id="fm_icon<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<i class="<?php echo htmlentities($fm_list['fm_icon']); ?>"></i>
-										<input type="text" value="<?php echo htmlentities($fm_list['fm_icon']); ?>" onblur="updateObj(this,'<?php echo htmlentities($fm_list['fm_icon']); ?>','first_module','fm_icon','<?php echo htmlentities($fm_list['fm_id']); ?>','fm_id',1)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $key = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($key % 2 );++$key;?>
+								<tr style="height:40px" id="role<?php echo htmlentities($list['role_id']); ?>">
+									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
+										<label>
+											<input type="checkbox" class="ace" value="<?php echo htmlentities($list['role_id']); ?>" name="role" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td class="center" style="vertical-align:middle;padding:4px 1px;"><?php echo htmlentities($key); ?></td>
+									<td style="vertical-align:middle;padding:4px 1px;" id="role_name<?php echo htmlentities($list['role_id']); ?>">
+										<input type="text" value="<?php echo htmlentities($list['role_name']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['role_name']); ?>','role','role_name','<?php echo htmlentities($list['role_id']); ?>','role_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>																											
-									<td style="vertical-align:middle;padding:4px 1px;" id="fm_name<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<input type="text" value="<?php echo htmlentities($fm_list['fm_name']); ?>" onblur="updateObj(this,'<?php echo htmlentities($fm_list['fm_name']); ?>','first_module','fm_name','<?php echo htmlentities($fm_list['fm_id']); ?>','fm_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									<td style="vertical-align:middle;padding:4px 1px;" id="role_content<?php echo htmlentities($list['role_id']); ?>">
+										<input type="text" value="<?php echo htmlentities($list['role_content']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['role_content']); ?>','role','role_content','<?php echo htmlentities($list['role_id']); ?>','role_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
-									<td style="vertical-align:middle;padding:4px 1px">
+									<td style="vertical-align:middle;padding:4px 1px" id="fm_id<?php echo htmlentities($list['role_id']); ?>">
+										<select class="form-control" style="width:90%;padding:4px 0px;border:none;color:#393939;background:transparent;" onchange="checkObjSelected(this,<?php echo htmlentities($list['fm_id']); ?>,'<?php echo htmlentities($list['fm_name']); ?>','fm_id','role','role_id',<?php echo htmlentities($list['role_id']); ?>,'first_module','fm_id','fm_name')">
+											<option value="<?php echo htmlentities($list['fm_id']); ?>" selected="selected"><?php echo htmlentities($list['fm_name']); ?></option>
+											<?php if(is_array($fm_lists) || $fm_lists instanceof \think\Collection || $fm_lists instanceof \think\Paginator): $i = 0; $__LIST__ = $fm_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$fm_list): $mod = ($i % 2 );++$i;?>
+											<option value="<?php echo htmlentities($fm_list['fm_id']); ?>"><?php echo htmlentities($fm_list['fm_name']); ?></option>
+											<?php endforeach; endif; else: echo "" ;endif; ?>
+										</select>
 									</td>
-									<td style="vertical-align:middle;padding:4px 1px">
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px" id="fm_controller<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<input type="text" value="<?php echo htmlentities($fm_list['fm_controller']); ?>" onblur="updateObj(this,'<?php echo htmlentities($fm_list['fm_controller']); ?>','first_module','fm_controller','<?php echo htmlentities($fm_list['fm_id']); ?>','fm_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px" id="fm_method<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<input type="text" value="<?php echo htmlentities($fm_list['fm_method']); ?>" onblur="updateObj(this,'<?php echo htmlentities($fm_list['fm_method']); ?>','first_module','fm_method','<?php echo htmlentities($fm_list['fm_id']); ?>','fm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px" id="fm_method<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<input type="text" value="<?php echo htmlentities(substr($fm_list['tbname'],6)); ?>" onblur="updateObj(this,'<?php echo htmlentities($fm_list['tbname']); ?>','first_module','tbname','<?php echo htmlentities($fm_list['fm_id']); ?>','fm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="fm_state<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<?php if($fm_list['fm_state'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['fm_state']); ?>,'fm_state','first_module',1,'fm_addtime','<?php echo htmlentities((isset($fm_list['fm_addtime']) && ($fm_list['fm_addtime'] !== '')?$fm_list['fm_addtime']:0)); ?>')">是</span>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="role_state<?php echo htmlentities($list['role_id']); ?>">
+										<?php if($list['role_state'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['role_id']); ?>,'role_id',<?php echo htmlentities($list['role_state']); ?>,'role_state','role',1,'role_addtime','<?php echo htmlentities((isset($list['role_addtime']) && ($list['role_addtime'] !== '')?$list['role_addtime']:0)); ?>')">是</span>
 										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['fm_state']); ?>,'fm_state','first_module',1,'fm_addtime','<?php echo htmlentities((isset($fm_list['fm_addtime']) && ($fm_list['fm_addtime'] !== '')?$fm_list['fm_addtime']:0)); ?>')">否</span>
+											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['role_id']); ?>,'role_id',<?php echo htmlentities($list['role_state']); ?>,'role_state','role',1,'role_addtime','<?php echo htmlentities((isset($list['role_addtime']) && ($list['role_addtime'] !== '')?$list['role_addtime']:0)); ?>')">否</span>
 										<?php endif; ?>
 									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_parent<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<?php if($fm_list['is_parent'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_parent']); ?>,'is_parent','first_module',0,'','')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_parent']); ?>,'is_parent','first_module',0,'','')">否</span>
-										<?php endif; ?>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powerf<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<?php if($fm_list['is_powerf'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_powerf']); ?>,'is_powerf','first_module',0,'','')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_powerf']); ?>,'is_powerf','first_module',0,'','')">否</span>
-										<?php endif; ?>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_openf<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<?php if($fm_list['is_openf'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_openf']); ?>,'is_openf','first_module',0,'','')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id',<?php echo htmlentities($fm_list['is_openf']); ?>,'is_openf','first_module',0,'','')">否</span>
-										<?php endif; ?>
-									</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="fm_addtime<?php echo htmlentities($fm_list['fm_id']); ?>">
-										<?php echo htmlentities(date("Y-m-d",!is_numeric($fm_list['fm_addtime'])? strtotime($fm_list['fm_addtime']) : $fm_list['fm_addtime'])); ?>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="role_addtime<?php echo htmlentities($list['role_id']); ?>">
+										<?php echo htmlentities(date("Y-m-d H:i:s",!is_numeric($list['role_addtime'])? strtotime($list['role_addtime']) : $list['role_addtime'])); ?>
 									</td>
 									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
 										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-											<?php if($fm_list['is_parent'] == '1'): ?>
-											<a class="blue" href="<?php echo url('admin/menu/add',array('is_parent'=>1,'tbname'=>'second_module','field'=>'sm_name','parent_id'=>$fm_list['fm_id'],'parent_field'=>'fm_id')); ?>" style="margin:0px">
-												<i class="icon-plus bigger-100"></i>
-											</a>
-											<?php endif; ?>
 											<div id="" style="display:inline">
-												<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($fm_list['fm_id']); ?>,'fm_id','first_module')" style="margin:0px" >
+												<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($list['role_id']); ?>,'role_id','role')" style="margin:0px">
 													<i class="icon-trash bigger-100"></i>
 												</a>
 											</div>
 										</div>
 									</td>
 								</tr>
-								<?php if($fm_list['is_parent'] == '1'): if(is_array($sm_lists) || $sm_lists instanceof \think\Collection || $sm_lists instanceof \think\Paginator): $skey = 0; $__LIST__ = $sm_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sm_list): $mod = ($skey % 2 );++$skey;if($sm_list['fm_id'] == $fm_list['fm_id']): ?>
-										<tr style="height:40px" id="second_module<?php echo htmlentities($sm_list['sm_id']); ?>">
-											<td class="center" style="vertical-align:middle;padding:4px"><?php echo htmlentities($fkey); ?>.<?php echo htmlentities($sm_list['sm_sort']); ?></td>
-											<td style="vertical-align:middle;padding:4px 1px" id="sm_icon<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<i class="<?php echo htmlentities($sm_list['sm_icon']); ?>"></i>
-												<input type="text" value="<?php echo htmlentities($sm_list['sm_icon']); ?>" onblur="updateObj(this,'<?php echo htmlentities($sm_list['sm_icon']); ?>','second_module','sm_icon','<?php echo htmlentities($sm_list['sm_id']); ?>','sm_id',0)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px">
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px" id="sm_name<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<input type="text" value="<?php echo htmlentities($sm_list['sm_name']); ?>" onblur="updateObj(this,'<?php echo htmlentities($sm_list['sm_name']); ?>','second_module','sm_name','<?php echo htmlentities($sm_list['sm_id']); ?>','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px">
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px" id="sm_controller<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<input type="text" value="<?php echo htmlentities($sm_list['sm_controller']); ?>" onblur="updateObj(this,'<?php echo htmlentities($sm_list['sm_controller']); ?>','second_module','sm_controller','<?php echo htmlentities($sm_list['sm_id']); ?>','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px" id="sm_method<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<input type="text" value="<?php echo htmlentities($sm_list['sm_method']); ?>" onblur="updateObj(this,'<?php echo htmlentities($sm_list['sm_method']); ?>','second_module','sm_method','<?php echo htmlentities($sm_list['sm_id']); ?>','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px" id="sm_method<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<input type="text" value="<?php echo htmlentities(substr($sm_list['tbname'],6)); ?>" onblur="updateObj(this,'<?php echo htmlentities($sm_list['tbname']); ?>','second_module','tbname','<?php echo htmlentities($sm_list['sm_id']); ?>','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sm_state<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<?php if($sm_list['sm_state'] == '1'): ?>
-													<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['sm_state']); ?>,'sm_state','second_module',1,'sm_addtime','<?php echo htmlentities((isset($sm_list['sm_addtime']) && ($sm_list['sm_addtime'] !== '')?$sm_list['sm_addtime']:0)); ?>')">是</span>
-												<?php else: ?>
-													<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['sm_state']); ?>,'sm_state','second_module',1,'sm_addtime','<?php echo htmlentities((isset($sm_list['sm_addtime']) && ($sm_list['sm_addtime'] !== '')?$sm_list['sm_addtime']:0)); ?>')">否</span>
-												<?php endif; ?>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_parents<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<?php if($sm_list['is_parents'] == '1'): ?>
-													<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_parents']); ?>,'is_parents','second_module',0,'','')">是</span>
-												<?php else: ?>
-													<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_parents']); ?>,'is_parents','second_module',0,'','')">否</span>
-												<?php endif; ?>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powers<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<?php if($sm_list['is_powers'] == '1'): ?>
-													<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_powers']); ?>,'is_powers','second_module',0,'','')">是</span>
-												<?php else: ?>
-													<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_powers']); ?>,'is_powers','second_module',0,'','')">否</span>
-												<?php endif; ?>
-											</td>
-											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_opens<?php echo htmlentities($sm_list['sm_id']); ?>">
-												<?php if($sm_list['is_opens'] == '1'): ?>
-													<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_opens']); ?>,'is_opens','second_module',0,'','')">是</span>
-												<?php else: ?>
-													<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id',<?php echo htmlentities($sm_list['is_opens']); ?>,'is_opens','second_module',0,'','')">否</span>
-												<?php endif; ?>
-											</td>
-											<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;">
-												<?php echo htmlentities(date("Y-m-d",!is_numeric($sm_list['sm_addtime'])? strtotime($sm_list['sm_addtime']) : $sm_list['sm_addtime'])); ?>
-											</td>
-											<td style="padding:1px;line-height: 0;vertical-align: middle;text-align: center">
-												<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-													<?php if($sm_list['is_parents'] == '1'): ?>
-													<a class="blue" href="<?php echo url('admin/menu/add',array('is_parent'=>1,'tbname'=>'three_module','field'=>'tm_name','parent_id'=>$sm_list['sm_id'],'parent_field'=>'sm_id')); ?>" style="margin:0px">
-														<i class="icon-plus bigger-100"></i>
-													</a>
-													<?php endif; ?>
-													<div id="" style="display:inline">
-														<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($sm_list['sm_id']); ?>,'sm_id','second_module')"  style="margin:0px">
-															<i class="icon-trash bigger-100"></i>
-														</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-											<?php if($sm_list['is_parents'] == '1'): if(is_array($tm_lists) || $tm_lists instanceof \think\Collection || $tm_lists instanceof \think\Paginator): $tkey = 0; $__LIST__ = $tm_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tm_list): $mod = ($tkey % 2 );++$tkey;if($tm_list['sm_id'] == $sm_list['sm_id']): ?>
-												<tr style="height:40px" id="three_module<?php echo htmlentities($tm_list['tm_id']); ?>">
-													<td class="center" style="vertical-align:middle;padding:4px"><?php echo htmlentities($fkey); ?>.<?php echo htmlentities($sm_list['sm_sort']); ?>.<?php echo htmlentities($tm_list['tm_sort']); ?></td>
-													<td style="vertical-align:middle;padding:4px 1px" id="tm_icon<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<i class="<?php echo htmlentities($tm_list['tm_icon']); ?>"></i>
-														<input type="text" value="<?php echo htmlentities($tm_list['tm_icon']); ?>" onblur="updateObj(this,'<?php echo htmlentities($tm_list['tm_icon']); ?>','three_module','tm_icon','<?php echo htmlentities($tm_list['tm_id']); ?>','tm_id',0)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-													</td>																											
-													<td style="vertical-align:middle;padding:4px 1px">
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px">
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px" id="tm_name<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<input type="text" value="<?php echo htmlentities($tm_list['tm_name']); ?>" onblur="updateObj(this,'<?php echo htmlentities($tm_list['tm_name']); ?>','three_module','tm_name','<?php echo htmlentities($tm_list['tm_id']); ?>','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px" id="tm_controller<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<input type="text" value="<?php echo htmlentities($tm_list['tm_controller']); ?>" onblur="updateObj(this,'<?php echo htmlentities($tm_list['tm_controller']); ?>','three_module','tm_controller','<?php echo htmlentities($tm_list['tm_id']); ?>','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px" id="tm_method<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<input type="text" value="<?php echo htmlentities($tm_list['tm_method']); ?>" onblur="updateObj(this,'<?php echo htmlentities($tm_list['tm_method']); ?>','three_module','tm_method','<?php echo htmlentities($tm_list['tm_id']); ?>','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px" id="tm_method<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<input type="text" value="<?php echo htmlentities(substr($tm_list['tbname'],6)); ?>" onblur="updateObj(this,'<?php echo htmlentities($tm_list['tbname']); ?>','three_module','tbname','<?php echo htmlentities($tm_list['tm_id']); ?>','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="tm_state<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<?php if($tm_list['tm_state'] == '1'): ?>
-															<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['tm_state']); ?>,'tm_state','three_module',1,'tm_addtime','<?php echo htmlentities((isset($tm_list['tm_addtime']) && ($tm_list['tm_addtime'] !== '')?$tm_list['tm_addtime']:0)); ?>')">是</span>
-														<?php else: ?>
-															<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['tm_state']); ?>,'tm_state','three_module',1,'tm_addtime','<?php echo htmlentities((isset($tm_list['tm_addtime']) && ($tm_list['tm_addtime'] !== '')?$tm_list['tm_addtime']:0)); ?>')">否</span>
-														<?php endif; ?>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="">													
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powert<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<?php if($tm_list['is_powert'] == '1'): ?>
-															<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['is_powert']); ?>,'is_powert','three_module',0,'','')">是</span>
-														<?php else: ?>
-															<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['is_powert']); ?>,'is_powert','three_module',0,'','')">否</span>
-														<?php endif; ?>
-													</td>
-													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_opent<?php echo htmlentities($tm_list['tm_id']); ?>">
-														<?php if($tm_list['is_opent'] == '1'): ?>
-															<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['is_opent']); ?>,'is_opent','three_module',0,'','')">是</span>
-														<?php else: ?>
-															<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id',<?php echo htmlentities($tm_list['is_opent']); ?>,'is_opent','three_module',0,'','')">否</span>
-														<?php endif; ?>
-													</td>
-													<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;">
-														<?php echo htmlentities(date("Y-m-d",!is_numeric($tm_list['tm_addtime'])? strtotime($tm_list['tm_addtime']) : $tm_list['tm_addtime'])); ?>
-													</td>
-													<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
-														<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-															<div id="" style="display:inline">
-																<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($tm_list['tm_id']); ?>,'tm_id','three_module')" style="margin:0 1px" >
-																	<i class="icon-trash bigger-110"></i>
-																</a>
-															</div>
-														</div>
-													</td>
-												</tr>
-											<?php endif; ?>
-											<?php endforeach; endif; else: echo "" ;endif; ?>
-											<?php endif; ?>
-										<?php endif; ?>
-									<?php endforeach; endif; else: echo "" ;endif; ?>
-									<?php endif; ?>
 								<?php endforeach; endif; else: echo "" ;endif; ?>
 							</tbody>
 						</table>	

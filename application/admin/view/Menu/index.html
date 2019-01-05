@@ -36,70 +36,90 @@
 						<table class="table table-striped table-bordered table-hover" style="padding: 1px 1px">
 							<thead>
 								<tr style="height:45px">
-									<th style="width:6%;text-align: center">排序</th>
-									<th style="width:20%;padding:8px 3px;text-align: center">前置标签</th>																									
-									<th style="width:8%;padding:8px 3px;text-align: center">一级模块</th>
-									<th style="width:10%;padding:8px 3px;text-align: center">二级模块</th>
-									<th style="width:8%;padding:8px 3px;text-align: center">三级模块</th>
+									<th style="width:5%;text-align: center">排序</th>
+									<th style="width:14%;padding:8px 3px;text-align: center">前置标签</th>																									
+									<th style="width:7%;padding:8px 3px;text-align: center">一级模块</th>
+									<th style="width:7%;padding:8px 3px;text-align: center">二级模块</th>
+									<th style="width:7%;padding:8px 3px;text-align: center">三级模块</th>
 									<th style="width:9%;padding:8px 3px;text-align: center">控制器</th>	
-									<th class="hidden-480" style="width:9%;padding:8px 3px;text-align: center">方法名称</th>														
+									<th class="hidden-480" style="width:5.5%;padding:8px 3px;text-align: center">方法</th>
+									<th class="hidden-480" style="width:17%;padding:8px 3px;text-align: center">表名</th>														
 									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">显示</th>
 									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">父类</th>
-									<th style="width:16%;padding:8px 3px;text-align: center">
+									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">设权</th>
+									<th class="hidden-480" style="width:4%;padding:8px 3px;text-align: center">公开</th>
+									<th style="width:9%;padding:8px 3px;text-align: center">
 										<i class="icon-time bigger-110 hidden-480"></i>
 										更新时间
 									</th>	
-									<th style="padding:8px 3px;text-align: center">操作</th>														
+									<th style="padding:8px 1px;text-align: center">操作</th>														
 								</tr>
 							</thead>
 							<tbody>
 								{volist name="fm_lists" id="fm_list" key="fkey"}
 								<tr style="height:40px" id="first_module{$fm_list.fm_id}">
-									<td class="center" style="vertical-align:middle;padding:4px">{$fkey}</td>
-									<td style="vertical-align:middle;padding:4px;" id="fm_icon{$fm_list.fm_id}">
+									<td class="center" style="vertical-align:middle;padding:4px 1px;font-weight: 600">{$fkey}</td>
+									<td style="vertical-align:middle;padding:4px 1px;" id="fm_icon{$fm_list.fm_id}">
 										<i class="{$fm_list.fm_icon}"></i>
-										<input type="text" value="{$fm_list.fm_icon}" onblur="updateObj(this,'{$fm_list.fm_icon}','first_module','fm_icon','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+										<input type="text" value="{$fm_list.fm_icon}" onblur="updateObj(this,'{$fm_list.fm_icon}','first_module','fm_icon','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>																											
-									<td style="vertical-align:middle;padding:4px;" id="fm_name{$fm_list.fm_id}">
-										<input type="text" value="{$fm_list.fm_name}" onblur="updateObj(this,'{$fm_list.fm_name}','first_module','fm_name','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									<td style="vertical-align:middle;padding:4px 1px;" id="fm_name{$fm_list.fm_id}">
+										<input type="text" value="{$fm_list.fm_name}" onblur="updateObj(this,'{$fm_list.fm_name}','first_module','fm_name','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
-									<td style="vertical-align:middle;padding:4px">
+									<td style="vertical-align:middle;padding:4px 1px">
 									</td>
-									<td style="vertical-align:middle;padding:4px">
+									<td style="vertical-align:middle;padding:4px 1px">
 									</td>
-									<td style="vertical-align:middle;padding:4px" id="fm_controller{$fm_list.fm_id}">
-										<input type="text" value="{$fm_list.fm_controller}" onblur="updateObj(this,'{$fm_list.fm_controller}','first_module','fm_controller','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									<td style="vertical-align:middle;padding:4px 1px" id="fm_controller{$fm_list.fm_id}">
+										<input type="text" value="{$fm_list.fm_controller}" onblur="updateObj(this,'{$fm_list.fm_controller}','first_module','fm_controller','{$fm_list.fm_id}','fm_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
-									<td style="vertical-align:middle;padding:4px" id="fm_method{$fm_list.fm_id}">
-										<input type="text" value="{$fm_list.fm_method}" onblur="updateObj(this,'{$fm_list.fm_method}','first_module','fm_method','{$fm_list.fm_id}','fm_id',0)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									<td style="vertical-align:middle;padding:4px 1px" id="fm_method{$fm_list.fm_id}">
+										<input type="text" value="{$fm_list.fm_method}" onblur="updateObj(this,'{$fm_list.fm_method}','first_module','fm_method','{$fm_list.fm_id}','fm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
-									<td style="vertical-align:middle;padding:4px;text-align: center;" id="fm_state{$fm_list.fm_id}">
+									<td style="vertical-align:middle;padding:4px 1px" id="fm_method{$fm_list.fm_id}">
+										<input type="text" value="{$fm_list.tbname|substr=6}" onblur="updateObj(this,'{$fm_list.tbname}','first_module','tbname','{$fm_list.fm_id}','fm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="fm_state{$fm_list.fm_id}">
 										{eq name="fm_list.fm_state" value="1"}
 											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.fm_state},'fm_state','first_module',1,'fm_addtime','{$fm_list.fm_addtime|default=0}')">是</span>
 										{else/}
 											<span style="color:#8089a0;" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.fm_state},'fm_state','first_module',1,'fm_addtime','{$fm_list.fm_addtime|default=0}')">否</span>
 										{/eq}
 									</td>
-									<td style="vertical-align:middle;padding:4px;text-align: center;" id="is_parent{$fm_list.fm_id}">
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_parent{$fm_list.fm_id}">
 										{eq name="fm_list.is_parent" value="1"}
 											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_parent},'is_parent','first_module',0,'','')">是</span>
 										{else/}
 											<span style="color:#8089a0;" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_parent},'is_parent','first_module',0,'','')">否</span>
 										{/eq}
 									</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px;text-align: center;" id="fm_addtime{$fm_list.fm_id}">
-										{$fm_list.fm_addtime|date="Y-m-d H:i:s"}
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powerf{$fm_list.fm_id}">
+										{eq name="fm_list.is_powerf" value="1"}
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_powerf},'is_powerf','first_module',0,'','')">是</span>
+										{else/}
+											<span style="color:#8089a0;" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_powerf},'is_powerf','first_module',0,'','')">否</span>
+										{/eq}
 									</td>
-									<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_openf{$fm_list.fm_id}">
+										{eq name="fm_list.is_openf" value="1"}
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_openf},'is_openf','first_module',0,'','')">是</span>
+										{else/}
+											<span style="color:#8089a0;" onclick="updateObjState({$fm_list.fm_id},'fm_id',{$fm_list.is_openf},'is_openf','first_module',0,'','')">否</span>
+										{/eq}
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="fm_addtime{$fm_list.fm_id}">
+										{$fm_list.fm_addtime|date="Y-m-d"}
+									</td>
+									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
 										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 											{eq name="fm_list.is_parent" value="1"}
-											<a class="blue" href="{:url('admin/menu/add',array('is_parent'=>1,'tbname'=>'second_module','field'=>'sm_name','parent_id'=>$fm_list.fm_id,'parent_field'=>'fm_id'))}" style="margin:0 1px">
-												<i class="icon-plus bigger-110"></i>
+											<a class="blue" href="{:url('admin/menu/add',array('is_parent'=>1,'tbname'=>'second_module','field'=>'sm_name','parent_id'=>$fm_list.fm_id,'parent_field'=>'fm_id'))}" style="margin:0px">
+												<i class="icon-plus bigger-100"></i>
 											</a>
 											{/eq}
 											<div id="" style="display:inline">
-												<a class="red" href="javascript:deleteObjOne({$fm_list.fm_id},'fm_id','first_module')" style="margin:0 1px" >
-													<i class="icon-trash bigger-110"></i>
+												<a class="red" href="javascript:deleteObjOne({$fm_list.fm_id},'fm_id','first_module')" style="margin:0px" >
+													<i class="icon-trash bigger-100"></i>
 												</a>
 											</div>
 										</div>
@@ -110,50 +130,67 @@
 									{eq name="sm_list.fm_id" value="$fm_list.fm_id"}
 										<tr style="height:40px" id="second_module{$sm_list.sm_id}">
 											<td class="center" style="vertical-align:middle;padding:4px">{$fkey}.{$sm_list.sm_sort}</td>
-											<td style="vertical-align:middle;padding:4px" id="sm_icon{$sm_list.sm_id}">
+											<td style="vertical-align:middle;padding:4px 1px" id="sm_icon{$sm_list.sm_id}">
 												<i class="{$sm_list.sm_icon}"></i>
-												<input type="text" value="{$sm_list.sm_icon}" onblur="updateObj(this,'{$sm_list.sm_icon}','second_module','sm_icon','{$sm_list.sm_id}','sm_id',1)" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+												<input type="text" value="{$sm_list.sm_icon}" onblur="updateObj(this,'{$sm_list.sm_icon}','second_module','sm_icon','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 											</td>
-											<td style="vertical-align:middle;padding:4px">
+											<td style="vertical-align:middle;padding:4px 1px">
 											</td>
-											<td style="vertical-align:middle;padding:4px" id="sm_name{$sm_list.sm_id}">
-												<input type="text" value="{$sm_list.sm_name}" onblur="updateObj(this,'{$sm_list.sm_name}','second_module','sm_name','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:85px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+											<td style="vertical-align:middle;padding:4px 1px" id="sm_name{$sm_list.sm_id}">
+												<input type="text" value="{$sm_list.sm_name}" onblur="updateObj(this,'{$sm_list.sm_name}','second_module','sm_name','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 											</td>
-											<td style="vertical-align:middle;padding:4px">
+											<td style="vertical-align:middle;padding:4px 1px">
 											</td>
-											<td style="vertical-align:middle;padding:4px" id="sm_controller{$sm_list.sm_id}">
-												<input type="text" value="{$sm_list.sm_controller}" onblur="updateObj(this,'{$sm_list.sm_controller}','second_module','sm_controller','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+											<td style="vertical-align:middle;padding:4px 1px" id="sm_controller{$sm_list.sm_id}">
+												<input type="text" value="{$sm_list.sm_controller}" onblur="updateObj(this,'{$sm_list.sm_controller}','second_module','sm_controller','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 											</td>
-											<td style="vertical-align:middle;padding:4px" id="sm_method{$sm_list.sm_id}">
-												<input type="text" value="{$sm_list.sm_method}" onblur="updateObj(this,'{$sm_list.sm_method}','second_module','sm_method','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+											<td style="vertical-align:middle;padding:4px 1px" id="sm_method{$sm_list.sm_id}">
+												<input type="text" value="{$sm_list.sm_method}" onblur="updateObj(this,'{$sm_list.sm_method}','second_module','sm_method','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 											</td>
-											<td style="vertical-align:middle;padding:4px;text-align: center;" id="sm_state{$sm_list.sm_id}">
+											<td style="vertical-align:middle;padding:4px 1px" id="sm_method{$sm_list.sm_id}">
+												<input type="text" value="{$sm_list.tbname|substr=6}" onblur="updateObj(this,'{$sm_list.tbname}','second_module','tbname','{$sm_list.sm_id}','sm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+											</td>
+											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sm_state{$sm_list.sm_id}">
 												{eq name="sm_list.sm_state" value="1"}
 													<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.sm_state},'sm_state','second_module',1,'sm_addtime','{$sm_list.sm_addtime|default=0}')">是</span>
 												{else/}
 													<span style="color:#8089a0;" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.sm_state},'sm_state','second_module',1,'sm_addtime','{$sm_list.sm_addtime|default=0}')">否</span>
 												{/eq}
 											</td>
-											<td style="vertical-align:middle;padding:4px;text-align: center;" id="is_parents{$sm_list.sm_id}">
+											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_parents{$sm_list.sm_id}">
 												{eq name="sm_list.is_parents" value="1"}
 													<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_parents},'is_parents','second_module',0,'','')">是</span>
 												{else/}
 													<span style="color:#8089a0;" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_parents},'is_parents','second_module',0,'','')">否</span>
 												{/eq}
 											</td>
-											<td class="hidden-480" style="vertical-align:middle;padding:4px;text-align: center;">
-												{$sm_list.sm_addtime|date="Y-m-d H:i:s"}
+											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powers{$sm_list.sm_id}">
+												{eq name="sm_list.is_powers" value="1"}
+													<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_powers},'is_powers','second_module',0,'','')">是</span>
+												{else/}
+													<span style="color:#8089a0;" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_powers},'is_powers','second_module',0,'','')">否</span>
+												{/eq}
 											</td>
-											<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
+											<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_opens{$sm_list.sm_id}">
+												{eq name="sm_list.is_opens" value="1"}
+													<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_opens},'is_opens','second_module',0,'','')">是</span>
+												{else/}
+													<span style="color:#8089a0;" onclick="updateObjState({$sm_list.sm_id},'sm_id',{$sm_list.is_opens},'is_opens','second_module',0,'','')">否</span>
+												{/eq}
+											</td>
+											<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;">
+												{$sm_list.sm_addtime|date="Y-m-d"}
+											</td>
+											<td style="padding:1px;line-height: 0;vertical-align: middle;text-align: center">
 												<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 													{eq name="sm_list.is_parents" value="1"}
-													<a class="blue" href="{:url('admin/menu/add',array('is_parent'=>1,'tbname'=>'three_module','field'=>'tm_name','parent_id'=>$sm_list.sm_id,'parent_field'=>'sm_id'))}" style="margin:0 1px">
-														<i class="icon-plus bigger-110"></i>
+													<a class="blue" href="{:url('admin/menu/add',array('is_parent'=>1,'tbname'=>'three_module','field'=>'tm_name','parent_id'=>$sm_list.sm_id,'parent_field'=>'sm_id'))}" style="margin:0px">
+														<i class="icon-plus bigger-100"></i>
 													</a>
 													{/eq}
 													<div id="" style="display:inline">
-														<a class="red" href="javascript:deleteObjOne({$sm_list.sm_id},'sm_id','second_module')" style="margin:0 1px" >
-															<i class="icon-trash bigger-110"></i>
+														<a class="red" href="javascript:deleteObjOne({$sm_list.sm_id},'sm_id','second_module')"  style="margin:0px">
+															<i class="icon-trash bigger-100"></i>
 														</a>
 													</div>
 												</div>
@@ -164,34 +201,51 @@
 											{eq name="tm_list.sm_id" value="$sm_list.sm_id"}
 												<tr style="height:40px" id="three_module{$tm_list.tm_id}">
 													<td class="center" style="vertical-align:middle;padding:4px">{$fkey}.{$sm_list.sm_sort}.{$tm_list.tm_sort}</td>
-													<td style="vertical-align:middle;padding:4px" id="tm_icon{$tm_list.tm_id}">
+													<td style="vertical-align:middle;padding:4px 1px" id="tm_icon{$tm_list.tm_id}">
 														<i class="{$tm_list.tm_icon}"></i>
-														<input type="text" value="{$tm_list.tm_icon}" onblur="updateObj(this,'{$tm_list.tm_icon}','three_module','tm_icon','{$tm_list.tm_id}','tm_id',1)" style="color:#393939;width:145px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+														<input type="text" value="{$tm_list.tm_icon}" onblur="updateObj(this,'{$tm_list.tm_icon}','three_module','tm_icon','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:77%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 													</td>																											
-													<td style="vertical-align:middle;padding:4px">
+													<td style="vertical-align:middle;padding:4px 1px">
 													</td>
-													<td style="vertical-align:middle;padding:4px">
+													<td style="vertical-align:middle;padding:4px 1px">
 													</td>
-													<td style="vertical-align:middle;padding:4px" id="tm_name{$tm_list.tm_id}">
-														<input type="text" value="{$tm_list.tm_name}" onblur="updateObj(this,'{$tm_list.tm_name}','three_module','tm_name','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:60px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+													<td style="vertical-align:middle;padding:4px 1px" id="tm_name{$tm_list.tm_id}">
+														<input type="text" value="{$tm_list.tm_name}" onblur="updateObj(this,'{$tm_list.tm_name}','three_module','tm_name','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 													</td>
-													<td style="vertical-align:middle;padding:4px" id="tm_controller{$tm_list.tm_id}">
-														<input type="text" value="{$tm_list.tm_controller}" onblur="updateObj(this,'{$tm_list.tm_controller}','three_module','tm_controller','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+													<td style="vertical-align:middle;padding:4px 1px" id="tm_controller{$tm_list.tm_id}">
+														<input type="text" value="{$tm_list.tm_controller}" onblur="updateObj(this,'{$tm_list.tm_controller}','three_module','tm_controller','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 													</td>
-													<td style="vertical-align:middle;padding:4px" id="tm_method{$tm_list.tm_id}">
-														<input type="text" value="{$tm_list.tm_method}" onblur="updateObj(this,'{$tm_list.tm_method}','three_module','tm_method','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:70px;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+													<td style="vertical-align:middle;padding:4px 1px" id="tm_method{$tm_list.tm_id}">
+														<input type="text" value="{$tm_list.tm_method}" onblur="updateObj(this,'{$tm_list.tm_method}','three_module','tm_method','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 													</td>
-													<td style="vertical-align:middle;padding:4px;text-align: center;" id="tm_state{$tm_list.tm_id}">
+													<td style="vertical-align:middle;padding:4px 1px" id="tm_method{$tm_list.tm_id}">
+														<input type="text" value="{$tm_list.tbname|substr=6}" onblur="updateObj(this,'{$tm_list.tbname}','three_module','tbname','{$tm_list.tm_id}','tm_id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+													</td>
+													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="tm_state{$tm_list.tm_id}">
 														{eq name="tm_list.tm_state" value="1"}
 															<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.tm_state},'tm_state','three_module',1,'tm_addtime','{$tm_list.tm_addtime|default=0}')">是</span>
 														{else/}
 															<span style="color:#8089a0;" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.tm_state},'tm_state','three_module',1,'tm_addtime','{$tm_list.tm_addtime|default=0}')">否</span>
 														{/eq}
 													</td>
-													<td style="vertical-align:middle;padding:4px;text-align: center;" id="">													
+													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="">													
 													</td>
-													<td class="hidden-480" style="vertical-align:middle;padding:4px;text-align: center;">
-														{$tm_list.tm_addtime|date="Y-m-d H:i:s"}
+													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_powert{$tm_list.tm_id}">
+														{eq name="tm_list.is_powert" value="1"}
+															<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.is_powert},'is_powert','three_module',0,'','')">是</span>
+														{else/}
+															<span style="color:#8089a0;" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.is_powert},'is_powert','three_module',0,'','')">否</span>
+														{/eq}
+													</td>
+													<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_opent{$tm_list.tm_id}">
+														{eq name="tm_list.is_opent" value="1"}
+															<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.is_opent},'is_opent','three_module',0,'','')">是</span>
+														{else/}
+															<span style="color:#8089a0;" onclick="updateObjState({$tm_list.tm_id},'tm_id',{$tm_list.is_opent},'is_opent','three_module',0,'','')">否</span>
+														{/eq}
+													</td>
+													<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;">
+														{$tm_list.tm_addtime|date="Y-m-d"}
 													</td>
 													<td style="padding:2px;line-height: 0;vertical-align: middle;text-align: center">
 														<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">

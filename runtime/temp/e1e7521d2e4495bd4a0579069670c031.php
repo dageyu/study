@@ -1,23 +1,38 @@
+<?php /*a:7:{s:56:"D:\wamp64\www\study\application\admin\view\role\add.html";i:1546440993;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1546537642;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1543394138;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1543394313;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1546518218;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1544523435;s:54:"D:\wamp64\www\study\application\admin\view\footer.html";i:1543372984;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<title>编程语言学习总结系统</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="__CSS__/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="__CSS__/font-awesome.min.css" />
-		<link rel="stylesheet" href="__CSS__/ace.min.css" />
-		<link rel="stylesheet" href="__CSS__/ace-rtl.min.css" />
-		<link rel="stylesheet" href="__CSS__/ace-skins.min.css" />
-		<link rel="stylesheet" href="__PLUG__/fontawesome/css/all.min.css" />
-		<script src="__JS__/ace-extra.min.js"></script>
-		<script src="__JS__/jquery-2.0.3.min.js"></script>
-		<script src="__PLUG__/layer/layer.js" ></script>
-		{block name="css"}{/block}
+		<link href="/study/public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/study/public/static/admin/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/study/public/static/admin/css/ace.min.css" />
+		<link rel="stylesheet" href="/study/public/static/admin/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/study/public/static/admin/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="/study/public/static/plug/fontawesome/css/all.min.css" />
+		<script src="/study/public/static/admin/js/ace-extra.min.js"></script>
+		<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
+		<script src="/study/public/static/plug/layer/layer.js" ></script>
+		
 	</head>
 	<body>
 		<!-- header start -->
-		{include file="header" /}
+		﻿<div class="navbar navbar-default" id="navbar" style="margin-top:-19px">
+	<script type="text/javascript">
+		try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+	</script>
+	<div class="navbar-container" id="navbar-container">
+		<div class="navbar-header pull-left">
+			<a href="#" class="navbar-brand">
+				<small>
+					<i class="icon-leaf"></i>
+					编程语言学习总结系统
+				</small>
+			</a>
+		</div>
+	</div>
+</div>
 		<!-- header end -->
 		<div class="main-container" id="main-container">
 			<script type="text/javascript">
@@ -26,10 +41,146 @@
 			<div class="main-container-inner">
 				<div class="sidebar" id="sidebar">
 					<!-- lefttop start -->
-					{include file="lefttop" /}
+					﻿<script type="text/javascript">
+	try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+</script>
+<div class="sidebar-shortcuts" id="sidebar-shortcuts" style="margin-top:-19px">
+	<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+		<button class="btn btn-success">
+			<i class="icon-signal"></i>
+		</button>
+		<button class="btn btn-info">
+			<i class="icon-pencil"></i>
+		</button>
+		<button class="btn btn-warning">
+			<i class="icon-group"></i>
+		</button>
+		<button class="btn btn-danger">
+			<i class="icon-cogs"></i>
+		</button>
+	</div>
+	<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+		<span class="btn btn-success"></span>
+		<span class="btn btn-info"></span>
+		<span class="btn btn-warning"></span>
+		<span class="btn btn-danger"></span>
+	</div>
+</div><!-- #sidebar-shortcuts -->
 					<!-- lefttop end -->
 					<!-- left start -->
-					{include file="left" /}
+					﻿<ul class="nav nav-list" style="margin-top:-19px">
+	<li class="" name="active">
+		<a href="javascript:jumpModule('Menu','index',0,0)">
+			<i class="icon-desktop"></i>
+			<span class="menu-text"> 菜单管理 </span>
+		</a>
+	</li>
+	<li class="" name="active" id="nav0">
+		<a href="javascript:jumpModule('Index','index',0,0)">
+			<i class="icon-dashboard"></i>
+			<span class="menu-text"> 控制平台 </span>
+		</a>
+	</li>
+	<li class="active" name="active" id="nav00">
+		<a href="javascript:jumpModule('Power','index',0,0)">
+			<i class="icon-dashboard"></i>
+			<span class="menu-text"> 权限管理 </span>
+		</a>
+	</li>
+	<li class="" name="active" id="nav1">
+		<a href="javascript:jumpModule('Admin','list',1,0)" >
+			<i class="icon-user"></i>
+			<span class="menu-text"> 用户管理 </span>
+		</a>							
+	</li>
+	<li class="" name="active" id="nav2">
+		<a href="javascript:jumpModule('Password','change',2,0)" >
+			<i class="icon-edit"></i>
+			<span class="menu-text"> 修改密码 </span>
+		</a>							
+	</li>
+	<li class="" name="active" id="nav3">
+		<a href="javascript:jumpModule('User','index',3,0)" >
+			<i class="icon-group"></i>
+			<span class="menu-text"> 会员管理 </span>
+		</a>							
+	</li>
+	<li class="" name="active" id="nav5">
+		<a href="javascript:jumpModule('Banner','bannerLists',5,0)" >
+			<i class="icon-picture"></i>
+			<span class="menu-text"> 轮播管理 </span>
+		</a>							
+	</li>
+	<li class="" name="active" id="nav4">
+		<a href="" class="dropdown-toggle">
+			<i class="icon-list"></i>
+			<span class="menu-text"> 商品管理 </span>
+			<b class="arrow icon-angle-down"></b>
+		</a>
+		<ul class="submenu">								
+			<li class="" name="activechild" id="nav4child1">
+				<a href="javascript:jumpModule('Shop','goodsLists',4,1)" class="dropdown-toggle">
+					<i class="icon-double-angle-right"></i>
+					商品列表
+				</a>
+			</li>
+			<li class="" name="activechild" id="nav4child2">
+				<a href="javascript:jumpModule('Shop','seckillLists',4,2)" class="dropdown-toggle">
+					<i class="icon-double-angle-right"></i>
+					秒杀列表
+				</a>
+			</li>
+			<li class="" name="activechild" id="nav4child3">
+				<a href="javascript:jumpModule('Shop','goodsOrdersLists',4,3)" class="dropdown-toggle">
+					<i class="icon-double-angle-right"></i>
+					订单列表
+				</a>
+			</li>
+		</ul>
+	</li>
+	<li class="" name="active" id="nav6">
+		<a href="" class="dropdown-toggle">
+			<i class="icon-fighter-jet"></i>
+			<span class="menu-text"> 线路管理 </span>
+			<b class="arrow icon-angle-down"></b>
+		</a>
+		<ul class="submenu">								
+			<li class="" name="activechild" id="nav6child1">
+				<a href="javascript:jumpModule('Road','areaLists',6,1)" class="dropdown-toggle">
+					<i class="icon-double-angle-right"></i>
+					区域列表
+				</a>
+			</li>
+			<li class="" name="activechild" id="nav6child2">
+				<a href="javascript:jumpModule('Road','tagLists',6,2)" class="dropdown-toggle">
+					<i class="icon-double-angle-right"></i>
+					标签列表
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="" name="active">
+		<a href="javascript:cleanCache()">
+			<i class="icon-circle-blank"></i>
+			<span class="menu-text"> 清理缓存 </span>
+		</a>
+	</li>
+	<li class="" name="active">
+		<a href="javascript:logout()">
+			<i class="icon-off"></i>
+			<span class="menu-text"> 退出平台 </span>
+		</a>
+	</li>
+</ul>
+<div class="sidebar-collapse" id="sidebar-collapse">
+	<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+</div>
+<script type="text/javascript">
+	try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+</script>
+		
+	
 					<!-- left end -->
 				</div>
 				<div class="main-content">
@@ -38,25 +189,138 @@
 							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 						</script>
 						<!-- bodyheader start -->
-						{block name="bodyheader"}{/block}
+						
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">角色管理</li>
+	</ul>
+
 						<!-- bodyheader end -->
 					</div>
-					{block name="content"}{/block}
+					
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				角色管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					添加角色
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">					
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="table-header">
+							添加新的角色
+						</div>				
+						<div class="col-xs-12">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 角色名称 </label>
+									<div class="col-sm-9">
+										<input type="text" id="role_name" name="role_name" placeholder="请输入角色名称" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'role','role_name','',0)"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 角色模块 </label>
+									<div class="col-sm-9">
+										<select class="form-control" style="width:41.5%;padding:4px 0px" name="fm_id" id="fm_id" onchange="checkObj(this,0,0,'',1,'role','fm_id','',0)">
+											<option value="">&nbsp;请选择对应角色模块</option>
+											<?php if(is_array($fm_lists) || $fm_lists instanceof \think\Collection || $fm_lists instanceof \think\Paginator): $i = 0; $__LIST__ = $fm_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$fm_list): $mod = ($i % 2 );++$i;?>
+											<option value="<?php echo htmlentities($fm_list['fm_id']); ?>"><?php echo htmlentities($fm_list['fm_name']); ?></option>
+											<?php endforeach; endif; else: echo "" ;endif; ?>
+										</select>
+									</div>
+									<span style="display:inline;color:red;margin-left:-408px;">*</span>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 角色描述 </label>
+									<div class="col-sm-9">
+										<textarea class="form-control" id="form-field-8" placeholder="请输入角色描述" name="role_content" style="width:41.5%;height:52px;"></textarea>
+									</div>
+								</div>
+								<input type="text" name="role_addtime" value="<?php echo time();?>" hidden="hidden" />
+								<div class="space-4"></div>									
+								<div class="col-md-offset-3 col-md-9" style="margin-left:9%;">
+									<button class="btn btn-info" type="button" id="button" name="button">
+										<i class="icon-ok bigger-110"></i>
+										提交
+									</button>
+								</div>									
+							</form>
+						</div>
+					</div>
 				</div>
-				{include file="right" /}
 			</div>
-			{include file="footer" /}
+		</div>
+	</div>
+
+				</div>
+				﻿<div class="ace-settings-container" id="ace-settings-container">
+	<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+		<i class="icon-cog bigger-150"></i>
+	</div>
+	<div class="ace-settings-box" id="ace-settings-box">
+		<div>
+			<div class="pull-left">
+				<select id="skin-colorpicker" class="hide">
+					<option data-skin="default" value="#438EB9">#438EB9</option>
+					<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+					<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+					<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+				</select>
+			</div>
+			<span>&nbsp; 选择皮肤</span>
+		</div>
+		<div>
+			<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+			<label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
+		</div>
+		<div>
+			<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+			<label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
+		</div>
+		<div>
+			<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+			<label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+		</div>
+		<div>
+			<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+			<label class="lbl" for="ace-settings-rtl">切换到左边</label>
+		</div>
+		<div>
+			<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+			<label class="lbl" for="ace-settings-add-container">
+				切换窄屏
+				<b></b>
+			</label>
+		</div>
+	</div>
+</div>
+			
+			</div>
+			﻿<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+	<i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
 		</div>
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='__JS__/jquery-2.0.3.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='/study/public/static/admin/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
 		</script>
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='__JS__/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if("ontouchend" in document) document.write("<script src='/study/public/static/admin/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="__JS__/bootstrap.min.js"></script>
-		<script src="__JS__/typeahead-bs2.min.js"></script>
-		<script src="__JS__/ace-elements.min.js"></script>
-		<script src="__JS__/ace.min.js"></script>
+		<script src="/study/public/static/admin/js/bootstrap.min.js"></script>
+		<script src="/study/public/static/admin/js/typeahead-bs2.min.js"></script>
+		<script src="/study/public/static/admin/js/ace-elements.min.js"></script>
+		<script src="/study/public/static/admin/js/ace.min.js"></script>
 <script>
 /**
 * 公共函数:add
@@ -135,7 +399,7 @@ function compareObj(obj,compareobj){
 //验证是否重复
 function repeatObj(obj,objval,field,tbname){
 	$.ajax({
-		url: "{:url('admin/Check/checkAdd')}",
+		url: "<?php echo url('admin/Check/checkAdd'); ?>",
 		data: {'content':objval,'field':field,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',
@@ -159,7 +423,7 @@ function repeatObj(obj,objval,field,tbname){
 }
 function repeatObjLink(obj,objval,field,tbname,linkfield,linkval){
 	$.ajax({
-		url: "{:url('admin/Check/checkAddLink')}",
+		url: "<?php echo url('admin/Check/checkAddLink'); ?>",
 		data: {'content':objval,'field':field,'tbname':tbname,'linkfield':linkfield,'linkval':linkval},
 		datatype: 'json',
 		type: 'POST',
@@ -199,7 +463,7 @@ function len(s) {
  */
 function cleanCache(){
 	$.ajax({
-		url: "{:url('admin/Clean/cleanCache')}",
+		url: "<?php echo url('admin/Clean/cleanCache'); ?>",
 		data: {},
 		datatype: 'json',
 		type: 'POST',
@@ -224,7 +488,7 @@ function cleanCache(){
  */
 function logout(){
 	$.ajax({
-		url: "{:url('admin/Logout/logout')}",
+		url: "<?php echo url('admin/Logout/logout'); ?>",
 		data: {},
 		datatype: 'json',
 		type: 'POST',
@@ -248,7 +512,7 @@ function logout(){
 }
 //跳转网页
 function jumplogin(){
-	location.href = "{:url('admin/Login/index')}";
+	location.href = "<?php echo url('admin/Login/index'); ?>";
 }
 /**
 * 公共函数:修改对象
@@ -270,7 +534,7 @@ function updateObj(obj,oldval,tbname,field,id,idfield,isrepeat){
 	}
 	else{
 		$.ajax({
-			url: "{:url('admin/Check/checkUpdate')}",
+			url: "<?php echo url('admin/Check/checkUpdate'); ?>",
 			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield,'isrepeat':isrepeat},
 			datatype: 'json',
 			type: 'POST',
@@ -324,7 +588,7 @@ function updateObj(obj,oldval,tbname,field,id,idfield,isrepeat){
 */
 function updateObjState(id,idfield,stateval,statefield,tbname,ismain,appendfield,appendval){
 	$.ajax({
-		url: "{:url('admin/Check/updateObjState')}",
+		url: "<?php echo url('admin/Check/updateObjState'); ?>",
 		data: {'id':id,'idfield':idfield,'stateval':stateval,'statefield':statefield,'tbname':tbname,'ismain':ismain,'appendfield':appendfield,'appendval':appendval},
 		datatype: 'json',
 		type: 'POST',
@@ -372,7 +636,7 @@ function updateObjState(id,idfield,stateval,statefield,tbname,ismain,appendfield
  */
  function deleteObjOne(id,idfield,tbname){
 	$.ajax({
-		url: "{:url('admin/Check/deleteObjOne')}",
+		url: "<?php echo url('admin/Check/deleteObjOne'); ?>",
 		data: {'id':id,'idfield':idfield,'tbname':tbname},
 		datatype: 'json',
 		type: 'POST',
@@ -414,7 +678,7 @@ function checkObjSelected(obj,oldval,oldtext,field,tbname,idfield,idval,linktb,f
 		return;
 	} else {
 		$.ajax({
-			url: "{:url('admin/Check/checkUpdateSelected')}",
+			url: "<?php echo url('admin/Check/checkUpdateSelected'); ?>",
 			data: {'newval':newval,'field':field,'tbname':tbname,'idfield':idfield,'idval':idval,'linktb':linktb,'fieldval':fieldval,'fieldname':fieldname},
 			datatype: 'json',
 			type: 'POST',
@@ -453,7 +717,40 @@ function checkObjSelected(obj,oldval,oldtext,field,tbname,idfield,idval,linktb,f
 	}
 }
 </script>
-		{block name="js"}{/block}
+		
+<script>
+	$("#button").click(function (){
+		var role_name     		= $.trim($('#role_name').val());
+		var fm_id	     		= $.trim($('#fm_id:selected').val());
+		if(!role_name || fm_id){
+			layer.msg('内容不能为空',{time:600});
+			return false;
+		} else {
+			$.ajax({
+				url: "<?php echo url('admin/Role/add'); ?>",
+				data: $("#myform").serializeArray(),
+				datatype: 'json',
+				type: 'POST',
+				async: false,
+				success:function(res){
+					if(res.status == 1){
+						layer.msg(res.msg,{icon:1});
+						location.href = "<?php echo url('admin/Role/index'); ?>";
+						return
+					} else {
+						layer.msg(res.msg,{icon:2});
+						return
+					}
+				},
+				error:function(){
+					layer.msg('系统未知错误');
+					return false;
+				}
+			})
+		}
+	});
+</script>
+
 	</body>
 </html>
 

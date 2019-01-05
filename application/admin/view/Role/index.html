@@ -1,0 +1,104 @@
+{extend name="main" /}
+{block name="bodyheader"}
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">角色管理</li>
+	</ul>
+{/block}
+{block name="content"}
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				角色管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					角色列表
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="table-header">
+					角色列表
+				</div>
+				<div class="table-responsive">
+					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+						<div class="row">
+							<div class="col-sm-6" style="width:100%">
+								<div style="display:inline">
+									<a href="{:url('admin/Role/add')}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加角色</a>
+								</div>											
+							</div>													
+						</div>
+						<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
+							<thead>
+								<tr style="height:45px">
+									<th class="center" style="width:5%;text-align: center">	选择 </th>
+									<th style="width:5%;text-align: center">排序</th>
+									<th style="width:11%;padding:8px 3px;text-align: center">角色名称</th>																									
+									<th style="width:42%;padding:8px 3px;text-align: center">角色描述</th>
+									<th style="width:11%;padding:8px 3px;text-align: center">角色模块</th>
+									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">显示</th>
+									<th style="width:16%;padding:8px 3px;text-align: center">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										更新时间
+									</th>	
+									<th style="padding:8px 1px;text-align: center">操作</th>														
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="lists" id="list" key="key"}
+								<tr style="height:40px" id="role{$list.role_id}">
+									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
+										<label>
+											<input type="checkbox" class="ace" value="{$list.role_id}" name="role" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td class="center" style="vertical-align:middle;padding:4px 1px;">{$key}</td>
+									<td style="vertical-align:middle;padding:4px 1px;" id="role_name{$list.role_id}">
+										<input type="text" value="{$list.role_name}" onblur="updateObj(this,'{$list.role_name}','role','role_name','{$list.role_id}','role_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									</td>																											
+									<td style="vertical-align:middle;padding:4px 1px;" id="role_content{$list.role_id}">
+										<input type="text" value="{$list.role_content}" onblur="updateObj(this,'{$list.role_content}','role','role_content','{$list.role_id}','role_id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px" id="fm_id{$list.role_id}">
+										<select class="form-control" style="width:90%;padding:4px 0px;border:none;color:#393939;background:transparent;" onchange="checkObjSelected(this,{$list.fm_id},'{$list.fm_name}','fm_id','role','role_id',{$list.role_id},'first_module','fm_id','fm_name')">
+											<option value="{$list.fm_id}" selected="selected">{$list.fm_name}</option>
+											{volist name="fm_lists" id="fm_list"}
+											<option value="{$fm_list.fm_id}">{$fm_list.fm_name}</option>
+											{/volist}
+										</select>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="role_state{$list.role_id}">
+										{eq name="list.role_state" value="1"}
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.role_id},'role_id',{$list.role_state},'role_state','role',1,'role_addtime','{$list.role_addtime|default=0}')">是</span>
+										{else/}
+											<span style="color:#8089a0;" onclick="updateObjState({$list.role_id},'role_id',{$list.role_state},'role_state','role',1,'role_addtime','{$list.role_addtime|default=0}')">否</span>
+										{/eq}
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="role_addtime{$list.role_id}">
+										{$list.role_addtime|date="Y-m-d H:i:s"}
+									</td>
+									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
+										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+											<div id="" style="display:inline">
+												<a class="red" href="javascript:deleteObjOne({$list.role_id},'role_id','role')" style="margin:0px">
+													<i class="icon-trash bigger-100"></i>
+												</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								{/volist}
+							</tbody>
+						</table>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}

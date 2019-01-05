@@ -18,9 +18,21 @@ class Check extends Controller {
         $res = CheckLogic::checkAdd($data);
         return $res;
     }
+    
+    /**
+     * 添加时：验证内容是否重复
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function checkAddLink(){
+        $data = $this->request->param();
+        $res = CheckLogic::checkAddLink($data);
+        return $res;
+    }
 
     /**
-     * 修改时：验证内容是否重复
+     * 修改时：验证内容是否重复  input
      * @access  public
      * @param   array   $data
      * @return  array   $res
@@ -52,6 +64,18 @@ class Check extends Controller {
     public function deleteObjOne(){
         $data = $this->request->param();
         $res = CheckLogic::deleteObjOne($data);
+        return $res;
+    }
+
+    /**
+     * 修改时：验证内容是否重复  select
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function checkUpdateSelected(){
+        $data = $this->request->param();
+        $res = CheckLogic::checkUpdateSelected($data);
         return $res;
     }
 

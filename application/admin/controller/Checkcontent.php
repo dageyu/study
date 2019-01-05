@@ -137,47 +137,19 @@ class Checkcontent extends Controller {
     }
 
     public function ttt(){
-        $sql = '';
-        // $sql .= "-- Host     : " . Config::get('hostname') . "\n";
-        // $sql .= "-- Port     : " . Config::get('hostport') . "\n";
-        // $sql .= "-- Database : " . Config::get('database') . "\n";
-        // return $sql;
-        $result = Db::query("SELECT * FROM `study_admin` LIMIT 0, 1000");
-        foreach ($result as $row) {
-            var_dump($row);
-            // $str = implode(", ", $row);
-            // $str .= $val .',';
-            // $row = array_map('addslashes', $row);
-            // $sql = "INSERT INTO `{$table}` VALUES ('" . str_replace(array("\r","\n"),array('\r','\n'),implode("', '", $row)) . "');\n";
-            // if(false === $this->write($sql)){
-            //     return false;
-            // }
-            // var_dump($row);
-           
-        }
+        $table = Config::get('database.prefix').'role';
+        $table_link = Config::get('database.prefix').'first_module';
+        $alias = [$table => 'a' , $table_link => 'b']; 
+        $field = 'a.*,fm_name';
+        $join = ['link' => 'b' , 'join'=> 'a.fm_id = b.fm_id'];
+        $where = 'a.is_delete = 0 and b.is_delete = 0';
+        $order = 'a.role_addtime desc';
+        // $lists = Look::oneVsOne($table,$alias,$field,$join,$where,'','',$order);
+        echo $table;
         echo '<br/>';
-        $result1 = Db::query("SELECT * FROM `study_second_module` LIMIT 0, 1");
-        $str = '';
-        $strs = '';
-        foreach ($result1 as $row1) {
-                
-            // var_dump($val);
-            // $str = implode(", ", $row);
-            // $str .= $val .',';
-            $row1 = array_map(array($this,'changetype'), $row1);
-            // $sql = "INSERT INTO `{$table}` VALUES ('" . str_replace(array("\r","\n"),array('\r','\n'),implode("', '", $row)) . "');\n";
-            // if(false === $this->write($sql)){
-            //     return false;
-            // }
-            // var_dump($row);
-            $sql = "INSERT INTO `study_admin` VALUES (".implode(' ',$row1).");\r\n";
-           
-        }
-        echo $sql;
-        
-        //  echo '<br/>';
-        //  echo $sql;
-        // var_dump(Config::get('database.hostname'));
+        var_dump($alias);
+        echo '<br/>';
+        var_dump($join);
     }
 
     function changetype($val){
