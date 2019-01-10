@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class Recover extends Controller {
+class Recover extends Base {
 
     /**
      * 首页:

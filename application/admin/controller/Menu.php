@@ -7,7 +7,7 @@ use app\admin\model\ThreeModule as Three;
 use think\Db;
 use think\facade\Config;
 /**菜单管理 */
-class Menu extends Controller {
+class Menu extends Base {
 
     /**
      * 菜单列表

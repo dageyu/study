@@ -2,6 +2,9 @@
 namespace app\admin\logic;
 use think\Controller;
 use think\Db;
+use app\admin\model\FirstModule as First;
+use app\admin\model\SecondModule as Second;
+use app\admin\model\ThreeModule as Three;
 class CheckLogic extends Controller {
 
     /**
@@ -134,6 +137,59 @@ class CheckLogic extends Controller {
         $link_lists = Db::name($data['linktb'])->field($data['fieldval'].','.$data['fieldname'])->select();
         $result = array('res'=>$res,'lists'=>$link_lists);
         return $result;
+    }
+
+    /**
+     * 加载模块时：输出模块名称
+     * @access  public
+     * @param   string  $table     表名
+     * @return  array   $result
+     */
+    public static function moduleSel($table){
+        $fm_list = self::firstModuleFind($table);
+        if($fm_list){
+            $result = array('first_module_name' => $fm_list, 'second_module_name' => '', 'three_module_name' => '');
+        }
+        else{
+            $sm_list = self::secondModuleFind($table);
+            if($sm_list){
+                $first_module = self::firstModuleFind2($sm_list['fm_id']);
+                $result = array('first_module_name' => $first_module, 'second_module_name' => $sm_list['sm_name'], 'three_module_name' => '');
+            }
+            else{
+                $tm_list = self::threeModuleFind($table);
+                if($tm_list){
+                    $sm_lists = self::secondModuleFind2($tm_list['sm_id']);
+                    $first_modules = self::firstModuleFind2($sm_lists['fm_id']);
+                    $result = array('first_module_name' => $first_modules, 'second_module_name' => $sm_lists['sm_name'], 'three_module_name' => $tm_list['tm_name']);
+                }
+                else{
+                    $result = array('first_module_name' => '', 'second_module_name' => '', 'three_module_name' => '');
+                }
+            }
+        }
+        return $result;
+    }
+    //根据表名或者主键值查询模块名称
+    public static function firstModuleFind($table){
+        $first_modules = First::field('fm_name')->where('tbname' , $table)->find();
+        return $first_modules ? $first_modules['fm_name'] : false;
+    }
+    public static function secondModuleFind($table){
+        $second_modules = Second::field('fm_id,sm_name')->where('tbname' , $table)->find();
+        return $second_modules ? $second_modules : false;
+    }
+    public static function threeModuleFind($table){
+        $three_modules = Three::field('sm_id,tm_name')->where('tbname' , $table)->find();
+        return $three_modules ? $three_modules : false;
+    }
+    public static function firstModuleFind2($id){
+        $first_modules2 = First::field('fm_name')->where('fm_id' , $id)->find();
+        return $first_modules2 ? $first_modules2['fm_name'] : false;
+    }
+    public static function secondModuleFind2($id){
+        $second_modules2 = Second::field('fm_id,sm_name')->where('sm_id' , $id)->find();
+        return $second_modules2 ? $second_modules2 : false;
     }
 
 }

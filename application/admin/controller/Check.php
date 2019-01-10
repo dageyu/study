@@ -78,7 +78,5 @@ class Check extends Controller {
         $res = CheckLogic::checkUpdateSelected($data);
         return $res;
     }
-
-
     
 }

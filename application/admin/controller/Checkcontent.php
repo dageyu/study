@@ -54,8 +54,10 @@ class Checkcontent extends Controller {
 
     }
     public function indexf(){
-        $result = Db::query("SELECT COUNT(*) AS count FROM `study_first_module`");
-        return var_dump($result);
+        // $result = Db::query("SELECT COUNT(*) AS count FROM `study_first_module`");
+        // return var_dump($result);
+
+        return strrev(md5('dageyu115' . Config::get('salt')));
     }
 
     public function recoverSql($time = 1545812900, $part = null, $start = null){

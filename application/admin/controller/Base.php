@@ -1,41 +1,45 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-use model\FirstModule as First;
+use app\admin\model\FirstModule as First;
+use app\admin\model\SecondModule as Second;
+use app\admin\model\ThreeModule as Three;
+use think\facade\Session;
 /**
  * 后台公用基础控制器
  */
 class Base extends Controller {
 
-    protected function _initialize() {
-        parent::_initialize();
-
+    public function initialize() {
+        $this->checkAdmin();
+        $this->getMenu();
+        $navid = $this->request->param('navid') ? $this->request->param('navid') : 'fm1';
+        $level = $this->request->param('level') ? $this->request->param('level') : 1;
+        $misparent = $this->request->param('misparent') ? $this->request->param('misparent') : 0;
+        $this->assign('navid', $navid);
+        $this->assign('level', $level);
+        $this->assign('misparent', $misparent);
     }
     
     /**
      * 验证是否登录
      */
-    protected function checkAdmin(){
-        return $this->fetch();
+    public function checkAdmin(){
+        if(!Session::has('admin_id')){
+            $this->redirect('admin/Login/index');
+        }
     }
 
     /**
      * 获取侧边栏菜单
      */
-    protected function getMenu(){
-        $menu     = [];
-        $admin_id = Session::get('admin_id');
-        $auth     = new Auth();
-
-        $auth_rule_list = Db::name('auth_rule')->where('status', 1)->order(['sort' => 'DESC', 'id' => 'ASC'])->select();
-
-        foreach ($auth_rule_list as $value) {
-            if ($auth->check($value['name'], $admin_id) || $admin_id == 1) {
-                $menu[] = $value;
-            }
-        }
-        $menu = !empty($menu) ? array2tree($menu) : [];
-
-        $this->assign('menu', $menu);
+    public function getMenu(){
+        $fm_lists = First::where('is_delete' , 0)->order('fm_sort')->select();
+        $sm_lists = Second::where('is_delete' , 0)->select();
+        $tm_lists = Three::where('is_delete' , 0)->select();
+        $this->assign('fm_lists', $fm_lists);
+        $this->assign('sm_lists', $sm_lists);
+        $this->assign('tm_lists', $tm_lists);
     }
+
 }

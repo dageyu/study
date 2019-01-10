@@ -2,7 +2,8 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\facade\Config;
-class Quote extends Controller {
+
+class Quote extends Base {
 
     /**
      * 引用管理：
@@ -18,6 +19,7 @@ class Quote extends Controller {
      * 图标展示：
      */
     public function icon(){
+        $this->getMenu();
         return $this->fetch();
     }
 }

@@ -1,95 +1,60 @@
 ﻿<ul class="nav nav-list" style="margin-top:-19px">
-	<li class="" name="active">
-		<a href="javascript:jumpModule('Menu','index',0,0)">
+	<li class="active" name="active" id="fm0">
+		<a href="javascript:jumpModule('Menu','index','fm0',1,0,0)">
 			<i class="icon-desktop"></i>
 			<span class="menu-text"> 菜单管理 </span>
 		</a>
 	</li>
-	<li class="" name="active" id="nav0">
-		<a href="javascript:jumpModule('Index','index',0,0)">
-			<i class="icon-dashboard"></i>
-			<span class="menu-text"> 控制平台 </span>
-		</a>
-	</li>
-	<li class="active" name="active" id="nav00">
-		<a href="javascript:jumpModule('Power','index',0,0)">
-			<i class="icon-dashboard"></i>
-			<span class="menu-text"> 权限管理 </span>
-		</a>
-	</li>
-	<li class="" name="active" id="nav1">
-		<a href="javascript:jumpModule('Admin','list',1,0)" >
-			<i class="icon-user"></i>
-			<span class="menu-text"> 用户管理 </span>
-		</a>							
-	</li>
-	<li class="" name="active" id="nav2">
-		<a href="javascript:jumpModule('Password','change',2,0)" >
-			<i class="icon-edit"></i>
-			<span class="menu-text"> 修改密码 </span>
-		</a>							
-	</li>
-	<li class="" name="active" id="nav3">
-		<a href="javascript:jumpModule('User','index',3,0)" >
-			<i class="icon-group"></i>
-			<span class="menu-text"> 会员管理 </span>
-		</a>							
-	</li>
-	<li class="" name="active" id="nav5">
-		<a href="javascript:jumpModule('Banner','bannerLists',5,0)" >
-			<i class="icon-picture"></i>
-			<span class="menu-text"> 轮播管理 </span>
-		</a>							
-	</li>
-	<li class="" name="active" id="nav4">
-		<a href="" class="dropdown-toggle">
-			<i class="icon-list"></i>
-			<span class="menu-text"> 商品管理 </span>
+	{volist name="fm_lists" id="fm_list"}
+	<li class="" name="active" id="fm{$fm_list.fm_id}">
+		{eq name="fm_list.is_parent" value="1"}
+		<a class="dropdown-toggle" href="javascript:jumpModule('','','fm{$fm_list.fm_id}',1,1,0)">
+		{else/}
+		<a href="javascript:jumpModule('{$fm_list.fm_controller}','{$fm_list.fm_method}','fm{$fm_list.fm_id}',1,0,0)">
+		{/eq}
+			<i class="{$fm_list.fm_icon}"></i>
+			<span class="menu-text"> {$fm_list.fm_name} </span>
+			{eq name="fm_list.is_parent" value="1"}
 			<b class="arrow icon-angle-down"></b>
+			{/eq}
 		</a>
-		<ul class="submenu">								
-			<li class="" name="activechild" id="nav4child1">
-				<a href="javascript:jumpModule('Shop','goodsLists',4,1)" class="dropdown-toggle">
-					<i class="icon-double-angle-right"></i>
-					商品列表
-				</a>
-			</li>
-			<li class="" name="activechild" id="nav4child2">
-				<a href="javascript:jumpModule('Shop','seckillLists',4,2)" class="dropdown-toggle">
-					<i class="icon-double-angle-right"></i>
-					秒杀列表
-				</a>
-			</li>
-			<li class="" name="activechild" id="nav4child3">
-				<a href="javascript:jumpModule('Shop','goodsOrdersLists',4,3)" class="dropdown-toggle">
-					<i class="icon-double-angle-right"></i>
-					订单列表
-				</a>
-			</li>
-		</ul>
+		{eq name="fm_list.is_parent" value="1"}
+			<ul class="submenu">
+				{volist name="sm_lists" id="sm_list"}
+				{eq name="sm_list.fm_id" value="$fm_list.fm_id"}
+				<li class="" name="" id="sm{$sm_list.sm_id}">
+					{eq name="sm_list.is_parents" value="1"}
+					<a href="javascript:jumpModule('','','sm{$sm_list.sm_id}',2,1,0)" class="dropdown-toggle">
+					{else/}
+					<a href="javascript:jumpModule('{$sm_list.sm_controller}','{$sm_list.sm_method}','sm{$sm_list.sm_id}',2,0,'{$sm_list.tbname}')" >
+					{/eq}
+						<i class="{$sm_list.sm_icon}"></i>
+						{$sm_list.sm_name}
+						{eq name="sm_list.is_parents" value="1"}
+						<b class="arrow icon-angle-down"></b>
+						{/eq}
+					</a>
+					{eq name="sm_list.is_parents" value="1"}
+						<ul class="submenu">
+							{volist name="tm_lists" id="tm_list"}
+							{eq name="tm_list.sm_id" value="$sm_list.sm_id"}
+							<li class="" name="" id="tm{$tm_list.tm_id}">
+								<a href="javascript:jumpModule('{$tm_list.tm_controller}','{$tm_list.tm_method}','tm{$tm_list.tm_id}',3,0,'{$tm_list.tbname}')">
+									<i class="{$tm_list.tm_icon}"></i>
+									{$tm_list.tm_name}
+								</a>
+							</li>
+							{/eq}
+							{/volist}
+						</ul>
+					{/eq}
+				</li>
+				{/eq}
+				{/volist}
+			</ul>
+		{/eq}
 	</li>
-	<li class="" name="active" id="nav6">
-		<a href="" class="dropdown-toggle">
-			<i class="icon-fighter-jet"></i>
-			<span class="menu-text"> 线路管理 </span>
-			<b class="arrow icon-angle-down"></b>
-		</a>
-		<ul class="submenu">								
-			<li class="" name="activechild" id="nav6child1">
-				<a href="javascript:jumpModule('Road','areaLists',6,1)" class="dropdown-toggle">
-					<i class="icon-double-angle-right"></i>
-					区域列表
-				</a>
-			</li>
-			<li class="" name="activechild" id="nav6child2">
-				<a href="javascript:jumpModule('Road','tagLists',6,2)" class="dropdown-toggle">
-					<i class="icon-double-angle-right"></i>
-					标签列表
-				</a>
-			</li>
-		</ul>
-	</li>
-
+	{/volist}
 	<li class="" name="active">
 		<a href="javascript:cleanCache()">
 			<i class="icon-circle-blank"></i>
@@ -109,5 +74,3 @@
 <script type="text/javascript">
 	try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
 </script>
-		
-	

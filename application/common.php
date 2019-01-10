@@ -70,7 +70,7 @@ function deldir($dir) {
 }
 
 /**
- * 清理缓存:清除缓存的所有文件
+ * 添加数据
  */
 function tbfields($tbname){
     $arrs = array(

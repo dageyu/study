@@ -4,7 +4,7 @@ use app\admin\model\Admin;
 use think\Controller;
 use think\facade\Config;
 use think\facade\Session;
-class Admin extends Controller {
+class Admin extends Base {
 
     /**
      * 用户管理：首页列表

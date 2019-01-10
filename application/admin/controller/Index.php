@@ -2,11 +2,13 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
-class Index extends Controller {
-    
+use think\facade\Session;
+class Index extends Base {
+
     public function index(){
         $sys_info = $this->get_sys_info();
-        return $this->fetch('index',compact('sys_info'));
+        $this->assign('sys_info',$sys_info);
+        return $this->fetch();
     }
 
     /**

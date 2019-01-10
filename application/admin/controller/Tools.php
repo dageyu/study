@@ -4,7 +4,7 @@ use think\Controller;
 use think\Db;
 use think\facade\Config;
 use think\facade\Session;
-class Tools extends Controller {
+class Tools extends Base {
 
 	/**
      * 当前打开文件大小

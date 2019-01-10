@@ -4,7 +4,7 @@ use think\Controller;
 use app\admin\model\Theory;
 use think\Db;
 /**原理分析 */
-class Theory extends Controller {
+class Theory extends Base {
 
     /**
      * 分析列表

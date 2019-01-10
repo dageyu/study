@@ -5,7 +5,7 @@ use think\facade\Config;
 use think\facade\Session;
 use think\facade\Cookie;
 use app\admin\model\Admin;
-class Login extends Controller {
+class Login extends controller {
 
     /**
      * 后台登录：首页

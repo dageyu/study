@@ -7,7 +7,7 @@ use app\admin\model\SecondModule as Second;
 use app\admin\model\ThreeModule as Three;
 use think\facade\Config;
 use app\admin\logic\LookLogic as Look;
-class Power extends Controller {
+class Power extends Base {
 
     /**
      * 权限管理:权限分配

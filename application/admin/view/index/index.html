@@ -1,7 +1,37 @@
 ﻿{extend name="main" /}
 {block name="css"}
-<link rel="stylesheet" href="__CSS__/layui.css" media="all">
-<link rel="stylesheet" href="__CSS__/public.css" media="all">
+<style>
+.layui-elem-quote {
+    margin-bottom: 10px;
+    padding: 15px;
+    line-height: 22px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #f2f2f2;
+    background-size: 100%;
+}
+.layui-table {
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+    margin: 10px 0;
+
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.layui-table td, .layui-table th {
+    position: relative;
+    padding: 9px 15px;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e6e6e6;
+}
+</style>
 {/block}
 {block name="bodyheader"}
 <ul class="breadcrumb">
@@ -38,34 +68,31 @@
             </div>
             <div class="row">
                 <div class="sysNotice col" style="padding:0px 12px 0px 12px">
-                    <blockquote class="layui-elem-quote title" style="font-size:16px">系统基本参数</blockquote>
+                    <span class="layui-elem-quote" style="font-size:16px">系统基本参数</span>
+                    <div style="height: 10px;"></div>
                     <table class="layui-table">
-                        <colgroup>
-                            <col width="150">
-                            <col>
-                        </colgroup>
                         <tbody>
                             <tr>
                                 <td style="width:20%">服务器环境:</td>
-                                <td class="author" colspan="3">{$sys_info.web_server}</td>
+                                <td class="" colspan="3">{$sys_info.web_server}</td>
                             </tr>
                             <tr>
                                 <td>服务器操作系统:</td>
-                                <td class="version" style="width:35%">{$sys_info.os}</td>
+                                <td class="" style="width:35%">{$sys_info.os}</td>
                                 <td style="width:18%">服务器域名/IP:</td>
-                                <td class="version">{$sys_info.domain} [ {$sys_info.ip} ]</td>
+                                <td class="">{$sys_info.domain} [ {$sys_info.ip} ]</td>
                             </tr>
                             <tr>
                                 <td>PHP 版本:</td>
-                                <td class="author">{$sys_info.phpv}</td>
+                                <td class="">{$sys_info.phpv}</td>
                                 <td>Mysql 版本:</td>
-                                <td class="homePage">{$sys_info.mysql_version}</td>
+                                <td class="">{$sys_info.mysql_version}</td>
                             </tr>
                             <tr>
                                 <td>程序开发:</td>
-                                <td class="server"><a href="https://github.com/dageyu/study" target="_blank" style="color:blueviolet">个人git学习网站</a></td>
+                                <td class=""><a href="https://github.com/dageyu/study" target="_blank" style="color:blueviolet">个人git学习网站</a></td>
                                 <td>版权所有:</td>
-                                <td class="author">盗版必究</td>
+                                <td class="">盗版必究</td>
                             </tr>
                         </tbody>
                     </table>

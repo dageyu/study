@@ -6,7 +6,7 @@ use app\admin\model\FirstModule as First;
 use app\admin\logic\LookLogic as Look;
 use think\facade\Config;
 /**角色管理 */
-class Role extends Controller {
+class Role extends Base {
 
     /**
      * 列表清单:

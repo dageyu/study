@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CodeMode plugin for wangEditor v0.3.0</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta http-equiv="cache-control" content="no-cache"/>
+		<meta http-equiv="expires" content="0"/>
+
+		<link rel="stylesheet" href="css/wangEditor.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/wangEditor.min.js"></script>
+		<script src="js/wangEditor-codeMode-plugin.min.js"></script>
+	</head>
+	<body>
+		<div id="editor"></div>
+		<script>
+			$(function(){
+				var E = window.wangEditor;
+				var editor = new E("#editor");
+				editor.create();
+				E.codeMode.init("#editor");
+			});
+		</script>
+	</body>
+</html>
