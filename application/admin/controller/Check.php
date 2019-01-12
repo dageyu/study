@@ -78,5 +78,17 @@ class Check extends Controller {
         $res = CheckLogic::checkUpdateSelected($data);
         return $res;
     }
+
+    /**
+     * 验证内容是否正确
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function checkObjTrue(){
+        $data = $this->request->param();
+        $res = CheckLogic::checkObjTrue($data);
+        return $res;
+    }
     
 }

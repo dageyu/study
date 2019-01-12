@@ -1,0 +1,107 @@
+{extend name="main" /}
+{block name="bodyheader"}
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">修改密码</li>
+	</ul>
+{/block}
+{block name="content"}
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				修改密码
+				<small>
+					<i class="icon-double-angle-right"></i>
+					修改密码
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">					
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="table-header">
+							修改密码
+						</div>				
+						<div class="col-xs-12">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 用户名 </label>
+									<div class="col-sm-9">
+										<input type="text" id="admin_name" class="col-xs-10 col-sm-5" readonly="readonly" value="{$Think.session.admin_name}"/>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 原密码 </label>		
+									<div class="col-sm-9">
+										<input type="password" id="admin_password" name="admin_password" maxlength="16" required placeholder="5-16位数字、字母或两者组合" class="col-xs-10 col-sm-5" onblur="checkObjTrue(this,'admin_password','{$Think.session.admin_name}','admin_name','admin',1)"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 新密码 </label>		
+									<div class="col-sm-9">
+										<input type="password" id="admin_password_new" name="admin_password_new" maxlength="16" required placeholder="5-16位数字、字母或两者组合" class="col-xs-10 col-sm-5" onblur="checkObjNew(this,1,'password',1,'admin_password',0,0,'','','')"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 确认密码 </label>		
+									<div class="col-sm-9">
+										<input type="password" id="admin_checkpassword" name="admin_checkpassword" required placeholder="必须和设置密码一致" maxlength="16" class="col-xs-10 col-sm-5" onblur="checkObjNew(this,1,'password',1,'admin_password_new',1,0,'','','')"/><span style="color:red;display:inline">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>									
+								<div class="col-md-offset-3 col-md-9" style="margin-left:9%;">
+									<button class="btn btn-info" type="button" id="button" name="button">
+										<i class="icon-ok bigger-110"></i>
+										提交
+									</button>
+								</div>									
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="js"}
+<script>
+	$("#button").click(function (){
+		var admin_password     		= $.trim($('#admin_password').val());
+		var admin_password_new     	= $.trim($('#admin_password_new').val());
+		var admin_checkpassword     = $.trim($('#admin_checkpassword').val());
+		if(!admin_password || !admin_password_new || !admin_checkpassword){
+			layer.msg('内容不能为空',{time:600});
+			return;
+		} else {
+			$.ajax({
+				url: "{:url('admin/Password/change')}",
+				data: {'admin_checkpassword':admin_checkpassword},
+				datatype: 'json',
+				type: 'POST',
+				async: false,
+				success:function(res){
+					if(res.status == 1){
+						layer.msg(res.msg,{time:800,icon:1});
+					} else {
+						layer.msg(res.msg,{icon:2});
+					}
+					$('form')[0].reset();
+					return;
+				},
+				error:function(){
+					layer.msg('系统未知错误');
+					return false;
+				}
+			})
+		}
+	});
+</script>
+{/block}

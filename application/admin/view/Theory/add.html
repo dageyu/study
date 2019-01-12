@@ -5,17 +5,17 @@
 			<i class="icon-home home-icon"></i>
 			<a href="#">首页</a>
 		</li>
-		<li class="active">用户管理</li>
+		<li class="active">原理分析</li>
 	</ul>
 {/block}
 {block name="content"}
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				用户管理
+				原理分析				
 				<small>
 					<i class="icon-double-angle-right"></i>
-					添加用户
+					内容列表
 				</small>
 			</h1>
 		</div>
@@ -24,54 +24,41 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="table-header">
-							添加新的用户
+							添加新的记录
 						</div>				
 						<div class="col-xs-12">
-							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
 								<div class="space-4"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 电子邮箱 </label>
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 名称 </label>
 									<div class="col-sm-9">
-										<input type="email" id="admin_email" name="admin_email" placeholder="请输入126或163电子邮箱" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,1,1,'',1,'admin','admin_email')"/><span style="color:red">*</span>
+										<input type="text" id="title" name="name" placeholder="请输入名称" style="width:50%" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'theory','name','',0)"/><span style="color:red">*</span>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 用户名 </label>
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 简介 </label>
 									<div class="col-sm-9">
-										<input type="text" id="admin_name" name="admin_name" placeholder="请输入用户名" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'admin','admin_name')"/><span style="color:red">*</span>
+										<textarea id="intro" name="intro" style="width:50%; height:100px;" placeholder="请输入简介" ></textarea>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 设置密码 </label>		
-									<div class="col-sm-9">
-										<input type="password" id="admin_password" name="admin_password" maxlength="16" required placeholder="5-16位数字、字母或两者组合" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'',0,'','')"/><span style="color:red">*</span>
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 内容 </label>
+									<div id="editor" name="editor" style="width:80%;float:left;padding: 5px;padding-left: 12px;">
 									</div>
+									<textarea id="content" name="content" hidden="hidden"></textarea>									
 								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 确认密码 </label>		
-									<div class="col-sm-9">
-										<input type="password" id="admin_checkpassword" name="admin_checkpassword" required placeholder="必须和设置密码一致" maxlength="16" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,2,'admin_password',0,'','')"/><span style="color:red;display:inline">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:8%"> 口令 </label>
-									<div class="col-sm-9">
-										<input type="text" id="admin_secret" name="admin_secret" placeholder="请输入口令" class="col-xs-10 col-sm-5" onblur="checkObj(this,1,3,'',1,'admin','admin_secret')"/><span style="color:gray;margin-left: 2%">注：授权人允许你注册时输入的口令,可以为空！</span>
-									</div>
-								</div>
+								<input type="text" name="addtime" value="<?php echo time();?>" hidden="hidden" />
 								<div class="space-4"></div>									
-								<div class="col-md-offset-3 col-md-9" style="margin-left:7%">
+								<div class="col-md-offset-3 col-md-9" style="margin-left:9%;">
 									<button class="btn btn-info" type="button" id="button" name="button">
 										<i class="icon-ok bigger-110"></i>
 										提交
 									</button>
 								</div>									
 							</form>
-						</div>					
+						</div>
 					</div>
 				</div>
 			</div>
@@ -79,33 +66,53 @@
 	</div>
 {/block}
 {block name="js"}
+<script type="text/javascript" src="__PLUG__/wangEditor-3.1.1/release/wangEditor.min.js"></script>
+<script type="text/javascript" src="__PLUG__/wangEditor-plugin-master/wangEditor-codeMode-plugin.min.js"></script>
+<script>
+	$(function(){
+		var E = window.wangEditor;
+		var editor 		= new E('#editor');
+		var content	 	= $('#content');
+		editor.customConfig.debug = true;
+		editor.customConfig.uploadImgMaxSize = 2 * 1024 * 1024;
+		editor.customConfig.uploadFileName = 'sendImg';
+		editor.customConfig.uploadImgServer = "{:url('admin/Check/checkImg',['tbname'=>'Theroy'])}";
+		editor.customConfig.uploadImgHooks = {
+			customInsert: function (insertImg, result, editor) {
+				console.log(result);
+					var url = result.data[0];
+					insertImg(url);
+			}
+		};
+		editor.customConfig.onchange = function (html) {
+				content.val(html)
+		};
+		editor.create();
+		E.codeMode.init("#editor");
+		content.val(editor.txt.html());
+	})
+</script>
 <script>
 	$("#button").click(function (){
-		var admin_name     			= $.trim($('#admin_name').val());
-		var admin_email     		= $.trim($('#admin_email').val());
-		var admin_password     		= $.trim($('#admin_password').val());
-		var admin_checkpassword     = $.trim($('#admin_checkpassword').val());
-		var admin_secret     		= $.trim($('#admin_secret').val());		
-		if(!admin_name || !admin_email || !admin_password || !admin_checkpassword){
+		var name     = $.trim($('#title').val());
+		if(!name){
 			layer.msg('内容不能为空',{time:600});
-			return false;
-		}
-		else{
+			return;
+		} else {
 			$.ajax({
-				url: "{:url('admin/admin/add')}",
+				url: "{:url('admin/Theory/add')}",
 				data: $("#myform").serializeArray(),
 				datatype: 'json',
 				type: 'POST',
 				async: false,
 				success:function(res){
 					if(res.status == 1){
-						layer.msg(res.msg,{icon:1});
-						return
-					}
-					else{
+						layer.msg(res.msg,{time:800,icon:1});
+						setTimeout(jump, 1000);
+					} else {
 						layer.msg(res.msg,{icon:2});
-						return
 					}
+					return;
 				},
 				error:function(){
 					layer.msg('系统未知错误');
@@ -114,5 +121,8 @@
 			})
 		}
 	});
+	function jump(){
+		location.href = "{:url('admin/Theory/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>0])}";
+	}
 </script>
 {/block}

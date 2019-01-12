@@ -5,6 +5,7 @@ use think\Db;
 use app\admin\model\FirstModule as First;
 use app\admin\model\SecondModule as Second;
 use app\admin\model\ThreeModule as Three;
+use think\facade\Config;
 class CheckLogic extends Controller {
 
     /**
@@ -191,5 +192,26 @@ class CheckLogic extends Controller {
         $second_modules2 = Second::field('fm_id,sm_name')->where('sm_id' , $id)->find();
         return $second_modules2 ? $second_modules2 : false;
     }
+
+    /**
+     * 验证内容是否正确   
+     * @access  public
+     * @param   array   $data     包含表名，字段名，验证内容...
+     * @return  array   $res
+     * @rule    1:用户密码
+     */
+    public static function checkObjTrue($data){
+        if($data['rule'] == 1){
+            $data['content'] = strrev(md5($data['content'] . Config::get('salt')));
+            $list = Db::name($data['tbname'])->where($data['referfield'],$data['referval'])->where($data['field'],$data['content'])->find();
+            if($list){
+                $res = array('status'=>1,'msg'=>'内容正确！');
+            } else {
+                $res = array('status'=>0,'msg'=>'内容错误，请核对后重新输入！');
+            }
+        }
+        return $res;
+    }
+
 
 }

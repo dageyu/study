@@ -22,7 +22,8 @@ class Theory extends Base {
     public function add(){
         if($this->request->isPost()){
             $data = $this->request->param();
-            $flag = Theory::insert($data);
+            $theoryModel = new Theory;
+            $flag = $theoryModel->save($data);
             if($flag){
                 $res = array('status'=>1,'msg'=>'添加成功');
             } else {
@@ -35,23 +36,12 @@ class Theory extends Base {
     }
 
     /**
-     * 查看详情
-     * @access public
-     * @return array  $list  内容详情
-     */
-    public function look(){
-        $data = $this->request->param();
-        $list = Theory::where($data)->find();
-        return $this->fetch('look',compact('list'));
-    }
-    
-    /**
      * 修改内容：
      */
     public function update(){
         if($this->request->isPost()){
             $data = $this->request->param();
-            $flag = Theory::where($data)->save();
+            $flag = Theory::update($data);
             if($flag){
                 $res = array('status'=>1,'msg'=>'修改成功');
             } else {
@@ -59,7 +49,9 @@ class Theory extends Base {
             }
             return $res;
         } else {
-            return $this->fetch();
+            $data = $this->request->param();
+            $list = Db::name('theory')->field('id,name,intro,content')->where('id',$data['id'])->find();
+            return $this->fetch('update',compact('list'));
         }
     }
 }

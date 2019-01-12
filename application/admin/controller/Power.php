@@ -16,7 +16,6 @@ class Power extends Base {
      * @return array  $ro_lists  角色清单
      * @return array  $fm_lists  一级模块
      * @return array  $sm_lists  二级模块
-     * @return array  $tm_lists  三级模块
      */
     public function index(){
         $lists = Admin::field('admin_id,admin_name,admin_nickname')->where(['admin_vip'=>1,'admin_state'=>1,'is_delete'=>0])->select();
@@ -28,9 +27,9 @@ class Power extends Base {
         $where = 'a.is_delete = 0 and b.is_delete = 0';
         $order = 'a.fm_addtime desc';
         $ro_lists = Look::oneVsOne($table,$alias,$field,$join,$where,'','',$order);
-        $fm_lists = First::field('fm_id,fm_name,is_parent')->where(['is_delete' => 0, 'fm_state' => 1, 'is_powerf' => 1])->order('fm_sort')->select();
-        $sm_lists = Second::field('sm_id,fm_id,sm_name,is_parents')->where(['is_delete' => 0, 'sm_state' => 1, 'is_powers' => 1])->order('sm_sort')->select();
-        return $this->fetch('index',compact('lists','fm_lists','sm_lists','tm_lists','ro_lists'));
+        $pfm_lists = First::field('fm_id,fm_name,is_parent')->where(['is_delete' => 0, 'fm_state' => 1, 'is_powerf' => 1])->order('fm_sort')->select();
+        $psm_lists = Second::field('sm_id,fm_id,sm_name,is_parents')->where(['is_delete' => 0, 'sm_state' => 1, 'is_powers' => 1])->order('sm_sort')->select();
+        return $this->fetch('index',compact('lists','pfm_lists','psm_lists','ro_lists'));
     }
 
     

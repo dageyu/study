@@ -66,17 +66,17 @@
 						</div>
 						<div style="display:block;" id="zhuanzhi">
 							<div style="margin-left:2%;margin-top:5px;">
-								{volist name="fm_lists" id="fm_list"}
+								{volist name="pfm_lists" id="pfm_list"}
 								<div style="display:inline-block;width:100%;line-height:25px;">
 									<label>
-										<input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2" value="{$fm_list.fm_id}" id="fm_name{$fm_list.fm_id}" name="fm_name" onclick="changeChild(this,'fm_name',{$fm_list.is_parent})"><span class="lbl" style="font-weight:600">{$fm_list.fm_name}</span>
+										<input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2" value="{$pfm_list.fm_id}" id="fm_name{$pfm_list.fm_id}" name="fm_name" onclick="changeChild(this,'fm_name',{$pfm_list.is_parent})"><span class="lbl" style="font-weight:600">{$pfm_list.fm_name}</span>
 									</label>
 									<div style="width:100%;margin-left:15px;">
-										{eq name="fm_list.is_parent" value="1"}
-											{volist name="sm_lists" id="sm_list"}
-												{eq name="sm_list.fm_id" value="$fm_list.fm_id"}
+										{eq name="pfm_list.is_parent" value="1"}
+											{volist name="psm_lists" id="psm_list"}
+												{eq name="psm_list.fm_id" value="$pfm_list.fm_id"}
 													<label>
-														<input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2" value="{$sm_list.sm_id}" id="sm_name{$sm_list.sm_id}" name="sm_name"><span class="lbl" style="margin-right: 5px;">{$sm_list.sm_name}</span>
+														<input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2" value="{$psm_list.sm_id}" id="sm_name{$psm_list.sm_id}" name="sm_name"><span class="lbl" style="margin-right: 5px;">{$psm_list.sm_name}</span>
 													</label>
 												{/eq}
 											{/volist}

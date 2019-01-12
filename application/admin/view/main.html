@@ -493,11 +493,12 @@ function updateObjState(id,idfield,stateval,statefield,tbname,ismain,appendfield
 * checkObjSelected    改变选项，改变值
 * @param
 *       obj      	当前对象
-*       oldval      原值
-*		field       原值表字段
-*		tbname		表名称
-*       idfield     主键字段
-*		idval       主键值
+*       oldval      原值id
+*       oldtext     原文本值
+*		field       主表原值表字段
+*		tbname		主表名称
+*       idfield     主表主键字段
+*		idval       主表主键值
 *		linktb		相关表名称
 *		fieldval    选项主键值
 *		fieldname   选项名称
@@ -524,7 +525,7 @@ function checkObjSelected(obj,oldval,oldtext,field,tbname,idfield,idval,linktb,f
 					var str4 = '</select>';
 					$('#'+field+idval).html(str1+str2+str3+str4);
 					layer.msg(data.res.msg,{time:600,icon:1});
-					return
+					return;
 				}
 				else{
 					var str1 = '<select class="form-control" style="width:90%;padding:4px 0px;border:none;color:#393939;background:transparent;" onchange="checkObjSelected(this,'+oldval+',\''+oldtext+'\',\''+field+'\',\''+tbname+'\',\''+idfield+'\','+idval+',\''+linktb+'\',\''+fieldval+'\',\''+fieldname+'\')">';
@@ -536,7 +537,7 @@ function checkObjSelected(obj,oldval,oldtext,field,tbname,idfield,idval,linktb,f
 					var str4 = '</select>';
 					$('#'+field+idval).html(str1+str2+str3+str4);
 					layer.msg(data.res.msg,{time:600,icon:2});
-					return
+					return;
 				}
 			},
 			error:function(){
@@ -544,6 +545,91 @@ function checkObjSelected(obj,oldval,oldtext,field,tbname,idfield,idval,linktb,f
 				return false;
 			}
 		})
+	}
+}
+/**
+* 公共函数:
+* checkObjTrue    检测当前对象是否正确
+* @param
+*       obj      	当前对象
+*       objfield    当前对象字段
+*       referval    参照目标
+*		referfield  参照目标字段
+*		tbname		表名称
+*		rule        验证规则
+*/
+function checkObjTrue(obj,objfield,referval,referfield,tbname,rule){
+	var objval = $.trim($(obj).val());
+	if(!objval){
+		layer.msg('内容不能为空！',{time:600});
+		return false;
+	} else {
+		$.ajax({
+			url: "{:url('admin/Check/checkObjTrue')}",
+			data: {'content':objval,'field':objfield,'referval':referval,'referfield':referfield,'tbname':tbname,'rule':rule},
+			datatype: 'json',
+			type: 'POST',
+			async: false,
+			success:function(res){
+				if(res.status == 1){
+					layer.msg(res.msg,{time:600,icon:1});
+					return;
+				}
+				else{
+					layer.msg(res.msg,{time:600,icon:2});
+					$(obj).val('');
+					return;
+				}
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return false;
+			}
+		})
+	}
+}
+/**
+* 公共函数:
+* checkObjNew    检测当前对象新值
+* @param
+*       obj      	当前对象
+*       isregular   是否验证正则0否1是
+*       express     表达式 password:密码
+*		iscompare   是否比较相等0否1是
+*		comobj      比较对象
+*       comrule     比较规则0不准一致  1必须一致
+*       isrepeat    是否验证重复0否1是
+*       tbname      表名
+*       field       字段
+*		rule        验证规则
+*/
+function checkObjNew(obj,isregular,express,iscompare,comobj,comrule,isrepeat,tbname,field,rule){
+	//先写新密码
+	var objval = $.trim($(obj).val());
+	if(isregular == 1){
+		if(express == 'password'){
+			if(!(/^[a-zA-Z0-9]{5,16}$/.test(objval))){
+				layer.msg('规则：5-16位数字、字母或两者组合');
+				$(obj).val('');
+				return;
+			} else if(iscompare == 1 && comrule == 0){
+				if(objval == $.trim($('#'+comobj).val())){
+					layer.msg('新内容与原内容不能一致',{time:600});
+					$(obj).val('');
+					return;
+				} else {
+					return;
+				}
+			} else if(iscompare == 1 && comrule == 1){
+				if(objval != $.trim($('#'+comobj).val())){
+					layer.msg('两次输入的内容必须一致',{time:600});
+					$(obj).val('');
+					return;
+				} else {
+					return;
+				}
+			}
+		}
 	}
 }
 </script>

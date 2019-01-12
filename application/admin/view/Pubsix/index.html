@@ -37,7 +37,7 @@
 						<div class="row">
 							<div class="col-sm-6" style="width:100%">
 								<div style="display:inline">
-									<a href="{:url('admin/Pubfour/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
+									<a href="{:url('admin/Pubsix/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
 								</div>											
 							</div>													
 						</div>
@@ -46,8 +46,8 @@
 								<tr style="height:45px">
 									<th class="center" style="width:5%;text-align: center">	选择 </th>
 									<th style="width:5%;text-align: center">排序</th>
-									<th style="width:15%;padding:8px 3px;text-align: center">标题</th>																									
-									<th style="width:38%;padding:8px 3px;text-align: center">释义</th>
+									<th style="width:43%;padding:8px 3px;text-align: center">标题</th>	
+									<th style="width:10%;padding:8px 3px;text-align: center">类别</th>
 									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
 									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
 									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
@@ -73,8 +73,7 @@
 									<td style="vertical-align:middle;padding:4px 1px;" id="title{$list.id}">
 										<input type="text" value="{$list.title}" onblur="updateObj(this,'{$list.title}','{$table}','title','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>																											
-									<td style="vertical-align:middle;padding:4px 1px;" id="zn_name{$list.id}">
-										<input type="text" value="{$list.zn_name}" onblur="updateObj(this,'{$list.zn_name}','{$table}','zn_name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									<td style="vertical-align:middle;padding:4px 1px;">{$list.type_name}
 									</td>
 									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked{$list.id}">
 										{eq name="list.checked" value="1"}
@@ -103,7 +102,7 @@
 									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
 										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 											<div id="" style="display:inline">
-												<a class="blue" href="{:url('admin/Pubfour/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list.id])}" style="margin:0px">
+												<a class="blue" href="{:url('admin/Pubsix/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list.id])}" style="margin:0px">
 													<i class="icon-zoom-in bigger-130"></i>
 												</a>
 												<a class="red" href="javascript:deleteObjOne({$list.id},'id','{$table}')" style="margin:0px">

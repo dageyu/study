@@ -32,23 +32,38 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="table-header">
-							添加新的记录
+							修改记录
 						</div>				
 						<div class="col-xs-12">
 							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
 								<input type="text" value="{$tbname}" name="tbname" hidden="hidden" />
+								<input type="text" value="{$list.id}" name="id" hidden="hidden" />
 								<div class="space-4"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 标题 </label>
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 名称 </label>
 									<div class="col-sm-9">
-										<input type="text" id="{$list.title}" name="{$list.title}" placeholder="请输入标题" maxlength="30" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'{$tbname}','{$list.title}','',0)"/><span style="color:red">*</span>
+										<input type="text" id="name" name="name" placeholder="请输入名称" maxlength="30" value="{$list.name}" required class="col-xs-10 col-sm-5" onblur="checkObj(this,0,0,'',1,'{$tbname}','name','',0)"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 类别 </label>
+									<div class="col-sm-9">
+										<select class="form-control" style="width:41.5%;padding:4px 0px" name="{$link_field}" id="{$link_field}">
+											{volist name="link_lists" id="link_list"}
+											{eq name="link_list.id" value="$list.type_id"}
+											<option value="{$link_list.id}" selected>{$link_list.name}</option>
+											{/eq}
+											<option value="{$link_list.id}">{$link_list.name}</option>
+											{/volist}
+										</select>
 									</div>
 								</div>
 								<div class="space-4"></div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 释义 </label>
 									<div class="col-sm-9">
-										<input type="text" id="{$list.ztitle}" name="{$list.ztitle}" placeholder="请输入中文释义" class="col-xs-10 col-sm-5" style="width:90%"/>
+										<input type="text" id="zn_name" name="zn_name" placeholder="请输入中文释义" class="col-xs-10 col-sm-5" style="width:70%" value="{$list.zn_name}"/>
 									</div>
 								</div>
 								<div class="space-4"></div>
@@ -56,7 +71,7 @@
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 相关内容 </label>
 									<div id="editor" name="editor" style="width:80%;float:left;padding: 5px;padding-left: 12px;">
 									</div>
-									<textarea id="{$list.content}" name="{$list.content}" style="width:50%; height:200px;" hidden="hidden"></textarea>									
+									<textarea id="content" name="content" style="width:50%; height:200px;" hidden="hidden"></textarea>									
 								</div>
 								<input type="text" name="addtime" value="<?php echo time();?>" hidden="hidden" />
 								<div class="space-4"></div>									
@@ -73,6 +88,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="text" id="contents" name="contents" hidden="hidden" value="{$list.content|htmlspecialchars_decode}" />
 {/block}
 {block name="js"}
 <script type="text/javascript" src="__PLUG__/wangEditor-3.1.1/release/wangEditor.min.js"></script>
@@ -99,17 +115,23 @@
 		editor.create();
 		E.codeMode.init("#editor");
 		content.val(editor.txt.html());
+		editor.txt.html($('#contents').val());
+		content.val(editor.txt.html());
 	})
 </script>
 <script>
 	$("#button").click(function (){
-		var name     = $.trim($('#title').val());
+		var name     = $.trim($('#name').val());
+		var type	 = $.trim($('select').val());
 		if(!name){
 			layer.msg('内容不能为空',{time:600});
 			return false;
+		} else if(!type){
+			layer.msg('类别名称不能为空',{time:600});
+			return false;
 		} else {
 			$.ajax({
-				url: "{:url('admin/Pubfour/add')}",
+				url: "{:url('admin/Pubfive/update')}",
 				data: $("#myform").serializeArray(),
 				datatype: 'json',
 				type: 'POST',
@@ -132,7 +154,7 @@
 		}
 	});
 	function jump(){
-		location.href = "{:url('admin/Pubfour/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}";
+		location.href = "{:url('admin/Pubfive/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}";
 	}
 </script>
 {/block}
