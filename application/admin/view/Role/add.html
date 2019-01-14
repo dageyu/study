@@ -41,8 +41,8 @@
 									<div class="col-sm-9">
 										<select class="form-control" style="width:41.5%;padding:4px 0px" name="fm_id" id="fm_id" onchange="checkObj(this,0,0,'',1,'role','fm_id','',0)">
 											<option value="">&nbsp;请选择对应角色模块</option>
-											{volist name="fm_lists" id="fm_list"}
-											<option value="{$fm_list.fm_id}">{$fm_list.fm_name}</option>
+											{volist name="fm_listfs" id="fm_listf"}
+											<option value="{$fm_listf.fm_id}">{$fm_listf.fm_name}</option>
 											{/volist}
 										</select>
 									</div>

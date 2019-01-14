@@ -13,7 +13,7 @@ class Role extends Base {
      * @return array $lists
      */
     public function index(){
-        $fm_lists = First::where('is_delete' , 0)->order('fm_sort')->select();
+        $fm_listfs = First::where('is_delete' , 0)->order('fm_sort')->select();
         $table = Config::get('database.prefix').'role';
         $table_link = Config::get('database.prefix').'first_module';
         $alias = 'a'; 
@@ -22,7 +22,7 @@ class Role extends Base {
         $where = 'a.is_delete = 0 and b.is_delete = 0';
         $order = 'a.role_addtime desc';
         $lists = Look::oneVsOne($table,$alias,$field,$join,$where,'','',$order);
-        return $this->fetch('index',compact('lists','fm_lists'));
+        return $this->fetch('index',compact('lists','fm_listfs'));
     }
 
     /**
@@ -40,8 +40,8 @@ class Role extends Base {
             }
             return $res;
         } else {
-            $fm_lists = First::where('is_delete' , 0)->order('fm_sort')->select();
-            return $this->fetch('add',compact('fm_lists'));
+            $fm_listfs = First::where('is_delete' , 0)->order('fm_sort')->select();
+            return $this->fetch('add',compact('fm_listfs'));
         }
     }
     

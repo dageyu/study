@@ -17,10 +17,10 @@ class Menu extends Base {
      * @return array  $tm_lists  三级模块
      */
     public function index(){
-        $fm_lists = First::where('is_delete' , 0)->order('fm_sort')->select();
-        $sm_lists = Second::where('is_delete' , 0)->select();
-        $tm_lists = Three::where('is_delete' , 0)->select();
-        return $this->fetch('index',compact('fm_lists','sm_lists','tm_lists'));
+        $fm_listfs = First::where('is_delete' , 0)->order('fm_sort')->select();
+        $sm_listss = Second::where('is_delete' , 0)->select();
+        $tm_listts = Three::where('is_delete' , 0)->select();
+        return $this->fetch('index',compact('fm_listfs','sm_listss','tm_listts'));
     }
 
     /**

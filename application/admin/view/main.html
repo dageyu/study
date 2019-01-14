@@ -632,6 +632,46 @@ function checkObjNew(obj,isregular,express,iscompare,comobj,comrule,isrepeat,tbn
 		}
 	}
 }
+/**
+* 公共函数:修改对象(修改页面)
+* updateCheckObj    失去光标时，修改对象，验证是否重复，是否为空
+* @param
+*       obj      	当前对象
+*       oldval      原值
+*		tbname		相关表名称
+*		field       表字段
+*		id       	主键值
+*		idfield     主键字段
+*/
+function updateCheckObj(obj,oldval,tbname,field,id,idfield){
+	var newval = $.trim($(obj).val());
+	if(!newval || newval == oldval){
+		$(obj).val(oldval);
+		return;
+	}
+	else{
+		$.ajax({
+			url: "{:url('admin/Check/updateCheckObj')}",
+			data: {'content':newval,'field':field,'tbname':tbname,'id':id,'idfield':idfield},
+			datatype: 'json',
+			type: 'POST',
+			async: false,
+			success:function(res){
+				if(res.status == 1){
+					layer.msg(res.msg,{time:600,icon:1});
+				} else {
+					layer.msg(res.msg,{time:600,icon:2});
+					$(obj).val(oldval);
+				}
+				return;
+			},
+			error:function(){
+				layer.msg('系统未知错误');
+				return;
+			}
+		})
+	}
+}
 </script>
 		{block name="js"}{/block}
 	</body>

@@ -90,5 +90,41 @@ class Check extends Controller {
         $res = CheckLogic::checkObjTrue($data);
         return $res;
     }
+
+    /**
+     * 验证内容是否正确
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function updateCheckObj(){
+        $data = $this->request->param();
+        $res = CheckLogic::updateCheckObj($data);
+        return $res;
+    }
+
+    /**
+     * 恢复记录
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function recoverObj(){
+        $data = $this->request->param();
+        $res = CheckLogic::recoverObj($data);
+        return $res;
+    }
+
+    /**
+     * ajax删除:永久删除
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function deleteObj(){
+        $data = $this->request->param();
+        $res = CheckLogic::deleteObj($data);
+        return $res;
+    }
     
 }

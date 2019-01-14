@@ -34,9 +34,9 @@ class Base extends Controller {
      * 获取侧边栏菜单
      */
     public function getMenu(){
-        $fm_lists = First::where('is_delete' , 0)->order('fm_sort')->select();
-        $sm_lists = Second::where('is_delete' , 0)->select();
-        $tm_lists = Three::where('is_delete' , 0)->select();
+        $fm_lists = First::where('is_delete = 0 and fm_state = 1')->order('fm_sort')->select();
+        $sm_lists = Second::where('is_delete = 0 and sm_state = 1')->select();
+        $tm_lists = Three::where('is_delete = 0 and tm_state = 1')->select();
         $this->assign('fm_lists', $fm_lists);
         $this->assign('sm_lists', $sm_lists);
         $this->assign('tm_lists', $tm_lists);

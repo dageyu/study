@@ -1,4 +1,10 @@
 ﻿<ul class="nav nav-list" style="margin-top:-19px">
+	<li class="active" name="active" id="fm0">
+		<a href="javascript:jumpModule('Menu','index','fm0',1,0,0)">
+			<i class="icon-desktop"></i>
+			<span class="menu-text"> 菜单管理 </span>
+		</a>
+	</li>
 	{volist name="fm_lists" id="fm_list"}
 	<li class="" name="active" id="fm{$fm_list.fm_id}">
 		{eq name="fm_list.is_parent" value="1"}
@@ -49,12 +55,6 @@
 		{/eq}
 	</li>
 	{/volist}
-	<li class="active" name="active" id="fm0">
-		<a href="javascript:jumpModule('Menu','index','fm0',1,0,0)">
-			<i class="icon-desktop"></i>
-			<span class="menu-text"> 菜单管理 </span>
-		</a>
-	</li>
 	<li class="" name="active">
 		<a href="javascript:cleanCache()">
 			<i class="icon-circle-blank"></i>

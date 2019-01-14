@@ -68,8 +68,8 @@
 									<td style="vertical-align:middle;padding:4px 1px" id="fm_id{$list.role_id}">
 										<select class="form-control" style="width:90%;padding:4px 0px;border:none;color:#393939;background:transparent;" onchange="checkObjSelected(this,{$list.fm_id},'{$list.fm_name}','fm_id','role','role_id',{$list.role_id},'first_module','fm_id','fm_name')">
 											<option value="{$list.fm_id}" selected="selected">{$list.fm_name}</option>
-											{volist name="fm_lists" id="fm_list"}
-											<option value="{$fm_list.fm_id}">{$fm_list.fm_name}</option>
+											{volist name="fm_listfs" id="fm_listf"}
+											<option value="{$fm_listf.fm_id}">{$fm_listf.fm_name}</option>
 											{/volist}
 										</select>
 									</td>

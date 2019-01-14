@@ -213,5 +213,54 @@ class CheckLogic extends Controller {
         return $res;
     }
 
+    /**
+     * 修改时：修改页面，验证内容是否重复  input   
+     * @access  public
+     * @param   array   $data     包含表名，字段名，验证内容，主键值，主键字段（是否重复）
+     * @return  array   $res
+     */
+    public static function updateCheckObj($data){
+        $list = Db::name($data['tbname'])->where($data['idfield'],'<>',$data['id'])->where($data['field'],$data['content'])->find();
+        if($list){
+            $res = array('status' => 0 , 'msg' => '已被使用，请核对后再次输入！');
+        } else {
+            $res = array('status' => 1 , 'msg' => '可以使用！');
+        }
+        return $res;
+    }
+
+    /**
+     * 恢复记录   
+     * @access  public
+     * @param   array   $data     包含表名，主键值
+     * @return  array   $res
+     */
+    public static function recoverObj($data){
+        $recover_msg = Db::table($data['tbname'])->where('id',$data['id'])->setField('is_delete', 0);
+        if($recover_msg){
+            $res = array('status'=>1,'msg'=>'恢复成功!');
+        }
+        else{
+            $res = array('status'=>0,'msg'=>'恢复失败!');
+        }
+        return $res;
+    }
+
+    /**
+     * 永久删除记录   
+     * @access  public
+     * @param   array   $data     包含表名，主键值
+     * @return  array   $res
+     */
+    public static function deleteObj($data){
+        $del_msg = Db::table($data['tbname'])->where('id',$data['id'])->delete();
+        if($del_msg){
+            $res = array('status'=>1,'msg'=>'删除成功!');
+        }
+        else{
+            $res = array('status'=>0,'msg'=>'删除失败!');
+        }
+        return $res;
+    }
 
 }
