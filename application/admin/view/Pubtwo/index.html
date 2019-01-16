@@ -62,7 +62,7 @@
 								<tr style="height:40px" id="{$table}{$list.id}">
 									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
 										<label>
-											<input type="checkbox" class="ace" value="{$list.id}" name="role" />
+											<input type="checkbox" class="ace" value="{$list.id}" name="{$table}" />
 											<span class="lbl"></span>
 										</label>
 									</td>
@@ -113,8 +113,53 @@
 							</tbody>
 						</table>	
 					</div>
+					<div class="space-4"></div>
+					<div style="border:none;">
+						<div>
+							<div style="display:inline;vertical-align: middle;">
+								<label>
+									<input type="checkbox" class="ace" id="checkedall" />
+									<span class="lbl" style="font-size: 8px">全选</span>
+								</label>
+								<label style="margin-left:10px">
+									<input type="checkbox" class="ace" id="checkedpart" />
+									<span class="lbl" style="font-size: 8px">反选</span>
+								</label>
+								<a class="red" href="javascript:deleteObjMore('{$table}')" style="text-decoration:none;margin-left: 10px">
+									<i class="icon-trash bigger-130"></i>
+								</a>
+							</div>
+						</div>  
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+{/block}
+{block name="js"}
+<script>
+//全选
+$("#checkedall").click(function(){
+	if(this.checked){
+		$("#checkedpart").attr('checked',false);
+		$("[name={$table}]:checkbox").each(function() {
+			this.checked = 'checked';
+		});
+	}
+	else{
+		$("[name={$table}]:checkbox").each(function() {
+			this.checked = '';
+		});
+	}
+});
+//反选
+$("#checkedpart").click(function(){
+	if(this.checked){
+		$("#checkedall").attr('checked',false);
+	}
+	$("[name={$table}]:checkbox").each(function() {
+		this.checked = !this.checked;
+	});
+});
+</script>
 {/block}

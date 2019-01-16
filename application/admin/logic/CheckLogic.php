@@ -263,4 +263,21 @@ class CheckLogic extends Controller {
         return $res;
     }
 
+    /**
+     * 修改多个记录的删除状态   
+     * @access  public
+     * @param   array   $data     包含表名，主键值
+     * @return  array   $res
+     */
+    public static function deleteObjMore($data){
+        $del_msg = Db::name($data['tbname'])->where('id','in',$data['ids'])->setField('is_delete', 1);
+        if($del_msg){
+            $res = array('status'=>1,'msg'=>'删除成功!');
+        }
+        else{
+            $res = array('status'=>0,'msg'=>'删除失败!');
+        }
+        return $res;
+    }
+
 }

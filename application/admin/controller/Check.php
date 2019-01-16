@@ -126,5 +126,17 @@ class Check extends Controller {
         $res = CheckLogic::deleteObj($data);
         return $res;
     }
+
+    /**
+     * ajax删除多个:修改删除状态
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function deleteObjMore(){
+        $data = $this->request->param();
+        $res = CheckLogic::deleteObjMore($data);
+        return $res;
+    }
     
 }
