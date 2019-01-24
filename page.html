@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+            <!-- 主体内容 -->
+<div class="page-box page-laypage page-laypage-default" >
+    <span class="page-laypage-limits">
+        <select lay-ignore="">
+            <option value="10" selected="">10 条/页</option>
+            <option value="20">20 条/页</option>
+            <option value="30">30 条/页</option>
+            <option value="40">40 条/页</option>
+            <option value="50">50 条/页</option>
+        </select>
+    </span>
+    <a href="javascript:;" class="page-disabled" data-page="0">上一页</a>
+    <span class="page-laypage-curr">
+        <em class="page-laypage-em"></em>
+        <em>1</em>
+    </span>
+    <a href="javascript:;" data-page="2">2</a>
+    <a href="javascript:;" data-page="3">3</a>
+    <a href="javascript:;" data-page="4">4</a>
+    <a href="javascript:;" data-page="5">5</a>
+    <span class="">…</span>
+    <a href="javascript:;" title="尾页" data-page="100">100</a>
+    <a href="javascript:;" data-page="2">下一页</a>
+</div>
+<style>
+	/**共100页样式*/
+.page-laypage .page-laypage-limits {
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 0;
+	border: none;
+	vertical-align: top
+}
+
+/**当前页样式*/
+.page-laypage .page-laypage-curr .page-laypage-em {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	padding: 1px;
+	width: 100%;
+	height: 100%;
+	background-color: #009688
+}
+
+/**分页位置样式*/
+.page-laypage .page-laypage-curr {
+	position: relative
+}
+
+/**当前页数字样式*/
+.page-laypage .page-laypage-curr em {
+	position: relative;
+	color: #fff
+}
+
+/**禁止*/
+.page-disabled,.page-disabled:hover {
+	color: #d2d2d2!important;
+	cursor: not-allowed!important
+}
+
+/**字体不加粗样式*/
+button,input,option,select {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	outline: 0
+}
+
+/**字体样式*/
+body {
+	line-height: 24px;
+	font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif
+}
+
+/**下拉列表样式*/
+.page-box,.page-box * {
+	box-sizing: content-box
+}
+
+/**整体布局样式*/
+.page-laypage {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	margin: 10px 0;
+	font-size: 0
+}
+
+/**整体边距样式*/
+.page-laypage>:first-child {
+	margin-left: 0!important
+}
+
+.page-laypage>:last-child {
+	margin-right: 0!important
+}
+
+/**边框样式*/
+.page-laypage a,.page-laypage button,.page-laypage input,.page-laypage select,.page-laypage span {
+	border: 1px solid #e2e2e2
+}
+
+/**总样式*/
+.page-laypage a,.page-laypage span {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	padding: 0 15px;
+	height: 28px;
+	line-height: 28px;
+	margin: 0 -1px 5px 0;
+	background-color: #fff;
+	color: #333;
+	font-size: 12px
+}
+
+/**a标签悬浮样式*/
+.page-laypage a:hover {
+	color: #009688
+}
+
+/**当前页数字体样式*/
+.page-laypage em {
+	font-style: normal
+}
+
+/**分页数字下划线样式*/
+.page-laypage a {
+	text-decoration: none
+}
+
+/**下拉列表样式*/
+.page-laypage select {
+	height: 22px;
+	padding: 3px;
+	border-radius: 2px;
+	cursor: pointer
+}
+
+/**下拉列表 获取焦点改变边框样式*/
+.page-laypage select:focus {
+	border-color: #009688!important
+}
+</style>          
+</body>
+</html>

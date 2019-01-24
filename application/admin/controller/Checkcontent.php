@@ -223,4 +223,8 @@ class Checkcontent extends Controller {
 
         
     }
+
+    public function jquery(){
+        return $this->fetch();
+    }
 }

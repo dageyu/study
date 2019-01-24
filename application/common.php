@@ -120,6 +120,7 @@ function tbfields($tbname){
         'js_actions'            => array('tbname' => 'js_actions' , 'title' => 'name' , 'content' => 'content'),
         'js_questions'          => array('tbname' => 'js_questions' , 'title' => 'name' , 'content' => 'content'),
         'js_errors'             => array('tbname' => 'js_errors' , 'title' => 'title' , 'content' => 'content'),
+        'js_others'             => array('tbname' => 'js_errors' , 'title' => 'title' , 'content' => 'content'),
         'js_extends'            => array('tbname' => 'js_extends' , 'title' => 'name' , 'content' => 'content'),
         'js_specials'           => array('tbname' => 'js_specials' , 'title' => 'name' , 'content' => 'content'),
         'js_frame_type'         => array('tbname' => 'js_frame_type' , 'title' => 'name' , 'content' => 'content'),

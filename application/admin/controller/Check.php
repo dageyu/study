@@ -138,5 +138,26 @@ class Check extends Controller {
         $res = CheckLogic::deleteObjMore($data);
         return $res;
     }
+
+    /**
+     * 上传图片
+     * @access  public
+     * @param   array   $data
+     * @return  array   $res
+     */
+    public function checkImg(){
+        $tbname = $this->request->param('tbname');
+        $file = request()->file('sendImg');
+        $info = $file->validate(['size'=>2097152,'ext'=>'jpg,png,gif'])->rule('date')->move( '../public/uploads/'.$tbname);
+        if($info){
+            $data = [
+                'errno'=>0,
+                'data' => ['/study/public/uploads/'.$tbname.'/'.$info->getSaveName()]
+            ]; 
+            return json_encode($data);
+        }else{
+            return $file->getError();
+        }
+    }
     
 }

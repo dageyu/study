@@ -42,7 +42,7 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 标题 </label>
 									<div class="col-sm-9">
-										<input type="text" id="title" name="title" placeholder="请输入标题" maxlength="30" value="{$list.title}" required class="col-xs-10 col-sm-5" onblur="updateCheckObj(this,'{$list.title}','{$tbname}','title',{$list.id},'id')"/><span style="color:red">*</span>
+										<input type="text" id="title" name="title" placeholder="请输入标题"  value="{$list.title}" required class="col-xs-10 col-sm-5" onblur="updateCheckObj(this,'{$list.title}','{$tbname}','title',{$list.id},'id')"/><span style="color:red">*</span>
 									</div>
 								</div>
 								<div class="space-4"></div>
@@ -75,6 +75,11 @@
 		</div>
 	</div>
 	<input type="text" id="contents" name="contents" hidden="hidden" value="{$list.content|htmlspecialchars_decode}" />
+	<style>
+		.w-e-text-container {
+			height:500px !important;
+		}
+	</style>
 {/block}
 {block name="js"}
 <script type="text/javascript" src="__PLUG__/wangEditor-3.1.1/release/wangEditor.min.js"></script>

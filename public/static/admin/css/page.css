@@ -1,0 +1,157 @@
+	
+/**字体不加粗样式*/
+button,input,option,select {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	outline: 0
+}
+
+/**字体样式*/
+body {
+	line-height: 24px;
+	font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif
+}
+
+/**下拉列表样式*/
+.page-box,.page-box * {
+	box-sizing: content-box
+}
+
+/**整体布局样式*/
+.page-laypage {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0
+}
+
+/**整体边距样式*/
+.page-laypage>:first-child {
+	margin-left: 0!important
+}
+
+.page-laypage>:last-child {
+	margin-right: 0!important
+}
+
+/**边框样式*/
+.page-laypage a,.page-laypage button,.page-laypage input,.page-laypage select,.page-laypage span {
+	border: 1px solid #e2e2e2
+}
+
+/**总样式*/
+.page-laypage a,.page-laypage span {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	padding: 0 15px;
+	height: 28px;
+	line-height: 28px;
+	margin: 0 -1px 5px 0;
+	background-color: #fff;
+	color: #333;
+	font-size: 12px
+}
+
+/**a标签悬浮样式*/
+.page-laypage a:hover {
+	color: #009688
+}
+
+/**当前页数字体样式*/
+.page-laypage em {
+	font-style: normal
+}
+
+/**分页数字下划线样式*/
+.page-laypage a {
+	text-decoration: none
+}
+
+/**分页位置样式*/
+.page-laypage .page-laypage-curr {
+	position: relative
+}
+
+/**当前页数字样式*/
+.page-laypage .page-laypage-curr em {
+	position: relative;
+	color: #fff
+}
+
+/**当前页样式*/
+.page-laypage .page-laypage-curr .page-laypage-em {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	padding: 1px;
+	width: 100%;
+	height: 100%;
+	background-color: #009688
+}
+
+/**共100页样式*/
+.page-laypage .page-laypage-count,.page-laypage .page-laypage-limits,.page-laypage .page-laypage-refresh,.page-laypage .page-laypage-skip {
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 0;
+	border: none
+}
+
+.page-laypage .page-laypage-limits,.page-laypage .page-laypage-refresh {
+	vertical-align: top
+}
+
+
+/**下拉列表样式*/
+.page-laypage select {
+	height: 22px;
+	padding: 3px;
+	border-radius: 2px;
+	cursor: pointer
+}
+
+/**到第   页样式*/
+.page-laypage .page-laypage-skip {
+	height: 30px;
+	line-height: 30px;
+	color: #999
+}
+
+/**输入框样式*/
+.page-laypage button,.page-laypage input {
+	height: 30px;
+	line-height: 30px;
+	border-radius: 2px;
+	vertical-align: top;
+	background-color: #fff;
+	box-sizing: border-box
+}
+
+/**输入框样式*/
+.page-laypage input {
+	width: 40px;
+	margin: 0 10px;
+	padding: 0 3px;
+	text-align: center
+}
+
+/**输入框 下拉列表 获取焦点改变边框样式*/
+.page-laypage input:focus,.page-laypage select:focus {
+	border-color: #009688!important
+}
+
+/**确定按钮*/
+.page-laypage button {
+	margin-left: 10px;
+	padding: 0 10px;
+	cursor: pointer
+}
+
+/**禁止*/
+.page-disabled,.page-disabled:hover {
+	color: #d2d2d2!important;
+	cursor: not-allowed!important
+}

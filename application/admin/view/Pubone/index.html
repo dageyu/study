@@ -1,4 +1,7 @@
 {extend name="main" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/page.css" />
+{/block}
 {block name="bodyheader"}
 	<ul class="breadcrumb">
 		<li>
@@ -35,92 +38,103 @@
 				<div class="table-responsive">
 					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
 						<div class="row">
-							<div class="col-sm-6" style="width:100%">
+							<div class="col-sm-6" style="width:100%;">
 								<div style="display:inline">
 									<a href="{:url('admin/Pubone/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
-								</div>											
-							</div>													
+									<span class="input-icon" style="float:right;">
+										<input type="text" placeholder="Search ..." class="nav-search-input" id="sel_text" onkeyup="searchFun(this)" autocomplete="off" style="border-color:#6fb3e0;border-radius:4px !important">
+										<i class="icon-search" style="color:#6fb3e0"></i>
+									</span>
+								</div>
+							</div>
 						</div>
-						<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
-							<thead>
-								<tr style="height:45px">
-									<th class="center" style="width:5%;text-align: center">	选择 </th>
-									<th style="width:5%;text-align: center">排序</th>
-									<th style="width:15%;padding:8px 3px;text-align: center">名称</th>																									
-									<th style="width:38%;padding:8px 3px;text-align: center">释义</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
-									<th style="width:15%;padding:8px 3px;text-align: center">
-										<i class="icon-time bigger-110 hidden-480"></i>
-										更新时间
-									</th>	
-									<th style="padding:8px 1px;text-align: center">操作</th>														
-								</tr>
-							</thead>
-							<tbody>
-								{volist name="lists" id="list"}
-								<tr style="height:40px" id="{$table}{$list.id}">
-									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
-										<label>
-											<input type="checkbox" class="ace" value="{$list.id}" name="{$table}" />
-											<span class="lbl"></span>
-										</label>
-									</td>
-									<td class="center" style="vertical-align:middle;padding:4px 1px;" id="sort{$list.id}">
-										<input type="text" value="{$list.sort}" onblur="updateObj(this,'{$list.sort}','{$table}','sort','{$list.id}','id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;" id="name{$list.id}">
-										<input type="text" value="{$list.name}" onblur="updateObj(this,'{$list.name}','{$table}','name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>																											
-									<td style="vertical-align:middle;padding:4px 1px;" id="zn_name{$list.id}">
-										<input type="text" value="{$list.zn_name}" onblur="updateObj(this,'{$list.zn_name}','{$table}','zn_name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked{$list.id}">
-										{eq name="list.checked" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">否</span>
-										{/eq}
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sign{$list.id}">
-										{eq name="list.sign" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">否</span>
-										{/eq}
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_ok{$list.id}">
-										{eq name="list.is_ok" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">否</span>
-										{/eq}
-									</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime{$list.id}">
-										{$list.addtime|date="Y-m-d H:i:s"}
-									</td>
-									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
-										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-											<div id="" style="display:inline">
-												<a class="blue" href="{:url('admin/Pubone/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list.id])}" style="margin:0px">
-													<i class="icon-zoom-in bigger-130"></i>
-												</a>
-												<a class="red" href="javascript:deleteObjOne({$list.id},'id','{$table}')" style="margin:0px">
-													<i class="icon-trash bigger-130"></i>
-												</a>
+						<div id="scroll_table">
+							<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
+								<thead>
+									<tr style="height:45px">
+										<th class="center" style="width:5%;text-align: center">	选择 </th>
+										<th style="width:5%;text-align: center">排序</th>
+										<th style="width:15%;padding:8px 3px;text-align: center">名称</th>																									
+										<th style="width:38%;padding:8px 3px;text-align: center">释义</th>
+										<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
+										<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
+										<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
+										<th style="width:15%;padding:8px 3px;text-align: center">
+											<i class="icon-time bigger-110 hidden-480"></i>
+											更新时间
+										</th>	
+										<th style="padding:8px 1px;text-align: center">操作</th>														
+									</tr>
+								</thead>
+								<style>
+								 tbody > tr {
+									height:40px;
+								}
+								</style>
+								<tbody id="kbTable">
+									{volist name="lists" id="list"}
+									<tr id="{$table}{$list.id}" style="display: table-row;" data-obj="">
+										<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
+											<label>
+												<input type="checkbox" class="ace" value="{$list.id}" name="{$table}" />
+												<span class="lbl"></span>
+											</label>
+										</td>
+										<td class="center" style="vertical-align:middle;padding:4px 1px;" id="sort{$list.id}">
+											<input type="text" value="{$list.sort}" onblur="updateObj(this,'{$list.sort}','{$table}','sort','{$list.id}','id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+										</td>
+										<td style="vertical-align:middle;padding:4px 1px;" id="name{$list.id}" >
+											<input type="text" value="{$list.name}" onblur="updateObj(this,'{$list.name}','{$table}','name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+										</td>																											
+										<td style="vertical-align:middle;padding:4px 1px;" id="zn_name{$list.id}">
+											<input type="text" value="{$list.zn_name}" onblur="updateObj(this,'{$list.zn_name}','{$table}','zn_name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+										</td>
+										<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked{$list.id}">
+											{eq name="list.checked" value="1"}
+												<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">是</span>
+											{else/}
+												<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">否</span>
+											{/eq}
+										</td>
+										<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sign{$list.id}">
+											{eq name="list.sign" value="1"}
+												<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">是</span>
+											{else/}
+												<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">否</span>
+											{/eq}
+										</td>
+										<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_ok{$list.id}">
+											{eq name="list.is_ok" value="1"}
+												<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">是</span>
+											{else/}
+												<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">否</span>
+											{/eq}
+										</td>
+										<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime{$list.id}">
+											{$list.addtime|date="Y-m-d H:i:s"}
+										</td>
+										<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
+											<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+												<div id="" style="display:inline">
+													<a class="blue" href="{:url('admin/Pubone/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list.id])}" style="margin:0px">
+														<i class="icon-zoom-in bigger-130"></i>
+													</a>
+													<a class="red" href="javascript:deleteObjOne({$list.id},'id','{$table}')" style="margin:0px">
+														<i class="icon-trash bigger-130"></i>
+													</a>
+												</div>
 											</div>
-										</div>
-									</td>
-								</tr>
-								{/volist}
-							</tbody>
-						</table>	
+										</td>
+									</tr>
+									{/volist}
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<div class="space-4"></div>
 					<div style="border:none;">
 						<div>
-							<div style="display:inline;vertical-align: middle;">
+							<div style="float:left;margin-left:15px;">
 								<label>
 									<input type="checkbox" class="ace" id="checkedall" />
 									<span class="lbl" style="font-size: 8px">全选</span>
@@ -132,6 +146,25 @@
 								<a class="red" href="javascript:deleteObjMore('{$table}')" style="text-decoration:none;margin-left: 10px">
 									<i class="icon-trash bigger-130"></i>
 								</a>
+							</div>
+							<div class="page-box page-laypage page-laypage-default" style="float:right;">
+								<span class="page-laypage-limits">
+									<select id="sel_page_codes" onchange="pageFun(this.value,'#sel_text');">
+										<option value="1" >1 条/页</option>
+										<option value="2" >2 条/页</option>
+										<option value="3" >3 条/页</option>
+										<option value="4" >4 条/页</option>
+										<option value="5" selected="">5 条/页</option>
+										<option value="10" >10 条/页</option>
+										<option value="15">15 条/页</option>
+										<option value="20">20 条/页</option>
+										<option value="25">25 条/页</option>
+										<option value="30">30 条/页</option>
+										<option value="40">40 条/页</option>
+									</select>
+								</span>
+								<div style="display:inline-block" id="page_navigation">
+								</div>
 							</div>
 						</div>  
 					</div>
@@ -165,5 +198,200 @@ $("#checkedpart").click(function(){
 		this.checked = !this.checked;
 	});
 });
+</script>
+<input type="hidden" id="current_page" value="1">
+<script>
+$(function(){
+	var show_per_page = $('#sel_page_codes').val(); //每页显示记录数
+	var numbers = $('table tbody tr').length; //总记录数
+	$('#current_page').val(1);//当前页
+	page_load(numbers,show_per_page,$('#page_navigation'),$('table tbody tr'));
+})
+//开始加载  搜索和选择记录数加载分页
+function page_load(nums,per_page,pageobj,tbobj){
+	var pages = Math.ceil(nums/per_page); 
+	var navigation_html = '';
+	if(pages == 1){
+		navigation_html = '<a href="javascript:;" class="page-disabled">上一页</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>1</em></span><a href="javascript:;" class="page-disabled">下一页</a>';
+	}
+	else{
+		navigation_html = '<a href="javascript:;" class="page-disabled">上一页</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>1</em></span>';
+		var current_link = 1;
+		while(pages > current_link){
+			if(current_link == 5 && (pages - current_link > 1)){
+				navigation_html += '<span class="">…</span><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a>';
+				break;
+			} else {
+				navigation_html += '<a href="javascript:go_to_page(' + (current_link + 1) +')" data-page="' + (current_link + 1) +'">'+ (current_link + 1) +'</a>';
+			}
+			current_link++;
+		}
+		navigation_html += '<a href="javascript:next();" >下一页</a>';
+	}
+	pageobj.html(navigation_html);//分页样式
+	tbobj.hide().slice(0, per_page).show();//数据全部隐藏 显示第一页数据
+}
+//搜索
+function searchFun(obj) {
+	var show_per_page = $('#sel_page_codes').val(); //每页显示记录数
+	page_change(obj,show_per_page);
+}
+// 选择每页显示记录数
+function pageFun(per_page,obj){
+	var show_per_page = per_page; //每页显示记录数
+	page_change(obj,show_per_page);
+}
+//搜索 选择记录数改变分页
+function page_change(obj,show_per_page){
+	$('#current_page').val(1);//当前页
+	if($(obj).val() == '' || $.trim($(obj).val()).length == 0){
+		var numbers = $('table tbody tr').length; //总记录数
+		page_load(numbers,show_per_page,$('#page_navigation'),$('table tbody tr'));
+	} else {
+		$("tbody tr").each(function(){
+			$(this).children('td:eq(2)').each(function(){
+				if($(this).find("input").val().indexOf($(obj).val()) >= 0){
+					$(this).find("input").parent().parent().show();
+				}
+				else{
+					$(this).find("input").parent().parent().hide();
+				}
+			})
+		});
+		var numbers = $("#kbTable").find("tr[style='display: table-row;']").length; //总记录数
+		page_load(numbers,show_per_page,$('#page_navigation'),$("#kbTable").find("tr[style='display: table-row;']"));
+	}
+}
+//上一页
+function previous(){
+	new_page = parseInt($('#current_page').val()) - 1;
+	go_to_page(new_page);
+}
+//下一页
+function next(){
+	new_page = parseInt($('#current_page').val()) + 1;
+	go_to_page(new_page);
+}
+//跳转某一页
+function go_to_page(page_num){
+	var show_per_page 	= parseInt($('#sel_page_codes').val());//每页记录数
+	var current_page 	= parseInt($('#current_page').val());//当前页
+	var start_from 		= (page_num -1) * show_per_page;//开始显示位置
+	var end_on 			= start_from + show_per_page;//结束显示位置
+	var numbers			= $('table tbody tr').length;//总记录数
+	var pages 			= Math.ceil(numbers/show_per_page); //分页数
+	var content			= $.trim($('#sel_text').val());
+	if(content == '' || content.length == 0){
+		$('table tbody tr[style="display: table-row;"]').hide();
+		$('table tbody tr[style="display: none;"]').slice(start_from, end_on).show();
+		jump_pages(page_num,pages,current_page);
+	}
+	else{
+		var a = 0;
+		$("tbody tr").each(function(){
+			$(this).children('td:eq(2)').each(function(){
+				if($(this).find("input").val().indexOf($('#sel_text').val()) >= 0){
+					$(this).find("input").parent().parent().show();
+					$(this).find("input").parent().parent().attr('data-obj','1');
+					a += $(this).find("input").parent().parent().length;
+				}
+			});
+		});
+		$("#kbTable").find("tr[data-obj='1']").hide();
+		$("#kbTable").find("tr[data-obj='1']").slice(start_from, end_on).show(); //总记录数
+		jump_pages(page_num,Math.ceil(a/show_per_page),current_page);
+	}
+	$('#current_page').val(page_num);
+}
+//点击上一页 样式是否改变
+function page_prev(state,tableid){
+	if(state == 1){
+		$('#'+tableid+'').children('a:first-child').replaceWith('<a href="javascript:previous();" >上一页</a>');
+	} else {
+		$('#'+tableid+'').children('a:first-child').replaceWith('<a href="javascript:;" class="page-disabled" >上一页</a>');
+	}
+}
+//点击下一页 样式是否改变
+function page_next(state,tableid){
+	if(state == 1){
+		$('#'+tableid+'').children('a:last-child').replaceWith('<a href="javascript:next();" >下一页</a>');
+	} else {
+		$('#'+tableid+'').children('a:last-child').replaceWith('<a href="javascript:;" class="page-disabled" >下一页</a>');
+	}
+}
+//跳转某一页
+function jump_pages(page_num,pages,current_page){
+	//总页数 < 7
+	if(pages < 7){
+		if(page_num == 1){
+			page_prev(0,'page_navigation');
+			page_next(1,'page_navigation');
+		}
+		else if(page_num == pages){
+			page_prev(1,'page_navigation');
+			page_next(0,'page_navigation');
+		}
+		else {
+			page_prev(1,'page_navigation');
+			page_next(1,'page_navigation');
+		}
+		$('.page-laypage-curr').replaceWith('<a href="javascript:go_to_page(' + current_page +')" data-page="' + current_page +'">'+ current_page +'</a>');
+		$('a[data-page=' + page_num +']').replaceWith('<span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span>');
+	}
+	else{
+		//跳到第1页
+		if(page_num == 1){
+			page_change('#sel_text',parseInt($('#sel_page_codes').val()));
+		}
+		else if(page_num <= 3){
+			var navigation_html = '', current_link = 3;
+			if(page_num == 2){
+				navigation_html = '<a href="javascript:previous();" >上一页</a><a href="javascript:go_to_page(1)" data-page="1">1</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>2</em></span>';
+			}
+			else{
+				navigation_html = '<a href="javascript:previous();" >上一页</a><a href="javascript:go_to_page(1)" data-page="1">1</a><a href="javascript:go_to_page(2)" data-page="2">2</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>3</em></span>';
+				current_link++;
+			}
+			while(7 > current_link){
+				if(current_link == 6){
+					navigation_html += '<span class="">…</span><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a>';
+					break;
+				} else {
+					navigation_html += '<a href="javascript:go_to_page(' + current_link +')" data-page="' + current_link  +'">'+ current_link +'</a>';
+				}
+				current_link++;
+			}
+			navigation_html += '<a href="javascript:next();" >下一页</a>';
+			$('#page_navigation').html(navigation_html);
+		}
+		else if(pages >= 7 && page_num > 3){
+			var navigation_html = '';
+			navigation_html = '<a href="javascript:previous();" >上一页</a><a href="javascript:go_to_page(1)" data-page="1">1</a><span class="">…</span>';
+			if((pages - page_num) > 3 ){
+				navigation_html += '<a href="javascript:go_to_page('+(page_num - 1)+')" data-page="'+(page_num - 1)+'">'+(page_num - 1)+'</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span><a href="javascript:go_to_page('+(page_num + 1)+')" data-page="'+(page_num + 1)+'">'+(page_num + 1)+'</a>';
+				navigation_html += '<span class="">…</span><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a><a href="javascript:next();" >下一页</a>';
+			}
+			else{
+				if((pages - page_num) == 3 ){
+					navigation_html += '<a href="javascript:go_to_page('+(page_num - 1)+')" data-page="'+(page_num - 1)+'">'+(page_num - 1)+'</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span><a href="javascript:go_to_page('+(page_num + 1)+')" data-page="'+(page_num + 1)+'">'+(page_num + 1)+'</a>';
+					navigation_html += '<a href="javascript:go_to_page('+(page_num + 2)+')" data-page="'+(page_num + 2)+'">'+(page_num + 2)+'</a><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a><a href="javascript:next();" >下一页</a>';
+				}
+				else if((pages - page_num) == 2 ){
+					navigation_html += '<a href="javascript:go_to_page('+(page_num - 2)+')" data-page="'+(page_num - 2)+'">'+(page_num - 2)+'</a><a href="javascript:go_to_page('+(page_num - 1)+')" data-page="'+(page_num - 1)+'">'+(page_num - 1)+'</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span>';
+					navigation_html += '<a href="javascript:go_to_page('+(page_num + 1)+')" data-page="'+(page_num + 1)+'">'+(page_num + 1)+'</a><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a><a href="javascript:next();" >下一页</a>';
+				}
+				else if((pages - page_num) == 1 ){
+					navigation_html += '<a href="javascript:go_to_page('+(page_num - 3)+')" data-page="'+(page_num - 3)+'">'+(page_num - 3)+'</a><a href="javascript:go_to_page('+(page_num - 2)+')" data-page="'+(page_num - 2)+'">'+(page_num - 2)+'</a><a href="javascript:go_to_page('+(page_num - 1)+')" data-page="'+(page_num - 1)+'">'+(page_num - 1)+'</a>';
+					navigation_html += '<span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span><a href="javascript:go_to_page('+pages+');" title="尾页" data-page="'+pages+'">'+pages+'</a><a href="javascript:next();" >下一页</a>';
+				}
+				else{
+					navigation_html += '<a href="javascript:go_to_page('+(page_num - 4)+')" data-page="'+(page_num - 4)+'">'+(page_num - 4)+'</a><a href="javascript:go_to_page('+(page_num - 3)+')" data-page="'+(page_num - 3)+'">'+(page_num - 3)+'</a><a href="javascript:go_to_page('+(page_num - 2)+')" data-page="'+(page_num - 2)+'">'+(page_num - 2)+'</a>';
+					navigation_html += '<a href="javascript:go_to_page('+(page_num - 1)+')" data-page="'+(page_num - 1)+'">'+(page_num - 1)+'</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>'+page_num+'</em></span><a href="javascript:;" class="page-disabled">下一页</a>';
+				}
+			}
+			$('#page_navigation').html(navigation_html);
+		}
+	}
+}
 </script>
 {/block}
