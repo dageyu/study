@@ -1,4 +1,7 @@
 {extend name="main" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/page.css" />
+{/block}
 {block name="bodyheader"}
 	<ul class="breadcrumb">
 		<li>
@@ -38,6 +41,10 @@
 							<div class="col-sm-6" style="width:100%">
 								<div style="display:inline">
 									<a href="{:url('admin/Pubeight/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
+									<span class="input-icon" style="float:right;">
+										<input type="text" placeholder="Search ..." class="nav-search-input" id="sel_text" onkeyup="searchFun(this)" autocomplete="off" style="border-color:#6fb3e0;border-radius:4px !important">
+										<i class="icon-search" style="color:#6fb3e0"></i>
+									</span>
 								</div>											
 							</div>													
 						</div>
@@ -59,9 +66,14 @@
 									<th style="padding:8px 1px;text-align: center">操作</th>														
 								</tr>
 							</thead>
-							<tbody>
+							<style>
+							tbody > tr {
+								height:40px;
+							}
+							</style>
+							<tbody id="kbTable">
 								{volist name="lists" id="list"}
-								<tr style="height:40px" id="{$table}{$list.id}">
+								<tr id="{$table}{$list.id}" style="display: table-row;" data-obj="">
 									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
 										<label>
 											<input type="checkbox" class="ace" value="{$list.id}" name="{$table}" />
@@ -77,7 +89,7 @@
 									<td style="vertical-align:middle;padding:4px 1px;" id="zn_name{$list.id}">
 										<input type="text" value="{$list.zn_name}" onblur="updateObj(this,'{$list.zn_name}','{$table}','zn_name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
-									<td style="vertical-align:middle;padding:4px 1px;">{$list.type_name}
+									<td style="vertical-align:middle;padding:4px 2px 4px 6px;">{$list.type_name}
 									</td>
 									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked{$list.id}">
 										{eq name="list.checked" value="1"}
@@ -136,6 +148,20 @@
 									<i class="icon-trash bigger-130"></i>
 								</a>
 							</div>
+							<div class="page-box page-laypage page-laypage-default" style="float:right;">
+								<span class="page-laypage-limits">
+									<select id="sel_page_codes" onchange="pageFun(this.value,'#sel_text');">
+										<option value="10">10 条/页</option>
+										<option value="15">15 条/页</option>
+										<option value="20" selected="">20 条/页</option>
+										<option value="25">25 条/页</option>
+										<option value="30">30 条/页</option>
+										<option value="40">40 条/页</option>
+									</select>
+								</span>
+								<div style="display:inline-block" id="page_navigation">
+								</div>
+							</div>
 						</div>  
 					</div>
 				</div>
@@ -144,6 +170,8 @@
 	</div>
 {/block}
 {block name="js"}
+<input type="hidden" id="current_page" value="1">
+<script src="__JS__/page.js"></script>
 <script>
 //全选
 $("#checkedall").click(function(){

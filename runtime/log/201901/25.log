@@ -1,6 +1,6 @@
 ---------------------------------------------------------------
-[ 2019-01-24T21:48:03+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/cleancache.html
-[运行时间：0.040405s] [吞吐率：24.75req/s] [内存消耗：2,237.95kb] [文件加载：58]
+[ 2019-01-25T23:01:20+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/cleancache.html
+[运行时间：0.052402s] [吞吐率：19.08req/s] [内存消耗：2,237.43kb] [文件加载：58]
 [ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
 [ info ] [ ROUTE ] array (
 )
@@ -8,16 +8,14 @@
   'host' => 'localhost',
   'connection' => 'keep-alive',
   'content-length' => '0',
-  'pragma' => 'no-cache',
-  'cache-control' => 'no-cache',
   'accept' => '*/*',
   'origin' => 'http://localhost',
   'x-requested-with' => 'XMLHttpRequest',
   'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
-  'referer' => 'http://localhost/study/public/index.php/admin/Pubone/index.html?navid=tm3&level=3&misparent=0&tbname=study_php_functions',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubone/index.html?navid=tm3&level=3&misparent=0&tbname=php_functions',
   'accept-encoding' => 'gzip, deflate, br',
   'accept-language' => 'zh-CN,zh;q=0.9',
-  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3Ae2e04f98b4939b57f501dd022868e9c5; PHPSESSID=aqbdhcqp6poarg1tptmjp9itv2',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3Ae2e04f98b4939b57f501dd022868e9c5; PHPSESSID=4932haukk4p4q2evnrp2jpmea2',
 )
 [ info ] [ PARAM ] array (
 )

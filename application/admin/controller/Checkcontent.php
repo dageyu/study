@@ -6,6 +6,12 @@ use think\facade\Session;
 use think\facade\Config;
 class Checkcontent extends Controller {
 
+
+    public function php(){
+        $a = '';
+        echo strlen($a);
+    }
+
     public function index(){
         // $result = Db::query("SHOW CREATE TABLE `study_first_module`");
         // return var_dump($result);
