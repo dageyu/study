@@ -70,6 +70,18 @@ function deldir($dir) {
 }
 
 /**
+ * 实现中文字串截取无乱码的方法
+ */
+function getSubstr($string, $start, $length){
+    if (mb_strlen($string, 'utf-8') > $length) {
+        $str = mb_substr($string, $start, $length, 'utf-8');
+        return $str . '...';
+    } else {
+        return $string;
+    }
+}
+
+/**
  * 添加数据
  */
 function tbfields($tbname){
@@ -190,6 +202,10 @@ function tbfields($tbname){
         'others_type'           => array('tbname' => 'others_type' , 'title' => 'name' , 'content' => 'content'),
         'others_questions'      => array('tbname' => 'others_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'others_type', 'onfield' => 'ot_id' , 'linkfield' => 'others_type.name as type_name'),
         'others_uses'           => array('tbname' => 'others_uses' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'others_type', 'onfield' => 'ot_id' , 'linkfield' => 'others_type.name as type_name'),
+        //others=2
+        'book_type'             => array('tbname' => 'book_type' , 'title' => 'name' , 'content' => 'content'),
+        'book_questions'        => array('tbname' => 'book_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
+        'book_knows'            => array('tbname' => 'book_knows' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
     );
     return $arrs[$tbname];
 }

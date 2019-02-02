@@ -8,7 +8,7 @@ $(function(){
 function page_load(nums,per_page,pageobj,tbobj){
 	var pages = Math.ceil(nums/per_page); 
 	var navigation_html = '';
-	if(pages == 1){
+	if(pages <= 1){
 		navigation_html = '<a href="javascript:;" class="page-disabled">上一页</a><span class="page-laypage-curr"><em class="page-laypage-em"></em><em>1</em></span><a href="javascript:;" class="page-disabled">下一页</a>';
 	}
 	else{

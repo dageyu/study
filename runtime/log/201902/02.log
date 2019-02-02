@@ -1,0 +1,554 @@
+---------------------------------------------------------------
+[ 2019-02-02T16:26:41+08:00 ] ::1 POST localhost/study/public/index.php/admin/clean/cleancache.html
+[运行时间：0.101316s] [吞吐率：9.87req/s] [内存消耗：2,241.35kb] [文件加载：58]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=book_knows',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+)
+---------------------------------------------------------------
+[ 2019-02-02T16:26:51+08:00 ] ::1 GET localhost/study/public/index.php/admin/Menu/index.html?navid=fm0&level=1&misparent=0&tbname=0
+[运行时间：0.731071s] [吞吐率：1.37req/s] [内存消耗：6,538.55kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=book_knows',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'fm0',
+  'level' => '1',
+  'misparent' => '0',
+  'tbname' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\menu\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'fm_listfs',
+  7 => 'sm_listss',
+  8 => 'tm_listts',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011428s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001529s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.001114s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001925s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.001522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001366s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.001103s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  `is_delete` = 0 ORDER BY `fm_sort` [ RunTime:0.001071s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  `is_delete` = 0 [ RunTime:0.001096s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  `is_delete` = 0 [ RunTime:0.001393s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:32:50+08:00 ] ::1 GET localhost/study/public/index.php/admin/menu/index
+[运行时间：0.756600s] [吞吐率：1.32req/s] [内存消耗：5,666.13kb] [文件加载：80]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\menu\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'fm_listfs',
+  7 => 'sm_listss',
+  8 => 'tm_listts',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011670s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.044699s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.018839s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.008557s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.002097s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.006658s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.001911s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  `is_delete` = 0 ORDER BY `fm_sort` [ RunTime:0.001399s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  `is_delete` = 0 [ RunTime:0.001805s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  `is_delete` = 0 [ RunTime:0.001450s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:32:59+08:00 ] ::1 GET localhost/study/public/index.php/admin/Pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows
+[运行时间：0.393471s] [吞吐率：2.54req/s] [内存消耗：5,114.27kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/menu/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm78',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_book_knows',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubnine\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011484s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.002420s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.001333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.002055s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.009779s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.002606s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.001455s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_book_knows` [ RunTime:0.006630s ]
+[ sql ] [ SQL ] SELECT study_book_knows.id as id,`sort`,`title`,`checked`,study_book_knows.addtime as addtime,`sign`,`is_ok`,study_book_type.name as type_name FROM `study_book_knows` INNER JOIN `study_book_type` ON `study_book_knows`.`book_id`=`study_book_type`.`id` WHERE  `study_book_knows`.`is_delete` = '0' ORDER BY `sort` ASC,`study_book_knows`.`addtime` DESC [ RunTime:0.010065s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.001256s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.001142s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 23 LIMIT 1 [ RunTime:0.001238s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:33:03+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubnine/update.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows&id=2
+[运行时间：0.380642s] [吞吐率：2.63req/s] [内存消耗：5,132.67kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/Pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm78',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_book_knows',
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubnine\update.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'list',
+  7 => 'tbname',
+  8 => 'modules',
+  9 => 'link_lists',
+  10 => 'link_field',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016253s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.002846s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.001383s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.002972s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.002048s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.003666s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.003204s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.001241s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.001003s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 23 LIMIT 1 [ RunTime:0.000908s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_book_knows` [ RunTime:0.003820s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,book_id as type_id FROM `study_book_knows` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_book_type` [ RunTime:0.003470s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `study_book_type` WHERE  `is_delete` = 0 [ RunTime:0.001311s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:46:19+08:00 ] ::1 GET localhost/study/public/index.php/admin/Pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions
+[运行时间：0.171364s] [吞吐率：5.84req/s] [内存消耗：5,137.61kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubnine/update.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows&id=2',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'tm6',
+  'level' => '3',
+  'misparent' => '0',
+  'tbname' => 'study_php_questions',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubthree\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001550s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001486s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000796s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001452s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000826s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000678s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.003918s ]
+[ sql ] [ SQL ] SELECT `id`,`sort`,`name`,`checked`,`addtime`,`sign`,`is_ok` FROM `study_php_questions` WHERE  `is_delete` = 0 ORDER BY `sort` ASC,`addtime` DESC [ RunTime:0.001167s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT `sm_id`,`tm_name` FROM `study_three_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `sm_id` = 3 LIMIT 1 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 6 LIMIT 1 [ RunTime:0.000497s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:46:24+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubthree/add.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions
+[运行时间：0.161554s] [吞吐率：6.19req/s] [内存消耗：5,078.00kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/Pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'tm6',
+  'level' => '3',
+  'misparent' => '0',
+  'tbname' => 'study_php_questions',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubthree\add.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'list',
+  7 => 'tbname',
+  8 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010693s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001455s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.002162s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001132s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000577s ]
+[ sql ] [ SQL ] SELECT `sm_id`,`tm_name` FROM `study_three_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `sm_id` = 3 LIMIT 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 6 LIMIT 1 [ RunTime:0.000671s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:47:16+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/checkadd.html
+[运行时间：0.070304s] [吞吐率：14.22req/s] [内存消耗：3,678.17kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '200',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/add.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'content' => '使用settype改变变量的类型与类型转换的区别',
+  'field' => 'name',
+  'tbname' => 'php_questions',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010074s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001407s ]
+[ sql ] [ SQL ] SELECT * FROM `study_php_questions` WHERE  `name` = '使用settype改变变量的类型与类型转换的区别' LIMIT 1 [ RunTime:0.000590s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:34+08:00 ] ::1 POST localhost/study/public/index.php/admin/pubthree/add.html
+[运行时间：0.076069s] [吞吐率：13.15req/s] [内存消耗：4,557.82kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '1630',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/add.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'tbname' => 'php_questions',
+  'name' => '使用settype改变变量的类型与类型转换的区别',
+  'content' => '&lt;p&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;区别：类型转换会生成一个拷贝，而保持原来的变量不动。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;使用&lt;span style=&quot;font-weight: bold;&quot;&gt;settype&lt;/span&gt;改变变量的类型：&lt;span style=&quot;font-weight: bold;&quot;&gt;原值变动&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; $a = \'222ststtstt\';&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;settype($a,\'integer\');&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $a;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; //222&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;类型转换：原值不变&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; $a = \'222ststtstt\';&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$b = (integer)$a;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $a;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;//\'222ststtstt\'&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $b;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;//222&lt;br&gt;&lt;/p&gt;',
+  'addtime' => '1549097184',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001478s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001475s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001272s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000789s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001275s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000751s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001135s ]
+[ sql ] [ SQL ] INSERT INTO `study_php_questions` (`name` , `content` , `addtime`) VALUES ('使用settype改变变量的类型与类型转换的区别' , '&lt;p&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;区别：类型转换会生成一个拷贝，而保持原来的变量不动。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;使用&lt;span style=&quot;font-weight: bold;&quot;&gt;settype&lt;/span&gt;改变变量的类型：&lt;span style=&quot;font-weight: bold;&quot;&gt;原值变动&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; $a = \'222ststtstt\';&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;settype($a,\'integer\');&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $a;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; //222&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;类型转换：原值不变&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; $a = \'222ststtstt\';&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$b = (integer)$a;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $a;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;//\'222ststtstt\'&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;echo $b;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;//222&lt;br&gt;&lt;/p&gt;' , 1549097184) [ RunTime:0.007539s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:35+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=php_questions
+[运行时间：0.150634s] [吞吐率：6.64req/s] [内存消耗：4,817.14kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/add.html?navid=tm6&level=3&misparent=0&tbname=study_php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'tm6',
+  'level' => '3',
+  'misparent' => '0',
+  'tbname' => 'php_questions',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubthree\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010719s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001233s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001133s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001146s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001304s ]
+[ sql ] [ SQL ] SELECT `id`,`sort`,`name`,`checked`,`addtime`,`sign`,`is_ok` FROM `study_php_questions` WHERE  `is_delete` = 0 ORDER BY `sort` ASC,`addtime` DESC [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT `sm_id`,`tm_name` FROM `study_three_module` WHERE  `tbname` = 'study_php_questions' LIMIT 1 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `sm_id` = 3 LIMIT 1 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 6 LIMIT 1 [ RunTime:0.000492s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:38+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/updateobjstate.html
+[运行时间：0.063735s] [吞吐率：15.69req/s] [内存消耗：3,638.43kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '99',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'id' => '9',
+  'idfield' => 'id',
+  'stateval' => '0',
+  'statefield' => 'checked',
+  'tbname' => 'php_questions',
+  'ismain' => '0',
+  'appendfield' => '',
+  'appendval' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012977s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001284s ]
+[ sql ] [ SQL ] UPDATE `study_php_questions`  SET `checked` = 1  WHERE  `id` = 9 [ RunTime:0.004599s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:39+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/updateobjstate.html
+[运行时间：0.056017s] [吞吐率：17.85req/s] [内存消耗：3,638.40kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '96',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'id' => '9',
+  'idfield' => 'id',
+  'stateval' => '0',
+  'statefield' => 'sign',
+  'tbname' => 'php_questions',
+  'ismain' => '0',
+  'appendfield' => '',
+  'appendval' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010267s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001523s ]
+[ sql ] [ SQL ] UPDATE `study_php_questions`  SET `sign` = 1  WHERE  `id` = 9 [ RunTime:0.000772s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:40+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/updateobjstate.html
+[运行时间：0.049871s] [吞吐率：20.05req/s] [内存消耗：3,639.28kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '114',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'id' => '9',
+  'idfield' => 'id',
+  'stateval' => '0',
+  'statefield' => 'is_ok',
+  'tbname' => 'php_questions',
+  'ismain' => '1',
+  'appendfield' => 'addtime',
+  'appendval' => '1549097184',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005625s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001357s ]
+[ sql ] [ SQL ] UPDATE `study_php_questions`  SET `is_ok` = 1 , `addtime` = 1549097920  WHERE  `id` = 9 [ RunTime:0.000555s ]
+---------------------------------------------------------------
+[ 2019-02-02T16:58:46+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/updateobjstate.html
+[运行时间：0.053766s] [吞吐率：18.60req/s] [内存消耗：3,638.40kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '96',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubthree/index.html?navid=tm6&level=3&misparent=0&tbname=php_questions',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'auth=ad7f1e6a7e0f6bc94df9b4a373435a85%3A5e3fd2a0301cdd838d6801d4f2086c39; PHPSESSID=dh86av75ikbcdboegemjjo6574',
+)
+[ info ] [ PARAM ] array (
+  'id' => '8',
+  'idfield' => 'id',
+  'stateval' => '0',
+  'statefield' => 'sign',
+  'tbname' => 'php_questions',
+  'ismain' => '0',
+  'appendfield' => '',
+  'appendval' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009172s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_php_questions` [ RunTime:0.001400s ]
+[ sql ] [ SQL ] UPDATE `study_php_questions`  SET `sign` = 1  WHERE  `id` = 8 [ RunTime:0.000590s ]

@@ -1,7 +1,4 @@
 {extend name="main" /}
-{block name="css"}
-<link rel="stylesheet" href="__CSS__/page.css" />
-{/block}
 {block name="bodyheader"}
 	<ul class="breadcrumb">
 		<li>
@@ -40,11 +37,7 @@
 						<div class="row">
 							<div class="col-sm-6" style="width:100%">
 								<div style="display:inline">
-									<a href="{:url('admin/Pubthree/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
-									<span class="input-icon" style="float:right;">
-										<input type="text" placeholder="Search ..." class="nav-search-input" id="sel_text" onkeyup="searchFun(this)" autocomplete="off" style="border-color:#6fb3e0;border-radius:4px !important">
-										<i class="icon-search" style="color:#6fb3e0"></i>
-									</span>
+									<a href="{:url('admin/Pubten/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
 								</div>											
 							</div>													
 						</div>
@@ -52,11 +45,8 @@
 							<thead>
 								<tr style="height:45px">
 									<th class="center" style="width:5%;text-align: center">	选择 </th>
-									<th style="width:5%;text-align: center">排序</th>
-									<th style="width:53%;padding:8px 3px;text-align: center">标题</th>																									
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
+									<th style="width:30%;padding:8px 3px;text-align: center">分类名称</th>																									
+									<th style="width:45%;padding:8px 3px;text-align: center">描述</th>
 									<th style="width:15%;padding:8px 3px;text-align: center">
 										<i class="icon-time bigger-110 hidden-480"></i>
 										更新时间
@@ -64,46 +54,20 @@
 									<th style="padding:8px 1px;text-align: center">操作</th>														
 								</tr>
 							</thead>
-							<style>
-							tbody > tr {
-								height:40px;
-							}
-							</style>
-							<tbody id="kbTable">
+							<tbody>
 								{volist name="lists" id="list"}
-								<tr id="{$table}{$list.id}" style="display: table-row;" data-obj="">
+								<tr style="height:40px" id="{$table}{$list.id}">
 									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
 										<label>
 											<input type="checkbox" class="ace" value="{$list.id}" name="{$table}" />
 											<span class="lbl"></span>
 										</label>
 									</td>
-									<td class="center" style="vertical-align:middle;padding:4px 1px;" id="sort{$list.id}">
-										<input type="text" value="{$list.sort}" onblur="updateObj(this,'{$list.sort}','{$table}','sort','{$list.id}','id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
 									<td style="vertical-align:middle;padding:4px 1px;" id="name{$list.id}">
 										<input type="text" value="{$list.name}" onblur="updateObj(this,'{$list.name}','{$table}','name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>																											
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked{$list.id}">
-										{eq name="list.checked" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.checked},'checked','{$table}',0,'','')">否</span>
-										{/eq}
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sign{$list.id}">
-										{eq name="list.sign" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.sign},'sign','{$table}',0,'','')">否</span>
-										{/eq}
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_ok{$list.id}">
-										{eq name="list.is_ok" value="1"}
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">是</span>
-										{else/}
-											<span style="color:#8089a0;" onclick="updateObjState({$list.id},'id',{$list.is_ok},'is_ok','{$table}',1,'addtime','{$list.addtime|default=0}')">否</span>
-										{/eq}
+									<td style="vertical-align:middle;padding:4px 1px;" id="content{$list.id}">
+										<input type="text" value="{$list.content}" onblur="updateObj(this,'{$list.content}','{$table}','content','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
 									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime{$list.id}">
 										{$list.addtime|date="Y-m-d H:i:s"}
@@ -111,9 +75,6 @@
 									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
 										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 											<div id="" style="display:inline">
-												<a class="blue" href="{:url('admin/Pubthree/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list.id])}" style="margin:0px">
-													<i class="icon-zoom-in bigger-130"></i>
-												</a>
 												<a class="red" href="javascript:deleteObjOne({$list.id},'id','{$table}')" style="margin:0px">
 													<i class="icon-trash bigger-130"></i>
 												</a>
@@ -141,21 +102,6 @@
 									<i class="icon-trash bigger-130"></i>
 								</a>
 							</div>
-							<div class="page-box page-laypage page-laypage-default" style="float:right;">
-								<span class="page-laypage-count">共 {$lists|count} 条</span>
-								<span class="page-laypage-limits">
-									<select id="sel_page_codes" onchange="pageFun(this.value,'#sel_text');">
-										<option value="10">10 条/页</option>
-										<option value="15">15 条/页</option>
-										<option value="20" selected="">20 条/页</option>
-										<option value="25">25 条/页</option>
-										<option value="30">30 条/页</option>
-										<option value="40">40 条/页</option>
-									</select>
-								</span>
-								<div style="display:inline-block" id="page_navigation">
-								</div>
-							</div>
 						</div>  
 					</div>
 				</div>
@@ -164,8 +110,6 @@
 	</div>
 {/block}
 {block name="js"}
-<input type="hidden" id="current_page" value="1">
-<script src="__JS__/page.js"></script>
 <script>
 //全选
 $("#checkedall").click(function(){
