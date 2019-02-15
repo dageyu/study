@@ -1,5 +1,5 @@
 <?php
-echo ini_get('upload_max_filesize');
+echo ini_get('max_execution_time');
 
 
 ?>
