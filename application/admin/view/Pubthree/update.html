@@ -104,6 +104,9 @@
 	})
 </script>
 <script>
+$(function(){
+	$("#name").val($("#name").val().replace(/&lt;/g,"<"));
+})
 	$("#button").click(function (){
 		var name     = $.trim($('#name').val());
 		if(!name){
@@ -137,4 +140,5 @@
 		location.href = "{:url('admin/Pubthree/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname])}";
 	}
 </script>
+
 {/block}

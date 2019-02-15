@@ -97,6 +97,7 @@ function tbfields($tbname){
         'php_wamp'              => array('tbname' => 'php_wamp' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'php_phpstudy'          => array('tbname' => 'php_phpstudy' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'php_lamp'              => array('tbname' => 'php_lamp' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content'),
+        'php_env_others'        => array('tbname' => 'php_env_others' , 'title' => 'title' , 'content' => 'content'),
         'php_frame_type'        => array('tbname' => 'php_frame_type' , 'title' => 'name' , 'content' => 'content'),
         'php_frame_functions'   => array('tbname' => 'php_frame_functions' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'php_frame_type' , 'onfield' => 'pft_id' , 'linkfield' => 'php_frame_type.name as type_name'),
         'php_frame_errors'      => array('tbname' => 'php_frame_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'php_frame_type' , 'onfield' => 'pft_id' , 'linkfield' => 'php_frame_type.name as type_name'),
