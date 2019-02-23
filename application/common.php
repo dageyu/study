@@ -26,6 +26,15 @@ function sendEmail($content, $toemail, $subject){
 }
 
 /**
+ * 生成静态页面：
+ */
+function webHtml($title, $content, $tpl){
+    $smarty = new \smarty\Smartybook();
+    
+    
+}
+
+/**
  * 数字和字母的随机组合：
  */
 function getRandomString($len, $chars=null){

@@ -120,6 +120,9 @@
 												<a class="red" href="javascript:deleteObjOne({$list.id},'id','{$table}')" style="margin:0px">
 													<i class="icon-trash bigger-130"></i>
 												</a>
+												<a class="red" href="javascript:web_html({$list.id},'id','{$table}')" style="margin:0px">
+													<i class="icon-exchange bigger-110"></i>
+												</a>
 											</div>
 										</div>
 									</td>
@@ -193,5 +196,28 @@ $("#checkedpart").click(function(){
 		this.checked = !this.checked;
 	});
 });
+//生成静态页
+function web_html(id , idfield , tbname){
+	$.ajax({
+		url: "{:url('admin/Pubsix/web_html')}",
+		data: {'id':id,'idfield':idfield,'tbname':tbname },
+		datatype: 'json',
+		type: 'POST',
+		async: false,
+		success:function(res){
+			// if(res.status == 1){
+			// 	layer.msg(res.msg,{time:800,icon:1});
+			// } else {
+			// 	layer.msg(res.msg,{icon:2});
+			// }
+			console.log(res);
+			return;
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	})
+}
 </script>
 {/block}

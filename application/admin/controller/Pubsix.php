@@ -87,4 +87,29 @@ class Pubsix extends Base {
         }
     }
 
+    /**
+     * 生成静态页：
+     * @param   string  $tbname    表名
+     * @param   array   $data      数据
+     * @return  array   $res       添加结果
+     */
+    public function web_html(){
+        header("content-type:text/html;charset=utf-8");
+        if($this->request->isPost()){
+            $data = $this->request->param();
+            $tbname = $data['tbname'];
+            $id = $data['id'];
+            $idfield = $data['idfield'];
+            unset($data['tbname']);unset($data['id']);unset($data['idfield']);
+            
+            $res = array('id'=>$id,'tbname'=>$tbname,'idfield'=>$idfield);
+            // if($flag){
+            //     $res = array('status'=>1,'msg'=>'添加成功');
+            // } else {
+            //     $res = array('status'=>0,'msg'=>'添加失败');
+            // }
+            return $res;
+        }
+    }
+
 }
