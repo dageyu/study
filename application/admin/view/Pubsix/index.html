@@ -205,12 +205,11 @@ function web_html(id , idfield , tbname){
 		type: 'POST',
 		async: false,
 		success:function(res){
-			// if(res.status == 1){
-			// 	layer.msg(res.msg,{time:800,icon:1});
-			// } else {
-			// 	layer.msg(res.msg,{icon:2});
-			// }
-			console.log(res);
+			if(res.status == 1){
+				layer.msg(res.msg,{time:800,icon:1});
+			} else {
+				layer.msg(res.msg,{icon:2});
+			}
 			return;
 		},
 		error:function(){

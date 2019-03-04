@@ -1,14 +1,9 @@
 <?php
-// echo phpinfo();
-// echo ini_get('max_execution_time');
-// echo "PHP软件版本:".phpversion();
-// // echo mysql_get_server_info();
-// echo apache_get_version();
-
-var_dump(get_defined_constants());
-
-// echo DIRECTORY_SEPARATOR;
-
-
-
+namespace study;
+const PATH = 'abcd';
+echo namespace\PATH;
+// session_start();
+// echo session_id();
+// var_dump($_COOKIE);//to36s984qutvrri7bu81vnh7p5
+echo __NAMESPACE__;
 ?>

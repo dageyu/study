@@ -101,13 +101,13 @@ class Pubsix extends Base {
             $id = $data['id'];
             $idfield = $data['idfield'];
             unset($data['tbname']);unset($data['id']);unset($data['idfield']);
-            
-            $res = array('id'=>$id,'tbname'=>$tbname,'idfield'=>$idfield);
-            // if($flag){
-            //     $res = array('status'=>1,'msg'=>'添加成功');
-            // } else {
-            //     $res = array('status'=>0,'msg'=>'添加失败');
-            // }
+            $list = Db::name($tbname)->field('id,title,content')->where($idfield,$id)->find();
+            $flag = webHtml($list['title'], $list['content'], 'index', 'plug', $tbname, $id);
+            if($flag == 1){
+                $res = array('status'=>1,'msg'=>'创建成功');
+            } else {
+                $res = array('status'=>0,'msg'=>'创建失败');
+            }
             return $res;
         }
     }
