@@ -1,7 +1,11 @@
 <?php
 
 /**
- * 发送邮件：找回密码
+ * 发送邮件,找回密码:
+ * @param   string  $content    邮件内容
+ * @param   string  $toemail    接受邮件地址
+ * @param   string  $subject    邮件标题
+ * @return  错误信息或1发送成功
  */
 function sendEmail($content, $toemail, $subject){
     $mail = new \phpmailer\PHPMailer();
@@ -27,15 +31,51 @@ function sendEmail($content, $toemail, $subject){
 
 /**
  * 生成静态页面：
+ * @param   string  $title      标题
+ * @param   string  $content    内容
+ * @param   string  $tpl        模板名称(default index)
+ * @param   string  $type       模块名称
+ * @param   string  $tbname     表名
+ * @param   string  $id         主键值
+ * @return  integer $res        1成功，0失败
  */
-function webHtml($title, $content, $tpl){
-    $smarty = new \smarty\Smartybook();
-    
-    
+function webHtml($title, $content, $tpl = 'index', $type, $tbname, $id){
+    include("../public/smarty3/test/setup.php");
+    $smarty = new SmartyBook;
+    mkdirs("../web_html/$type/$tbname");    //创建目录
+    $htmlfile = "../web_html/$type/$tbname/$id.html";   //声明要生成的页面位置及名称
+    $fopen = fopen($htmlfile,"w");  //打开文件并赋予写入权限
+    $smarty->clearAllCache();   //清除页面中缓存
+    $tmpfile = "../public/smarty3/test/templates/index.tpl";  //提取模板
+    $smarty->assign("title",$title);
+    $smarty->assign("content",$content);
+    $contents = $smarty->fetch($tmpfile);   //获取输出的内容
+    if( fwrite($fopen,$contents) > 0 ){
+        $res = 1;
+    }
+    else{
+        $res = 0;
+    }
+    return $res;
 }
 
 /**
+ * 判断文件夹是否存在，不存在则创建：
+ * @param   string  $dir    目录名(路径) 
+ * @param   integer $mode   
+ * @return    
+ */
+function mkdirs($dir, $mode = 0777){
+    if (is_dir($dir) || @mkdir($dir, $mode)) return TRUE;
+    if (!mkdirs(dirname($dir), $mode)) return FALSE;
+    return @mkdir($dir, $mode);
+} 
+
+/**
  * 数字和字母的随机组合：
+ * @param   integer $len    长度
+ * @param   string  $chars  资源(default null)
+ * @return  string  $str    组合字符串           
  */
 function getRandomString($len, $chars=null){
     if (is_null($chars)){
@@ -61,6 +101,8 @@ function format_bytes($size, $delimiter = '') {
 
 /**
  * 清理缓存:清除缓存的所有文件
+ * @param   string  $dir    目录
+ * @return  boolean true    
  */
 function deldir($dir) {     
     $dh = @opendir($dir);
@@ -80,6 +122,10 @@ function deldir($dir) {
 
 /**
  * 实现中文字串截取无乱码的方法
+ * @param   string  $string 要操作的字符串
+ * @param   number  $start  开始位置
+ * @param   integer $length 截取的长度
+ * @return  string  返回中文字符串
  */
 function getSubstr($string, $start, $length){
     if (mb_strlen($string, 'utf-8') > $length) {

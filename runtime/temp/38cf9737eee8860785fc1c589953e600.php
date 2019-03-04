@@ -1,13 +1,14 @@
+<?php /*a:1:{s:59:"D:\wamp64\www\study\application\admin\view\login\index.html";i:1550996522;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<title>登录界面</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="__CSS__/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="__CSS__/font-awesome.min.css" />
-	<link rel="stylesheet" href="__CSS__/ace.min.css" />
-	<link rel="stylesheet" href="__CSS__/ace-rtl.min.css" />
+	<link href="/study/public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/study/public/static/admin/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/study/public/static/admin/css/ace.min.css" />
+	<link rel="stylesheet" href="/study/public/static/admin/css/ace-rtl.min.css" />
 </head>
 <body class="login-layout">
 	<div class="main-container">
@@ -189,8 +190,8 @@
 			</div><!-- /.row -->
 		</div>
 	</div><!-- /.main-container -->
-	<script src="__JS__/jquery-2.0.3.min.js"></script>
-	<script src="__PLUG__/layer/layer.js" ></script>
+	<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
+	<script src="/study/public/static/plug/layer/layer.js" ></script>
 	<script type="text/javascript">
 		//转换网页
 		function show_box(id) {
@@ -246,7 +247,7 @@
 			}
 			else{
 				$.ajax({
-					url: "{:url('admin/login/backPassword')}",
+					url: "<?php echo url('admin/login/backPassword'); ?>",
 					data: {'email':email},
 					datatype: 'json',
 					type: 'POST',
@@ -278,7 +279,7 @@
 			}
 			else{
 				$.ajax({
-					url: "{:url('admin/login/login')}",
+					url: "<?php echo url('admin/login/login'); ?>",
 					data: {'admin_name':admin_name,'admin_password':admin_password,'state':remember_me},
 					datatype: 'json',
 					type: 'POST',
@@ -302,7 +303,7 @@
 		
 		});
 		function jump(){
-			location.href = "{:url('admin/index/index')}";
+			location.href = "<?php echo url('admin/index/index'); ?>";
 		}
 		//用户协议
 		function userAgreement(){
@@ -343,7 +344,7 @@
 			}
 			else{
 				$.ajax({
-					url: "{:url('admin/login/register')}",
+					url: "<?php echo url('admin/login/register'); ?>",
 					data: {'admin_name':admin_name,'admin_password':admin_password,'admin_email':admin_email,'admin_secret':admin_secret},
 					datatype: 'json',
 					type: 'POST',
@@ -368,7 +369,7 @@
 		//验证内容是否重复
 		function repeatObj(obj,objval,field,tbname){
 			$.ajax({
-				url: "{:url('admin/Check/checkAdd')}",
+				url: "<?php echo url('admin/Check/checkAdd'); ?>",
 				data: {'content':objval,'field':field,'tbname':tbname},
 				datatype: 'json',
 				type: 'POST',
