@@ -1,0 +1,673 @@
+---------------------------------------------------------------
+[ 2019-03-06T18:00:59+08:00 ] ::1 GET localhost/study/public/index.php/admin/menu/index
+[运行时间：0.074890s] [吞吐率：13.35req/s] [内存消耗：2,429.66kb] [文件加载：63]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+---------------------------------------------------------------
+[ 2019-03-06T18:00:59+08:00 ] ::1 GET localhost/study/public/index.php/admin/login/index.html
+[运行时间：0.052380s] [吞吐率：19.09req/s] [内存消耗：2,650.74kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\login\index.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2019-03-06T18:01:11+08:00 ] ::1 POST localhost/study/public/index.php/admin/login/login.html
+[运行时间：0.078065s] [吞吐率：12.81req/s] [内存消耗：4,060.45kb] [文件加载：73]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '45',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'cuiyu1478',
+  'admin_password' => 'dageyu115',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002904s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.005487s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` WHERE  `admin_name` = 'cuiyu1478'  AND `admin_password` = '07a0ac3365a4efd51b90556101f08481' LIMIT 1 [ RunTime:0.000800s ]
+[ sql ] [ SQL ] UPDATE `study_admin`  SET `admin_lasttime` = 1551866471 , `admin_lastip` = '::1' , `identifier` = 'ad7f1e6a7e0f6bc94df9b4a373435a85' , `token` = 'ad9ebaaec491a504f30bd5459d97f547' , `timeout` = 1551870071  WHERE  `admin_id` = 2 [ RunTime:0.002273s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:01:12+08:00 ] ::1 GET localhost/study/public/index.php/admin/index/index.html
+[运行时间：0.191931s] [吞吐率：5.21req/s] [内存消耗：5,000.65kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A-1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\index\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'sys_info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011209s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.004134s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.001271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.004934s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.001338s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.003240s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.001298s ]
+[ sql ] [ SQL ] SELECT VERSION() as version [ RunTime:0.001245s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:01:25+08:00 ] ::1 GET localhost/study/public/index.php/admin/Pubzero/index.html?navid=sm53&level=2&misparent=0&tbname=study_software_type
+[运行时间：0.163812s] [吞吐率：6.10req/s] [内存消耗：4,798.08kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm53',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_type',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubzero\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010408s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001655s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001518s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000837s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001291s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.003363s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`content`,`addtime` FROM `study_software_type` WHERE  `is_delete` = 0 ORDER BY `addtime` DESC [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000422s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:01:29+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubzero/add.html?navid=sm53&level=2&misparent=0&tbname=study_software_type
+[运行时间：0.159330s] [吞吐率：6.28req/s] [内存消耗：5,078.03kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/Pubzero/index.html?navid=sm53&level=2&misparent=0&tbname=study_software_type',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm53',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_type',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubzero\add.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'list',
+  7 => 'tbname',
+  8 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011280s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001340s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000614s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001623s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001406s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000686s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000461s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:01:38+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/checkadd.html
+[运行时间：0.049838s] [吞吐率：20.06req/s] [内存消耗：3,682.49kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '45',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubzero/add.html?navid=sm53&level=2&misparent=0&tbname=study_software_type',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'content' => 'Excel',
+  'field' => 'name',
+  'tbname' => 'software_type',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001566s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.001373s ]
+[ sql ] [ SQL ] SELECT * FROM `study_software_type` WHERE  `name` = 'Excel' LIMIT 1 [ RunTime:0.000585s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:11:22+08:00 ] ::1 POST localhost/study/public/index.php/admin/pubzero/add.html
+[运行时间：0.073962s] [吞吐率：13.52req/s] [内存消耗：4,553.30kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '767',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubzero/add.html?navid=sm53&level=2&misparent=0&tbname=study_software_type',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'tbname' => 'software_type',
+  'name' => 'Excel',
+  'content' => 'Microsoft Excel是Microsoft为使用Windows和Apple Macintosh操作系统的电脑编写的一款电子表格软件。直观的界面、出色的计算功能和图表工具，再加上成功的市场营销，使Excel成为最流行的个人计算机数据处理软件。',
+  'addtime' => '1551866489',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001872s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001706s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001527s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001493s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.001350s ]
+[ sql ] [ SQL ] INSERT INTO `study_software_type` (`name` , `content` , `addtime`) VALUES ('Excel' , 'Microsoft Excel是Microsoft为使用Windows和Apple Macintosh操作系统的电脑编写的一款电子表格软件。直观的界面、出色的计算功能和图表工具，再加上成功的市场营销，使Excel成为最流行的个人计算机数据处理软件。' , 1551866489) [ RunTime:0.000556s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:11:24+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubzero/index.html?navid=sm53&level=2&misparent=0&tbname=software_type
+[运行时间：0.165330s] [吞吐率：6.05req/s] [内存消耗：4,803.23kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubzero/add.html?navid=sm53&level=2&misparent=0&tbname=study_software_type',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm53',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'software_type',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubzero\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011281s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.009309s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.001146s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001351s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001371s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.001364s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`content`,`addtime` FROM `study_software_type` WHERE  `is_delete` = 0 ORDER BY `addtime` DESC [ RunTime:0.000698s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_type' LIMIT 1 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000462s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:12:02+08:00 ] ::1 GET localhost/study/public/index.php/admin/Pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=study_software_act
+[运行时间：0.164982s] [吞吐率：6.06req/s] [内存消耗：4,829.86kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubzero/index.html?navid=sm53&level=2&misparent=0&tbname=software_type',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm54',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubsix\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002423s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001393s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000722s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001349s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000791s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001392s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000826s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.003208s ]
+[ sql ] [ SQL ] SELECT study_software_act.id as id,`sort`,`title`,`checked`,study_software_act.addtime as addtime,`sign`,`is_ok`,study_software_type.name as type_name FROM `study_software_act` INNER JOIN `study_software_type` ON `study_software_act`.`st_id`=`study_software_type`.`id` WHERE  `study_software_act`.`is_delete` = '0' ORDER BY `sort` ASC,`study_software_act`.`addtime` DESC [ RunTime:0.001990s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000450s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:12:04+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act
+[运行时间：0.162565s] [吞吐率：6.15req/s] [内存消耗：4,820.70kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/Pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm54',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubsix\add.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'list',
+  7 => 'tbname',
+  8 => 'modules',
+  9 => 'link_lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010692s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001609s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000829s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001414s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001300s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.001573s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `study_software_type` WHERE  `is_delete` = 0 [ RunTime:0.000518s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:12:29+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/checkadd.html
+[运行时间：0.066704s] [吞吐率：14.99req/s] [内存消耗：3,687.09kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '45',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'content' => 'excel',
+  'field' => 'title',
+  'tbname' => 'software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001520s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.002114s ]
+[ sql ] [ SQL ] SELECT * FROM `study_software_act` WHERE  `title` = 'excel' LIMIT 1 [ RunTime:0.000690s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:13:01+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/checkadd.html
+[运行时间：0.056017s] [吞吐率：17.85req/s] [内存消耗：3,687.28kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '81',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'content' => 'Excel当前日期',
+  'field' => 'title',
+  'tbname' => 'software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010225s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.001666s ]
+[ sql ] [ SQL ] SELECT * FROM `study_software_act` WHERE  `title` = 'Excel当前日期' LIMIT 1 [ RunTime:0.000681s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:20:30+08:00 ] ::1 POST localhost/study/public/index.php/admin/pubsix/add.html
+[运行时间：0.099854s] [吞吐率：10.01req/s] [内存消耗：4,590.52kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '1363',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'tbname' => 'software_act',
+  'title' => 'Excel当前日期',
+  'st_id' => '4',
+  'content' => '&lt;p&gt;获取当前时间：&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; Ctrl + ; 或=today()&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2019/3/6&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; Ctrl + Shift + ;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;18:16&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; 先Ctrl + ; 后一个空格Ctrl + Shift + ;&amp;nbsp; 或=now()&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2019/3/6 18:16&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;',
+  'addtime' => '1551867124',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011630s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.013248s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000805s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001518s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.006982s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.001456s ]
+[ sql ] [ SQL ] INSERT INTO `study_software_act` (`title` , `st_id` , `content` , `addtime`) VALUES ('Excel当前日期' , 4 , '&lt;p&gt;获取当前时间：&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; Ctrl + ; 或=today()&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2019/3/6&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; Ctrl + Shift + ;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;18:16&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; 先Ctrl + ; 后一个空格Ctrl + Shift + ;&amp;nbsp; 或=now()&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2019/3/6 18:16&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;' , 1551867124) [ RunTime:0.000571s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:20:31+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=software_act
+[运行时间：0.166579s] [吞吐率：6.00req/s] [内存消耗：4,834.35kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm54',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubsix\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010020s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001428s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000737s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001375s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001776s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000795s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.001357s ]
+[ sql ] [ SQL ] SELECT study_software_act.id as id,`sort`,`title`,`checked`,study_software_act.addtime as addtime,`sign`,`is_ok`,study_software_type.name as type_name FROM `study_software_act` INNER JOIN `study_software_type` ON `study_software_act`.`st_id`=`study_software_type`.`id` WHERE  `study_software_act`.`is_delete` = '0' ORDER BY `sort` ASC,`study_software_act`.`addtime` DESC [ RunTime:0.001136s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000534s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:20:44+08:00 ] ::1 GET localhost/study/public/index.php/admin/Pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=study_software_act
+[运行时间：0.158672s] [吞吐率：6.30req/s] [内存消耗：4,834.30kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm54',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubsix\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010766s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001503s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001412s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001304s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.001383s ]
+[ sql ] [ SQL ] SELECT study_software_act.id as id,`sort`,`title`,`checked`,study_software_act.addtime as addtime,`sign`,`is_ok`,study_software_type.name as type_name FROM `study_software_act` INNER JOIN `study_software_type` ON `study_software_act`.`st_id`=`study_software_type`.`id` WHERE  `study_software_act`.`is_delete` = '0' ORDER BY `sort` ASC,`study_software_act`.`addtime` DESC [ RunTime:0.001101s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000814s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000532s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:20:52+08:00 ] ::1 GET localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act
+[运行时间：0.155240s] [吞吐率：6.44req/s] [内存消耗：4,820.70kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/study/public/index.php/admin/Pubsix/index.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D; PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm54',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubsix\add.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'list',
+  7 => 'tbname',
+  8 => 'modules',
+  9 => 'link_lists',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011093s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001624s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000755s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001426s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001251s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_software_act' LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 13 LIMIT 1 [ RunTime:0.000667s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_type` [ RunTime:0.001267s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `study_software_type` WHERE  `is_delete` = 0 [ RunTime:0.000606s ]
+---------------------------------------------------------------
+[ 2019-03-06T18:21:09+08:00 ] ::1 POST localhost/study/public/index.php/admin/check/checkadd.html
+[运行时间：0.056987s] [吞吐率：17.55req/s] [内存消耗：3,687.28kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '81',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/study/public/index.php/admin/pubsix/add.html?navid=sm54&level=2&misparent=0&tbname=study_software_act',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=1acum151das16m4uij0pgmi1u6',
+)
+[ info ] [ PARAM ] array (
+  'content' => 'Excel函数解析',
+  'field' => 'title',
+  'tbname' => 'software_act',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011214s ] mysql:host=127.0.0.1;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_software_act` [ RunTime:0.001709s ]
+[ sql ] [ SQL ] SELECT * FROM `study_software_act` WHERE  `title` = 'Excel函数解析' LIMIT 1 [ RunTime:0.000686s ]
