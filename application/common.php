@@ -262,6 +262,8 @@ function tbfields($tbname){
         'book_type'             => array('tbname' => 'book_type' , 'title' => 'name' , 'content' => 'content'),
         'book_questions'        => array('tbname' => 'book_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
         'book_knows'            => array('tbname' => 'book_knows' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
+        'objects'               => array('tbname' => 'objects' , 'title' => 'title' , 'content' => 'content'),
+        'php_iis'               => array('tbname' => 'php_iis' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content'),
     );
     return $arrs[$tbname];
 }
