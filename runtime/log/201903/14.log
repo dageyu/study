@@ -1,0 +1,67 @@
+---------------------------------------------------------------
+[ 2019-03-14T17:51:32+08:00 ] ::1 POST localhost:8080/study/public/index.php/admin/clean/cleancache.html
+[运行时间：0.044710s] [吞吐率：22.37req/s] [内存消耗：2,262.11kb] [文件加载：58]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost:8080',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/pubseven/index.html?navid=sm12&level=2&misparent=0&tbname=save_specials',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'Hm_lvt_17f68330bb55b1d926acfb56a5a1d448=1552378687; UM_distinctid=16970faed515ef-07b73cd6d6bc95-b78173e-1fa400-16970faed52a0d; CNZZDATA1273161225=428155383-1552378684-null%7C1552378684; CNZZDATA1273717155=1614498467-1552378684-null%7C1552378684; PHPSESSID=4v0ptfqkc89q7pfglcicdgnj26',
+)
+[ info ] [ PARAM ] array (
+)
+---------------------------------------------------------------
+[ 2019-03-14T17:51:34+08:00 ] ::1 POST localhost:8080/study/public/index.php/admin/logout/logout.html
+[运行时间：0.076970s] [吞吐率：12.99req/s] [内存消耗：4,032.92kb] [文件加载：73]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost:8080',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/pubseven/index.html?navid=sm12&level=2&misparent=0&tbname=save_specials',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'Hm_lvt_17f68330bb55b1d926acfb56a5a1d448=1552378687; UM_distinctid=16970faed515ef-07b73cd6d6bc95-b78173e-1fa400-16970faed52a0d; CNZZDATA1273161225=428155383-1552378684-null%7C1552378684; CNZZDATA1273717155=1614498467-1552378684-null%7C1552378684; PHPSESSID=4v0ptfqkc89q7pfglcicdgnj26',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010911s ] mysql:host=localhost;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.001759s ]
+[ sql ] [ SQL ] UPDATE `study_admin`  SET `admin_time` = 1552481289 , `admin_ip` = '::1'  WHERE  `admin_id` = 2 [ RunTime:0.000699s ]
+---------------------------------------------------------------
+[ 2019-03-14T17:51:35+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/login/index.html
+[运行时间：0.053537s] [吞吐率：18.68req/s] [内存消耗：2,663.35kb] [文件加载：65]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/pubseven/index.html?navid=sm12&level=2&misparent=0&tbname=save_specials',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'Hm_lvt_17f68330bb55b1d926acfb56a5a1d448=1552378687; UM_distinctid=16970faed515ef-07b73cd6d6bc95-b78173e-1fa400-16970faed52a0d; CNZZDATA1273161225=428155383-1552378684-null%7C1552378684; CNZZDATA1273717155=1614498467-1552378684-null%7C1552378684; PHPSESSID=4v0ptfqkc89q7pfglcicdgnj26',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\login\index.html [ array (
+) ]

@@ -1,0 +1,24 @@
+﻿电脑网站支付 Pagepay.php
+调用 \alipay\Pagepay::pay($params) 即可
+
+手机网站支付 Wappay.php
+调用 \alipay\Wappay::pay($params) 即可
+
+交易查询接口 Query.php
+调用 \alipay\Query::exec($query_no) 即可
+
+交易退款接口 Refund.php
+调用 \alipay\Refund::exec($params) 即可
+
+退款统一订单查询 RefundQuery.php
+调用 \alipay\RefundQuery::exec($params) 即可
+
+交易关闭接口 Close.php
+调用 \alipay\Close::exec($query_no) 即可
+
+查询账单下载地址接口 Datadownload.php
+调用 \alipay\Datadownload::exec($bill_type, $bill_date) 即可
+
+验签 Notify.php
+调用 \alipay\Notify::checkSign($params) 即可
+

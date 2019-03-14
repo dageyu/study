@@ -141,7 +141,7 @@ function getSubstr($string, $start, $length){
  */
 function tbfields($tbname){
     $arrs = array(
-        //php=15
+        //26
         'php_functions'         => array('tbname' => 'php_functions' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'php_errors'            => array('tbname' => 'php_errors' , 'title' => 'title' , 'content' => 'content'),
         'php_uses'              => array('tbname' => 'php_uses' , 'title' => 'title' , 'content' => 'content'),
@@ -160,7 +160,6 @@ function tbfields($tbname){
         'php_frame_extends'     => array('tbname' => 'php_frame_extends' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'php_frame_type' , 'onfield' => 'pft_id' , 'linkfield' => 'php_frame_type.name as type_name'),
         'php_frame_others'      => array('tbname' => 'php_frame_others' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'php_frame_type' , 'onfield' => 'pft_id' , 'linkfield' => 'php_frame_type.name as type_name'),
         'php_frame_uses'        => array('tbname' => 'php_frame_uses' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'php_frame_type' , 'onfield' => 'pft_id' , 'linkfield' => 'php_frame_type.name as type_name'),
-        //develop=3
         'php_develop_type'      => array('tbname' => 'php_develop_type' , 'title' => 'name' , 'content' => 'content'),
         'php_develop_plug'      => array('tbname' => 'php_develop_plug' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'php_develop_type' , 'onfield' => 'pdt_id' , 'linkfield' => 'php_develop_type.name as type_name'),
         'php_develop_questions' => array('tbname' => 'php_develop_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'php_develop_type' , 'onfield' => 'pdt_id' , 'linkfield' => 'php_develop_type.name as type_name'),
@@ -169,7 +168,7 @@ function tbfields($tbname){
         'php_develop_configs'   => array('tbname' => 'php_develop_configs' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'php_develop_type' , 'onfield' => 'pdt_id' , 'linkfield' => 'php_develop_type.name as type_name'),
         'php_develop_errors'    => array('tbname' => 'php_develop_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'php_develop_type' , 'onfield' => 'pdt_id' , 'linkfield' => 'php_develop_type.name as type_name'),
         'php_develop_others'    => array('tbname' => 'php_develop_others' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'php_develop_type' , 'onfield' => 'pdt_id' , 'linkfield' => 'php_develop_type.name as type_name'),
-        //save=11
+        //12
         'save_type'             => array('tbname' => 'save_type' , 'title' => 'name' , 'content' => 'content'),
         'save_functions'        => array('tbname' => 'save_functions' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'save_type' , 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
         'save_actions'          => array('tbname' => 'save_actions' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
@@ -182,7 +181,7 @@ function tbfields($tbname){
         'save_specials'         => array('tbname' => 'save_specials' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
         'save_specials_act'     => array('tbname' => 'save_specials_act' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
         'save_uses'             => array('tbname' => 'save_uses' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
-        //js=16
+        //
         'js_nouns'              => array('tbname' => 'js_nouns' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'js_operators'          => array('tbname' => 'js_operators' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'js_actions'            => array('tbname' => 'js_actions' , 'title' => 'name' , 'content' => 'content'),
@@ -201,7 +200,7 @@ function tbfields($tbname){
         'js_plug_act'           => array('tbname' => 'js_plug_act' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'js_plug_type' , 'onfield' => 'jpt_id' , 'linkfield' => 'js_plug_type.name as type_name'),
         'js_plug_others'        => array('tbname' => 'js_plug_others' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'js_plug_type', 'onfield' => 'jpt_id' , 'linkfield' => 'js_plug_type.name as type_name'),
         'js_frame_functions'    => array('tbname' => 'js_frame_functions' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'js_frame_type' , 'onfield' => 'jft_id' , 'linkfield' => 'js_frame_type.name as type_name'),
-        //h5=12
+        //
         'htmlf_tags'            => array('tbname' => 'htmlf_tags' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'htmlf_attrs'           => array('tbname' => 'htmlf_attrs' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'htmlf_questions'       => array('tbname' => 'htmlf_questions' , 'title' => 'title' , 'content' => 'content'),
@@ -215,7 +214,7 @@ function tbfields($tbname){
         'htmlf_plug_errors'     => array('tbname' => 'htmlf_plug_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'htmlf_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'htmlf_plug_type.name as type_name'),
         'htmlf_plug_others'     => array('tbname' => 'htmlf_plug_others' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'htmlf_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'htmlf_plug_type.name as type_name'),
         'htmlf_plug_theory'     => array('tbname' => 'htmlf_plug_theory' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'htmlf_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'htmlf_plug_type.name as type_name'),
-        //css3=12
+        //
         'csst_type'             => array('tbname' => 'csst_type' , 'title' => 'name' , 'content' => 'content'),
         'csst_act'              => array('tbname' => 'csst_act' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'csst_type', 'onfield' => 'ct_id' , 'linkfield' => 'csst_type.name as type_name'),
         'csst_questions'        => array('tbname' => 'csst_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'csst_type', 'onfield' => 'ct_id' , 'linkfield' => 'csst_type.name as type_name'),
@@ -228,14 +227,14 @@ function tbfields($tbname){
         'csst_plug_specials'    => array('tbname' => 'csst_plug_specials' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'csst_plug_type', 'onfield' => 'cpt_id' , 'linkfield' => 'csst_plug_type.name as type_name'),
         'csst_plug_errors'      => array('tbname' => 'csst_plug_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'csst_plug_type', 'onfield' => 'cpt_id' , 'linkfield' => 'csst_plug_type.name as type_name'),
         'csst_plug_others'      => array('tbname' => 'csst_plug_others' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'csst_plug_type', 'onfield' => 'cpt_id' , 'linkfield' => 'csst_plug_type.name as type_name'),
-        //software=6
+        //
         'software_type'         => array('tbname' => 'software_type' , 'title' => 'name' , 'content' => 'content'),
         'software_act'          => array('tbname' => 'software_act' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'software_type', 'onfield' => 'st_id' , 'linkfield' => 'software_type.name as type_name'),
         'software_extends'      => array('tbname' => 'software_extends' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'software_type', 'onfield' => 'st_id' , 'linkfield' => 'software_type.name as type_name'),
         'software_specials'     => array('tbname' => 'software_specials' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'software_type', 'onfield' => 'st_id' , 'linkfield' => 'software_type.name as type_name'),
         'software_errors'       => array('tbname' => 'software_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'software_type', 'onfield' => 'st_id' , 'linkfield' => 'software_type.name as type_name'),
         'software_others'       => array('tbname' => 'software_others' , 'title' => 'title' , 'content' => 'content'),
-        //system=10
+        //
         'system_type'           => array('tbname' => 'system_type' , 'title' => 'name' , 'content' => 'content'),
         'system_nouns'          => array('tbname' => 'system_nouns' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'system_type', 'onfield' => 'syt_id' , 'linkfield' => 'system_type.name as type_name'),
         'system_operators'      => array('tbname' => 'system_operators' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content' , 'linktb' => 'system_type', 'onfield' => 'syt_id' , 'linkfield' => 'system_type.name as type_name'),
@@ -246,7 +245,7 @@ function tbfields($tbname){
         'system_others'         => array('tbname' => 'system_others' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'system_type', 'onfield' => 'syt_id' , 'linkfield' => 'system_type.name as type_name'),
         'system_specials'       => array('tbname' => 'system_specials' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'system_type', 'onfield' => 'syt_id' , 'linkfield' => 'system_type.name as type_name'),
         'system_specials_act'   => array('tbname' => 'system_specials_act' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'system_type', 'onfield' => 'syt_id' , 'linkfield' => 'system_type.name as type_name'),
-        //plug=7
+        //
         'plug_type'             => array('tbname' => 'plug_type' , 'title' => 'name' , 'content' => 'content'),
         'plug_act'              => array('tbname' => 'plug_act' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'plug_type', 'onfield' => 'pt_id' , 'linkfield' => 'plug_type.name as type_name'),
         'plug_errors'           => array('tbname' => 'plug_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'plug_type', 'onfield' => 'pt_id' , 'linkfield' => 'plug_type.name as type_name'),
@@ -254,16 +253,29 @@ function tbfields($tbname){
         'plug_extends'          => array('tbname' => 'plug_extends' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'plug_type', 'onfield' => 'pt_id' , 'linkfield' => 'plug_type.name as type_name'),
         'plug_others'           => array('tbname' => 'plug_others' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'plug_type', 'onfield' => 'pt_id' , 'linkfield' => 'plug_type.name as type_name'),
         'plug_specials_act'     => array('tbname' => 'plug_specials_act' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'plug_type', 'onfield' => 'pt_id' , 'linkfield' => 'plug_type.name as type_name'),
-        //others=2
+        //
         'others_type'           => array('tbname' => 'others_type' , 'title' => 'name' , 'content' => 'content'),
         'others_questions'      => array('tbname' => 'others_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'others_type', 'onfield' => 'ot_id' , 'linkfield' => 'others_type.name as type_name'),
         'others_uses'           => array('tbname' => 'others_uses' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'others_type', 'onfield' => 'ot_id' , 'linkfield' => 'others_type.name as type_name'),
-        //others=2
+        //
         'book_type'             => array('tbname' => 'book_type' , 'title' => 'name' , 'content' => 'content'),
         'book_questions'        => array('tbname' => 'book_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
         'book_knows'            => array('tbname' => 'book_knows' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'book_type', 'onfield' => 'book_id' , 'linkfield' => 'book_type.name as type_name'),
         'objects'               => array('tbname' => 'objects' , 'title' => 'title' , 'content' => 'content'),
         'php_iis'               => array('tbname' => 'php_iis' , 'title' => 'title' , 'ztitle' => 'zn_name' , 'content' => 'content'),
+        'cjh_tags'              => array('tbname' => 'cjh_tags' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
+        'cjh_attrs'             => array('tbname' => 'cjh_attrs' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
+        'cjh_questions'         => array('tbname' => 'cjh_questions' , 'title' => 'title' , 'content' => 'content'),
+        'cjh_specials'          => array('tbname' => 'cjh_specials' , 'title' => 'title' , 'content' => 'content'),
+        'cjh_errors'            => array('tbname' => 'cjh_errors' , 'title' => 'title' , 'content' => 'content'),
+        'cjh_others'            => array('tbname' => 'cjh_others' , 'title' => 'title' , 'content' => 'content'),
+        'cjh_plug_type'         => array('tbname' => 'cjh_plug_type' , 'title' => 'name' , 'content' => 'content'),
+        'cjh_plug_act'          => array('tbname' => 'cjh_plug_act' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+        'cjh_plug_questions'    => array('tbname' => 'cjh_plug_questions' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+        'cjh_plug_specials'     => array('tbname' => 'cjh_plug_specials' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+        'cjh_plug_errors'       => array('tbname' => 'cjh_plug_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+        'cjh_plug_others'       => array('tbname' => 'cjh_plug_others' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+        'cjh_plug_theory'       => array('tbname' => 'cjh_plug_theory' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
     );
     return $arrs[$tbname];
 }
