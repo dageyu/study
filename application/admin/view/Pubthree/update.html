@@ -83,7 +83,7 @@
 		var editor 		= new E('#editor');
 		var content	 	= $('#content');
 		editor.customConfig.debug = true;
-		editor.customConfig.uploadImgMaxSize = 2 * 1024 * 1024;
+		editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
 		editor.customConfig.uploadFileName = 'sendImg';
 		editor.customConfig.uploadImgServer = "{:url('admin/Check/checkImg',['tbname'=>$tbname])}";
 		editor.customConfig.uploadImgHooks = {
