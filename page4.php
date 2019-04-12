@@ -1,6 +1,7 @@
 <?php
 header('Content-type:text/html;charset=utf8');
-$str = 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhThe shareholders of ABC Co want the company to maximize its profits, in order that they may be rewarded with high dividends payouts. The directors of ABC Co are keen that wages are kept to a minimum to preserve profitability, so they have kept wages rises below inflation over the past few years. Production workers at ABC Co are paid a fixed amount per unit produced and are demanding a substantial pay rise to restore their standard of living to levels that they enjoyed a few years ago. To further justify their demands, they also argue that the high quality of the product and the increased complexity of the packaging design demanded by customers requires them to work more slowly. Local environmental campaigners have recently written to the company, requesting that it reduces the amount and complexity of the product packaging to improve the company’s environment footprint. Is each of the following stakeholders groups in';
-echo strlen($str);
+// $str = 1.566666;
+// echo $str;
+echo time();
 
 ?>

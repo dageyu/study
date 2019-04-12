@@ -196,5 +196,13 @@ $("#checkedpart").click(function(){
 		this.checked = !this.checked;
 	});
 });
+//<<<显示
+$(function(){
+	$("tbody tr").each(function(){
+		$(this).children('td:eq(2)').each(function(){
+			$(this).find("input").val($(this).find("input").val().replace(/&lt;/g,"<"));
+		})
+	});
+})
 </script>
 {/block}
