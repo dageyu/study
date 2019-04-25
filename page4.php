@@ -1,19 +1,19 @@
 <?php
 header('Content-type:text/html;charset=utf8');
-$serialized_object='O:1:"a":1:{s:5:"value";s:3:"100";}';
+// echo apache_get_version();
+// echo '<br/>';
+// echo zend_version();
+// echo '<br/>';
+// echo 10%-3;
+echo ini_get('cgi.force_redirect');
+// ini_set('enable_post_data_reading','off');
 
-ini_set('unserialize_callback_func','mycallback');
+// print_r(ini_get_all());
+// echo count(ini_get_all());
+// $a = 10;
+// $b = 3;
+// echo $a / $b;
 
-function mycallback($classname) {
-    echo 1;
-}
-
-function func2() 
-{
-    echo 2;
-}
-
-spl_autoload_register('func2');
-unserialize($serialized_object);
-
+// echo PHP_OS;
+// echo sys_get_temp_dir();
 ?>
