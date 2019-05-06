@@ -276,6 +276,9 @@ function tbfields($tbname){
         'cjh_plug_errors'       => array('tbname' => 'cjh_plug_errors' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
         'cjh_plug_others'       => array('tbname' => 'cjh_plug_others' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
         'cjh_plug_theory'       => array('tbname' => 'cjh_plug_theory' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'cjh_plug_type', 'onfield' => 'hpt_id' , 'linkfield' => 'cjh_plug_type.name as type_name'),
+    
+        'live_knowledge'        => array('tbname' => 'live_knowledge' , 'title' => 'title' , 'content' => 'content'),
+        'live_questipns'        => array('tbname' => 'live_questipns' , 'title' => 'title' , 'content' => 'content'),
     );
     return $arrs[$tbname];
 }
