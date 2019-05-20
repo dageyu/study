@@ -398,5 +398,64 @@ class Tools extends Base {
         }
         return $res;
     }
+
+    /**
+     * 导入Excel文件示例页
+     */
+    public function importData(){
+        return $this->fetch();
+    }
+
+    /**
+	 * 导入文件
+     * @param  integer $tbname 表名
+     * @return array   $fileName 文件名
+	 */
+	public function uploadFile(){
+        header("Content-type:text/html;charset=utf-8");
+        $fileName = $this->request->param('file');
+        if(!file_exists($fileName)){
+            return "文件不存在";
+        }
+        //引入PHPExcel
+        require_once '../extend/PHPExcel.php';
+        require_once '../extend/PHPExcel/IOFactory.php';
+        // //载入当前文件
+        $phpExcel = \PHPExcel_IOFactory::load($fileName);
+        //获取表格数量
+        //$sheetCount = $phpExcel->getSheetCount();
+        //设置为默认表，获取表中的第一个工作表，如果要获取第二个，把0改为1，依次类推
+        $phpExcel->setActiveSheetIndex(0);
+        //获取行数
+        $row = $phpExcel->getActiveSheet()->getHighestRow();
+        //获取列数
+        //$column = $phpExcel->getActiveSheet()->getHighestColumn();
+        // return "表格的数目为：$sheetCount"."表格的行数：$row"."列数：$column";
+        //行数循环
+        $str    = '';
+        $data   = [];
+        $count  = 0;
+        for($i = 1; $i <= $row; $i++){
+            //列数不能循环，只能指定
+            $data['book_id']    = $phpExcel->getActiveSheet()->getCell('A'.$i)->getValue();//返回每一个单元格的值
+            $data['sort']       = $phpExcel->getActiveSheet()->getCell('B'.$i)->getValue();//返回每一个单元格的值
+            $data['title']      = $phpExcel->getActiveSheet()->getCell('C'.$i)->getValue();//返回每一个单元格的值
+            $data['content']    = $phpExcel->getActiveSheet()->getCell('D'.$i)->getValue();//返回每一个单元格的值
+            $data['checked']    = $phpExcel->getActiveSheet()->getCell('E'.$i)->getValue();//返回每一个单元格的值
+            $data['addtime']    = $phpExcel->getActiveSheet()->getCell('F'.$i)->getValue();//返回每一个单元格的值
+            $data['sign']       = $phpExcel->getActiveSheet()->getCell('G'.$i)->getValue();//返回每一个单元格的值
+            $data['is_ok']      = $phpExcel->getActiveSheet()->getCell('H'.$i)->getValue();//返回每一个单元格的值
+            $data['is_delete']  = $phpExcel->getActiveSheet()->getCell('I'.$i)->getValue();//返回每一个单元格的值
+            $count += Db::table('study_book_knows')->insert($data);
+        }
+        if($count){
+            $res = array('status' => 1 , 'msg' => "您往表中成功导入了$count"."条记录！");
+        }
+        else{
+            $res = array('status' => 0 , 'msg' => '导入失败');
+        }
+        return $res;
+    }
+
     
 }

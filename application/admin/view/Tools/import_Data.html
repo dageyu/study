@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<title>数据导入</title> 
+	<script src="__JS__/jquery-2.0.3.min.js"></script>
+	<script src="__PLUG__/layer/layer.js" ></script>
+	<style>
+		body{
+			padding:10px; font-size:14px; background:#fff; width:95%; margin:0 auto; font-size:14px; line-height:20px; overflow:hidden;}
+			#file{margin: 0 10px 10px 15px;height: 30px; width: 300px;padding: 0}
+		button{height: 35px;padding: 0 18px;background-color: #009688;color: #fff;font-size: 14px;border-radius: 2px;border:none}
+		p{margin-left:15px}
+	</style> 
+</head> 
+<body> 
+<p>请选择要导入的文件：</p>
+	<input type="text" value="" id="file" placeholder="请输入文件的绝对路径"/>
+	<button id="button">确定</button> 
+<script>
+$("#button").click(function(){
+	var file = $('#file').val();
+	$.ajax({
+		url:"{:url('admin/Tools/uploadFile')}",
+		data:{'file':file},
+		type:"post",
+		dataType:"json",
+		success:function(res){
+	　　　　if(res.status == 1){
+				layer.msg(res.msg,{time:1000,icon:1});
+			} else {
+				layer.msg(res.msg,{time:1000,icon:2});
+			}
+			$("input[type=file]").val('');
+			return;
+		},
+		error:function(){
+			layer.msg('系统未知错误');
+			return false;
+		}
+	});
+});
+</script>
+</body>
+</html>

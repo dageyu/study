@@ -279,6 +279,9 @@ function tbfields($tbname){
     
         'live_knowledge'        => array('tbname' => 'live_knowledge' , 'title' => 'title' , 'content' => 'content'),
         'live_questipns'        => array('tbname' => 'live_questipns' , 'title' => 'title' , 'content' => 'content'),
+        //
+        'noun_type'             => array('tbname' => 'noun_type' , 'title' => 'name' , 'content' => 'content'),
+        'noun_short'            => array('tbname' => 'noun_short' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'noun_type', 'onfield' => 'noun_id' , 'linkfield' => 'noun_type.name as type_name'),
     );
     return $arrs[$tbname];
 }

@@ -32,7 +32,8 @@
 								<div class="row">
 									<div class="col-sm-6" style="width:100%">
 										<div style="display:inline">
-											<a href="javascript:void(0)" onclick="gobackup(this)" ><i class="icon-plus" style="margin-right: 0.5%"></i>备份数据</a>
+											<a href="javascript:void(0)" onclick="gobackup(this)" ><i class="icon-plus" style="margin-right: 0.5%;"></i>备份数据</a>
+											<a href="javascript:importExample()" style="margin-left:3%">导入展示</a>
 										</div>
 										<div style="float:right;">
 											数据库中共有{$tableNum}张表，共计{$total}
@@ -258,6 +259,14 @@
 				return false;
 			}
 		})
+	}
+	function importExample(){
+		layer.open({
+			title: '导入Excel数据示例',
+			type: 2,
+			area: ['430px', '200px'],
+			content: "{:url('admin/Tools/importData')}"
+		});
 	}
 	</script>
 {/block}
