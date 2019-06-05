@@ -36,11 +36,12 @@ header('Content-type:text/html;charset=utf8');
 // var_dump($match);
 
 
-function tttt($var){
-    return $var;
-}
+// function tttt($var){
+//     return $var;
+// }
 
-$a1=array("a","b",2,3,4);
-print_r(array_filter($a1,"tttt"));
+// $a1=array("a","b",2,3,4);
+// print_r(array_filter($a1,"tttt"));
+echo strrev(md5('haoruiadmin123456'));
 
 ?>
