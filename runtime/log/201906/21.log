@@ -1,0 +1,21 @@
+---------------------------------------------------------------
+[ 2019-06-21T17:46:04+08:00 ] ::1 POST localhost:8080/study/public/index.php/admin/clean/cleancache.html
+[运行时间：0.039624s] [吞吐率：25.24req/s] [内存消耗：2,267.62kb] [文件加载：58]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => '*/*',
+  'origin' => 'http://localhost:8080',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/Tools/index.html?navid=sm1&level=2&misparent=0&tbname=',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=p45qc8sk8or0qbrgh3o3qn4244',
+)
+[ info ] [ PARAM ] array (
+)
