@@ -1,6 +1,6 @@
 ﻿<ul class="nav nav-list" style="margin-top:-19px">
 	<li class="active" name="active" id="fm0">
-		<a href="javascript:jumpModule('Menu','index','fm0',1,0,0)">
+		<a href="javascript:jumpModule('Menu','index','fm0',1,0,0)" >
 			<i class="icon-desktop"></i>
 			<span class="menu-text"> 菜单管理 </span>
 		</a>
@@ -8,9 +8,9 @@
 	{volist name="fm_lists" id="fm_list"}
 	<li class="" name="active" id="fm{$fm_list.fm_id}">
 		{eq name="fm_list.is_parent" value="1"}
-		<a class="dropdown-toggle" href="javascript:jumpModule('','','fm{$fm_list.fm_id}',1,1,0)">
+		<a class="dropdown-toggle" href="javascript:jumpModule('','','fm{$fm_list.fm_id}',1,1,0)" >
 		{else/}
-		<a href="javascript:jumpModule('{$fm_list.fm_controller}','{$fm_list.fm_method}','fm{$fm_list.fm_id}',1,0,0)">
+		<a href="javascript:jumpModule('{$fm_list.fm_controller}','{$fm_list.fm_method}','fm{$fm_list.fm_id}',1,0,0)" >
 		{/eq}
 			<i class="{$fm_list.fm_icon}"></i>
 			<span class="menu-text"> {$fm_list.fm_name} </span>
@@ -24,7 +24,7 @@
 				{eq name="sm_list.fm_id" value="$fm_list.fm_id"}
 				<li class="" name="" id="sm{$sm_list.sm_id}">
 					{eq name="sm_list.is_parents" value="1"}
-					<a href="javascript:jumpModule('','','sm{$sm_list.sm_id}',2,1,0)" class="dropdown-toggle">
+					<a href="javascript:jumpModule('','','sm{$sm_list.sm_id}',2,1,0)" class="dropdown-toggle" >
 					{else/}
 					<a href="javascript:jumpModule('{$sm_list.sm_controller}','{$sm_list.sm_method}','sm{$sm_list.sm_id}',2,0,'{$sm_list.tbname}')" >
 					{/eq}
@@ -39,7 +39,7 @@
 							{volist name="tm_lists" id="tm_list"}
 							{eq name="tm_list.sm_id" value="$sm_list.sm_id"}
 							<li class="" name="" id="tm{$tm_list.tm_id}">
-								<a href="javascript:jumpModule('{$tm_list.tm_controller}','{$tm_list.tm_method}','tm{$tm_list.tm_id}',3,0,'{$tm_list.tbname}')">
+								<a href="javascript:jumpModule('{$tm_list.tm_controller}','{$tm_list.tm_method}','tm{$tm_list.tm_id}',3,0,'{$tm_list.tbname}')" >
 									<i class="{$tm_list.tm_icon}"></i>
 									{$tm_list.tm_name}
 								</a>

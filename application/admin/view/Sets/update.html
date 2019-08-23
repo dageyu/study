@@ -1,0 +1,96 @@
+{extend name="main" /}
+{block name="bodyheader"}
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="#">首页</a>
+		</li>
+		<li class="active">设置说明</li>
+	</ul>
+{/block}
+{block name="content"}
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				设置说明				
+				<small>
+					<i class="icon-double-angle-right"></i>
+					内容列表
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">					
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="table-header">
+							修改记录
+						</div>				
+						<div class="col-xs-12">
+							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
+								<input type="text" value="{$list.id}" name="id" hidden="hidden" />
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 标题 </label>
+									<div class="col-sm-9">
+										<input type="text" id="title" name="title" value="{$list.title}" placeholder="请输入标题" style="width:50%" required class="col-xs-10 col-sm-5" onblur="updateCheckObj(this,'{$list.title}','Sets','title',{$list.id},'id')"/><span style="color:red">*</span>
+									</div>
+								</div>
+								<div class="space-4"></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 简介 </label>
+									<div class="col-sm-9">
+										<textarea id="intro" name="intro" style="width:50%; height:100px;" placeholder="请输入简介" >{$list.intro}</textarea>
+									</div>
+								</div>
+								<input type="text" name="addtime" value="<?php echo time();?>" hidden="hidden" />
+								<div class="space-4"></div>									
+								<div class="col-md-offset-3 col-md-9" style="margin-left:9%;">
+									<button class="btn btn-info" type="button" id="button" name="button">
+										<i class="icon-ok bigger-110"></i>
+										提交
+									</button>
+								</div>									
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="js"}
+<script>
+	$("#button").click(function (){
+		var name     = $.trim($('#title').val());
+		if(!name){
+			layer.msg('内容不能为空',{time:600});
+			return;
+		} else {
+			$.ajax({
+				url: "{:url('admin/Sets/update')}",
+				data: $("#myform").serializeArray(),
+				datatype: 'json',
+				type: 'POST',
+				async: false,
+				success:function(res){
+					if(res.status == 1){
+						layer.msg(res.msg,{time:800,icon:1});
+						setTimeout(jump, 1000);
+					} else {
+						layer.msg(res.msg,{icon:2});
+					}
+					return;
+				},
+				error:function(){
+					layer.msg('系统未知错误');
+					return false;
+				}
+			})
+		}
+	});
+	function jump(){
+		location.href = "{:url('admin/Sets/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>0])}";
+	}
+</script>
+{/block}
