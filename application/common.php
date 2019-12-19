@@ -14,7 +14,7 @@ function sendEmail($content, $toemail, $subject){
     $mail->Host = "smtp.163.com";
     $mail->SMTPAuth = true;
     $mail->Username = "cuiyu1478@163.com";
-    $mail->Password = "dageyu116";
+    $mail->Password = "dageyu116";              //授权码
     $mail->SMTPSecure = "ssl";
     $mail->Port = 465;
     $mail->setFrom("cuiyu1478@163.com","dageyu");
@@ -182,7 +182,7 @@ function tbfields($tbname){
         'save_specials_act'     => array('tbname' => 'save_specials_act' , 'title' => 'name' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
         'save_uses'             => array('tbname' => 'save_uses' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'save_type', 'onfield' => 'st_id' , 'linkfield' => 'save_type.name as type_name'),
         //
-        'js_nouns'              => array('tbname' => 'js_nouns' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
+        'js_nouns'              => array('tbname' => 'js_nouns' , 'title' => 'name' , 'content' => 'content'),
         'js_operators'          => array('tbname' => 'js_operators' , 'title' => 'name' , 'ztitle' => 'zn_name' , 'content' => 'content'),
         'js_actions'            => array('tbname' => 'js_actions' , 'title' => 'name' , 'content' => 'content'),
         'js_questions'          => array('tbname' => 'js_questions' , 'title' => 'name' , 'content' => 'content'),
@@ -282,6 +282,7 @@ function tbfields($tbname){
         //
         'noun_type'             => array('tbname' => 'noun_type' , 'title' => 'name' , 'content' => 'content'),
         'noun_short'            => array('tbname' => 'noun_short' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'noun_type', 'onfield' => 'noun_id' , 'linkfield' => 'noun_type.name as type_name'),
+        'toolon'                => array('tbname' => 'toolon' , 'title' => 'name' , 'content' => 'content'),
     );
     return $arrs[$tbname];
 }
