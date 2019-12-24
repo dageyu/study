@@ -1,4 +1,4 @@
-<?php /*a:6:{s:62:"D:\wamp64\www\study\application\admin\view\pubthree\index.html";i:1565058321;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1576633336;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1546943078;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1546943105;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1567673264;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1547710419;}*/ ?>
+<?php /*a:6:{s:59:"D:\wamp64\www\study\application\admin\view\index\index.html";i:1558925492;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1576633336;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1546943078;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1546943105;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1567673264;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1547710419;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,7 +15,38 @@
 		<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
 		<script src="/study/public/static/plug/layer/layer.js" ></script>
 		
-<link rel="stylesheet" href="/study/public/static/admin/css/page.css" />
+<style>
+.layui-elem-quote {
+    margin-bottom: 10px;
+    padding: 15px;
+    line-height: 22px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #f2f2f2;
+    background-size: 100%;
+}
+.layui-table {
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+    margin: 10px 0;
+
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.layui-table td, .layui-table th {
+    position: relative;
+    padding: 9px 15px;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e6e6e6;
+}
+</style>
 
 		<style>
 			.nav-list > li > a > [class*="fa-"]:first-child {
@@ -193,165 +224,75 @@
 						</script>
 						<!-- bodyheader start -->
 						
-	<ul class="breadcrumb">
-		<li>
-			<i class="icon-home home-icon"></i>
-			<a href="#">首页</a>
-		</li>
-		<li class="active"><?php echo htmlentities($modules['first_module_name']); ?></li>
-	</ul>
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home home-icon"></i>
+        <a href="#">首页</a>
+    </li>
+    <li class="active">控制台</li>
+</ul>
 
 						<!-- bodyheader end -->
 					</div>
 					
-	<div class="page-content">
-		<div class="page-header">
-			<h1>
-				<?php if(empty($modules['second_module_name']) || (($modules['second_module_name'] instanceof \think\Collection || $modules['second_module_name'] instanceof \think\Paginator ) && $modules['second_module_name']->isEmpty())): ?>
-				<?php echo htmlentities($modules['first_module_name']); else: ?>
-				<?php echo htmlentities($modules['second_module_name']); ?>
-				<?php endif; ?>
-				<small>
-					<i class="icon-double-angle-right"></i>
-					<?php if(empty($modules['three_module_name']) || (($modules['three_module_name'] instanceof \think\Collection || $modules['three_module_name'] instanceof \think\Paginator ) && $modules['three_module_name']->isEmpty())): ?>
-					<?php echo htmlentities($modules['second_module_name']); else: ?>
-					<?php echo htmlentities($modules['three_module_name']); ?>
-					<?php endif; ?>
-				</small>
-			</h1>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="table-header">
-					内容列表
-				</div>
-				<div class="table-responsive">
-					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
-						<div class="row">
-							<div class="col-sm-6" style="width:100%">
-								<div style="display:inline">
-									<a href="<?php echo url('admin/Pubthree/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname]); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
-									<span class="input-icon" style="float:right;">
-										<input type="text" placeholder="Search ..." class="nav-search-input" id="sel_text" onkeyup="searchFun(this)" autocomplete="off" style="border-color:#6fb3e0;border-radius:4px !important">
-										<i class="icon-search" style="color:#6fb3e0"></i>
-									</span>
-								</div>											
-							</div>													
-						</div>
-						<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
-							<thead>
-								<tr style="height:45px">
-									<th class="center" style="width:5%;text-align: center">	选择 </th>
-									<th style="width:5%;text-align: center">排序</th>
-									<th style="width:53%;padding:8px 3px;text-align: center">标题</th>																									
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
-									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
-									<th style="width:15%;padding:8px 3px;text-align: center">
-										<i class="icon-time bigger-110 hidden-480"></i>
-										更新时间
-									</th>	
-									<th style="padding:8px 1px;text-align: center">操作</th>														
-								</tr>
-							</thead>
-							<style>
-							tbody > tr {
-								height:40px;
-							}
-							</style>
-							<tbody id="kbTable">
-								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-								<tr id="<?php echo htmlentities($table); ?><?php echo htmlentities($list['id']); ?>" style="display: table-row;" data-obj="">
-									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
-										<label>
-											<input type="checkbox" class="ace" value="<?php echo htmlentities($list['id']); ?>" name="<?php echo htmlentities($table); ?>" />
-											<span class="lbl"></span>
-										</label>
-									</td>
-									<td class="center" style="vertical-align:middle;padding:4px 1px;" id="sort<?php echo htmlentities($list['id']); ?>">
-										<input type="text" value="<?php echo htmlentities($list['sort']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['sort']); ?>','<?php echo htmlentities($table); ?>','sort','<?php echo htmlentities($list['id']); ?>','id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;" id="name<?php echo htmlentities($list['id']); ?>">
-										<input type="text" value="<?php echo htmlentities($list['name']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['name']); ?>','<?php echo htmlentities($table); ?>','name','<?php echo htmlentities($list['id']); ?>','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
-									</td>																											
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked<?php echo htmlentities($list['id']); ?>">
-										<?php if($list['checked'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['checked']); ?>,'checked','<?php echo htmlentities($table); ?>',0,'','')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['checked']); ?>,'checked','<?php echo htmlentities($table); ?>',0,'','')">否</span>
-										<?php endif; ?>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sign<?php echo htmlentities($list['id']); ?>">
-										<?php if($list['sign'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['sign']); ?>,'sign','<?php echo htmlentities($table); ?>',0,'','')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['sign']); ?>,'sign','<?php echo htmlentities($table); ?>',0,'','')">否</span>
-										<?php endif; ?>
-									</td>
-									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_ok<?php echo htmlentities($list['id']); ?>">
-										<?php if($list['is_ok'] == '1'): ?>
-											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['is_ok']); ?>,'is_ok','<?php echo htmlentities($table); ?>',1,'addtime','<?php echo htmlentities((isset($list['addtime']) && ($list['addtime'] !== '')?$list['addtime']:0)); ?>')">是</span>
-										<?php else: ?>
-											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['is_ok']); ?>,'is_ok','<?php echo htmlentities($table); ?>',1,'addtime','<?php echo htmlentities((isset($list['addtime']) && ($list['addtime'] !== '')?$list['addtime']:0)); ?>')">否</span>
-										<?php endif; ?>
-									</td>
-									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime<?php echo htmlentities($list['id']); ?>">
-										<?php echo htmlentities(date("Y-m-d H:i:s",!is_numeric($list['addtime'])? strtotime($list['addtime']) : $list['addtime'])); ?>
-									</td>
-									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
-										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-											<div id="" style="display:inline">
-												<a class="blue" href="<?php echo url('admin/Pubthree/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list['id']]); ?>" style="margin:0px">
-													<i class="icon-zoom-in bigger-130"></i>
-												</a>
-												<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($list['id']); ?>,'id','<?php echo htmlentities($table); ?>')" style="margin:0px">
-													<i class="icon-trash bigger-130"></i>
-												</a>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<?php endforeach; endif; else: echo "" ;endif; ?>
-							</tbody>
-						</table>	
-					</div>
-					<div class="space-4"></div>
-					<div style="border:none;">
-						<div>
-							<div style="display:inline;vertical-align: middle;">
-								<label>
-									<input type="checkbox" class="ace" id="checkedall" />
-									<span class="lbl" style="font-size: 8px">全选</span>
-								</label>
-								<label style="margin-left:10px">
-									<input type="checkbox" class="ace" id="checkedpart" />
-									<span class="lbl" style="font-size: 8px">反选</span>
-								</label>
-								<a class="red" href="javascript:deleteObjMore('<?php echo htmlentities($table); ?>')" style="text-decoration:none;margin-left: 10px">
-									<i class="icon-trash bigger-130"></i>
-								</a>
-							</div>
-							<div class="page-box page-laypage page-laypage-default" style="float:right;">
-								<span class="page-laypage-count">共 <?php echo htmlentities(count($lists)); ?> 条</span>
-								<span class="page-laypage-limits">
-									<select id="sel_page_codes" onchange="pageFun(this.value,'#sel_text');">
-										<option value="10">10 条/页</option>
-										<option value="15">15 条/页</option>
-										<option value="20">20 条/页</option>
-										<option value="25">25 条/页</option>
-										<option value="30">30 条/页</option>
-										<option value="40" selected="">40 条/页</option>
-									</select>
-								</span>
-								<div style="display:inline-block" id="page_navigation">
-								</div>
-							</div>
-						</div>  
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            控制台
+            <small>
+                <i class="icon-double-angle-right"></i>
+                    欢迎界面
+            </small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-block alert-success">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+                <i class="icon-ok green"></i>
+                欢迎使用
+                <strong class="green">
+                    编程语言学习总结系统
+                    <small id="nowTime"></small>
+                </strong>
+            </div>
+            <div class="row">
+                <div class="sysNotice col" style="padding:0px 12px 0px 12px">
+                    <span class="layui-elem-quote" style="font-size:16px">系统基本参数</span>
+                    <div style="height: 10px;"></div>
+                    <table class="layui-table">
+                        <tbody>
+                            <tr>
+                                <td style="width:20%">服务器环境:</td>
+                                <td class="" colspan="3"><?php echo htmlentities($sys_info['web_server']); ?></td>
+                            </tr>
+                            <tr>
+                                <td>服务器操作系统:</td>
+                                <td class="" style="width:35%"><?php echo htmlentities($sys_info['os']); ?></td>
+                                <td style="width:18%">服务器域名/IP:</td>
+                                <td class=""><?php echo htmlentities($sys_info['domain']); ?> [ <?php echo htmlentities($sys_info['ip']); ?> ]</td>
+                            </tr>
+                            <tr>
+                                <td>PHP 版本:</td>
+                                <td class=""><?php echo htmlentities($sys_info['phpv']); ?></td>
+                                <td>Mysql 版本:</td>
+                                <td class=""><?php echo htmlentities($sys_info['mysql_version']); ?></td>
+                            </tr>
+                            <tr>
+                                <td>程序开发:</td>
+                                <td class=""><a href="https://github.com/dageyu/study" target="_blank" style="color:blueviolet">个人git学习网站</a></td>
+                                <td>版权所有:</td>
+                                <td class="">盗版必究</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 				</div>
 				﻿<div class="ace-settings-container" id="ace-settings-container">
@@ -1028,41 +969,31 @@ function deleteObjMore(tbname){
 }
 </script>
 		
-<input type="hidden" id="current_page" value="1">
-<script src="/study/public/static/admin/js/page.js"></script>
-<script>
-//全选
-$("#checkedall").click(function(){
-	if(this.checked){
-		$("#checkedpart").attr('checked',false);
-		$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
-			this.checked = 'checked';
-		});
-	}
-	else{
-		$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
-			this.checked = '';
-		});
-	}
-});
-//反选
-$("#checkedpart").click(function(){
-	if(this.checked){
-		$("#checkedall").attr('checked',false);
-	}
-	$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
-		this.checked = !this.checked;
-	});
-});
-//<<<显示
-$(function(){
-	$("tbody tr").each(function(){
-		$(this).children('td:eq(2)').each(function(){
-			$(this).find("input").val($(this).find("input").val().replace(/&lt;/g,"<"));
-		})
-	});
-})
-
+<script type="text/javascript">
+    //获取系统时间
+    var newDate = '';
+    getLangDate();
+    //值小于10时，在前面补0
+    function dateFilter(date){
+        if(date < 10){return "0"+date;}
+        return date;
+    }
+    function getLangDate(){
+        var dateObj = new Date(); //表示当前系统时间的Date对象
+        var year = dateObj.getFullYear(); //当前系统时间的完整年份值
+        var month = dateObj.getMonth()+1; //当前系统时间的月份值
+        var date = dateObj.getDate(); //当前系统时间的月份中的日
+        var day = dateObj.getDay(); //当前系统时间中的星期值
+        var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var week = weeks[day]; //根据星期值，从数组中获取对应的星期字符串
+        var hour = dateObj.getHours(); //当前系统时间的小时值
+        var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+        var second = dateObj.getSeconds(); //当前系统时间的秒钟值
+        var timeValue = "" +((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午" ); //当前时间属于上午、晚上还是下午
+        newDate = dateFilter(year)+"年"+dateFilter(month)+"月"+dateFilter(date)+"日 "+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
+        document.getElementById("nowTime").innerHTML = timeValue+"好！ 当前时间为： "+newDate+"　"+week;
+        setTimeout("getLangDate()",1000);
+    }
 </script>
 
 	</body>

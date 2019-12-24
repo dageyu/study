@@ -1,4 +1,4 @@
-<?php /*a:6:{s:61:"D:\wamp64\www\study\application\admin\view\pubsix\update.html";i:1555902256;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1576633336;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1546943078;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1546943105;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1567673264;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1547710419;}*/ ?>
+<?php /*a:6:{s:61:"D:\wamp64\www\study\application\admin\view\pubnine\index.html";i:1565058930;s:52:"D:\wamp64\www\study\application\admin\view\main.html";i:1576633336;s:54:"D:\wamp64\www\study\application\admin\view\header.html";i:1546943078;s:55:"D:\wamp64\www\study\application\admin\view\lefttop.html";i:1546943105;s:52:"D:\wamp64\www\study\application\admin\view\left.html";i:1567673264;s:53:"D:\wamp64\www\study\application\admin\view\right.html";i:1547710419;}*/ ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,6 +15,8 @@
 		<script src="/study/public/static/admin/js/jquery-2.0.3.min.js"></script>
 		<script src="/study/public/static/plug/layer/layer.js" ></script>
 		
+<link rel="stylesheet" href="/study/public/static/admin/css/page.css" />
+
 		<style>
 			.nav-list > li > a > [class*="fa-"]:first-child {
 				display: inline-block;
@@ -219,64 +221,140 @@
 			</h1>
 		</div>
 		<div class="row">
-			<div class="col-xs-12">					
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="table-header">
-							修改记录
-						</div>				
-						<div class="col-xs-12">
-							<form class="form-horizontal" style="margin-top: 20px" id="myform" name="myform" method="post" action="">
-								<input type="text" value="<?php echo htmlentities($tbname); ?>" name="tbname" hidden="hidden" />
-								<input type="text" value="<?php echo htmlentities($list['id']); ?>" name="id" hidden="hidden" />
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 标题 </label>
-									<div class="col-sm-9">
-										<input type="text" id="title" name="title" placeholder="请输入标题"  value="<?php echo htmlentities($list['title']); ?>" style="width:90%" required class="col-xs-10 col-sm-5" onblur="updateCheckObj(this,'<?php echo htmlentities($list['title']); ?>','<?php echo htmlentities($tbname); ?>','title',<?php echo htmlentities($list['id']); ?>,'id')"/><span style="color:red">*</span>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 类别 </label>
-									<div class="col-sm-9">
-										<select class="form-control" style="width:41.5%;padding:4px 0px" name="<?php echo htmlentities($link_field); ?>" id="<?php echo htmlentities($link_field); ?>">
-											<?php if(is_array($link_lists) || $link_lists instanceof \think\Collection || $link_lists instanceof \think\Paginator): $i = 0; $__LIST__ = $link_lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$link_list): $mod = ($i % 2 );++$i;if($link_list['id'] == $list['type_id']): ?>
-											<option value="<?php echo htmlentities($link_list['id']); ?>" selected><?php echo htmlentities($link_list['name']); ?></option>
-											<?php endif; ?>
-											<option value="<?php echo htmlentities($link_list['id']); ?>"><?php echo htmlentities($link_list['name']); ?></option>
-											<?php endforeach; endif; else: echo "" ;endif; ?>
-										</select>
-									</div>
-								</div>
-								<div class="space-4"></div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" style="width:10%"> 相关内容 </label>
-									<div id="editor" name="editor" style="width:80%;float:left;padding: 5px;padding-left: 12px;">
-									</div>
-									<textarea id="content" name="content" style="width:50%; height:200px;" hidden="hidden"></textarea>									
-								</div>
-								<input type="text" name="addtime" value="<?php echo time();?>" hidden="hidden" />
-								<div class="space-4"></div>									
-								<div class="col-md-offset-3 col-md-9" style="margin-left:9%;">
-									<button class="btn btn-info" type="button" id="button" name="button">
-										<i class="icon-ok bigger-110"></i>
-										提交
-									</button>
-								</div>									
-							</form>
+			<div class="col-xs-12">
+				<div class="table-header">
+					内容列表
+				</div>
+				<div class="table-responsive">
+					<div id="sample-table-2_wrapper" class="dataTables_wrapper">
+						<div class="row">
+							<div class="col-sm-6" style="width:100%">
+								<div style="display:inline">
+									<a href="<?php echo url('admin/Pubnine/add',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname]); ?>"><i class="icon-plus" style="margin-right: 0.5%"></i>添加记录</a>
+									<span class="input-icon" style="float:right;">
+										<input type="text" placeholder="Search ..." class="nav-search-input" id="sel_text" onkeyup="searchFun(this)" autocomplete="off" style="border-color:#6fb3e0;border-radius:4px !important">
+										<i class="icon-search" style="color:#6fb3e0"></i>
+									</span>
+								</div>											
+							</div>													
 						</div>
+						<table class="table table-striped table-bordered table-hover" style="padding:1px 1px">
+							<thead>
+								<tr style="height:45px">
+									<th class="center" style="width:5%;text-align: center">	选择 </th>
+									<th style="width:5%;text-align: center">排序</th>
+									<th style="width:31%;padding:8px 3px;text-align: center">标题</th>	
+									<th style="width:31%;padding:8px 3px;text-align: center">类别</th>
+									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">验证</th>
+									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">重要</th>
+									<th class="hidden-480" style="width:5%;padding:8px 3px;text-align: center">解决</th>
+									<th style="width:8%;padding:8px 3px;text-align: center">
+										<i class="icon-time bigger-110 hidden-480"></i>
+										时间
+									</th>	
+									<th style="padding:8px 1px;text-align: center">操作</th>														
+								</tr>
+							</thead>
+							<style>
+							tbody > tr {
+								height:40px;
+							}
+							</style>
+							<tbody id="kbTable">
+								<?php if(is_array($lists) || $lists instanceof \think\Collection || $lists instanceof \think\Paginator): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+								<tr id="<?php echo htmlentities($table); ?><?php echo htmlentities($list['id']); ?>" style="display: table-row;" data-obj="">
+									<td class="center" style="padding:2px;line-height: 0;vertical-align: middle">
+										<label>
+											<input type="checkbox" class="ace" value="<?php echo htmlentities($list['id']); ?>" name="<?php echo htmlentities($table); ?>" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td class="center" style="vertical-align:middle;padding:4px 1px;" id="sort<?php echo htmlentities($list['id']); ?>">
+										<input type="text" value="<?php echo htmlentities($list['sort']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['sort']); ?>','<?php echo htmlentities($table); ?>','sort','<?php echo htmlentities($list['id']); ?>','id',0)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;" id="title<?php echo htmlentities($list['id']); ?>">
+										<input type="text" value="<?php echo htmlentities($list['title']); ?>" onblur="updateObj(this,'<?php echo htmlentities($list['title']); ?>','<?php echo htmlentities($table); ?>','title','<?php echo htmlentities($list['id']); ?>','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+									</td>																											
+									<td style="vertical-align:middle;padding:4px 2px 4px 6px;"><?php echo htmlentities($list['type_name']); ?>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="checked<?php echo htmlentities($list['id']); ?>">
+										<?php if($list['checked'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['checked']); ?>,'checked','<?php echo htmlentities($table); ?>',0,'','')">是</span>
+										<?php else: ?>
+											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['checked']); ?>,'checked','<?php echo htmlentities($table); ?>',0,'','')">否</span>
+										<?php endif; ?>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="sign<?php echo htmlentities($list['id']); ?>">
+										<?php if($list['sign'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['sign']); ?>,'sign','<?php echo htmlentities($table); ?>',0,'','')">是</span>
+										<?php else: ?>
+											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['sign']); ?>,'sign','<?php echo htmlentities($table); ?>',0,'','')">否</span>
+										<?php endif; ?>
+									</td>
+									<td style="vertical-align:middle;padding:4px 1px;text-align: center;" id="is_ok<?php echo htmlentities($list['id']); ?>">
+										<?php if($list['is_ok'] == '1'): ?>
+											<span style="color:rgb(10, 184, 48);" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['is_ok']); ?>,'is_ok','<?php echo htmlentities($table); ?>',1,'addtime','<?php echo htmlentities((isset($list['addtime']) && ($list['addtime'] !== '')?$list['addtime']:0)); ?>')">是</span>
+										<?php else: ?>
+											<span style="color:#8089a0;" onclick="updateObjState(<?php echo htmlentities($list['id']); ?>,'id',<?php echo htmlentities($list['is_ok']); ?>,'is_ok','<?php echo htmlentities($table); ?>',1,'addtime','<?php echo htmlentities((isset($list['addtime']) && ($list['addtime'] !== '')?$list['addtime']:0)); ?>')">否</span>
+										<?php endif; ?>
+									</td>
+									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime<?php echo htmlentities($list['id']); ?>">
+										<?php echo htmlentities(date("y-m-d",!is_numeric($list['addtime'])? strtotime($list['addtime']) : $list['addtime'])); ?>
+									</td>
+									<td style="padding:0px;line-height: 0;vertical-align: middle;text-align: center">
+										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+											<div id="" style="display:inline">
+												<a class="blue" href="<?php echo url('admin/Pubnine/update',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname,'id'=>$list['id']]); ?>" style="margin:0px">
+													<i class="icon-zoom-in bigger-130"></i>
+												</a>
+												<a class="red" href="javascript:deleteObjOne(<?php echo htmlentities($list['id']); ?>,'id','<?php echo htmlentities($table); ?>')" style="margin:0px">
+													<i class="icon-trash bigger-130"></i>
+												</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php endforeach; endif; else: echo "" ;endif; ?>
+							</tbody>
+						</table>	
+					</div>
+					<div class="space-4"></div>
+					<div style="border:none;">
+						<div>
+							<div style="display:inline;vertical-align: middle;">
+								<label>
+									<input type="checkbox" class="ace" id="checkedall" />
+									<span class="lbl" style="font-size: 8px">全选</span>
+								</label>
+								<label style="margin-left:10px">
+									<input type="checkbox" class="ace" id="checkedpart" />
+									<span class="lbl" style="font-size: 8px">反选</span>
+								</label>
+								<a class="red" href="javascript:deleteObjMore('<?php echo htmlentities($table); ?>')" style="text-decoration:none;margin-left: 10px">
+									<i class="icon-trash bigger-130"></i>
+								</a>
+							</div>
+							<div class="page-box page-laypage page-laypage-default" style="float:right;">
+								<span class="page-laypage-count">共 <?php echo htmlentities(count($lists)); ?> 条</span>
+								<span class="page-laypage-limits">
+									<select id="sel_page_codes" onchange="pageFun(this.value,'#sel_text');">
+										<option value="10">10 条/页</option>
+										<option value="15">15 条/页</option>
+										<option value="20" selected="selected">20 条/页</option>
+										<option value="25">25 条/页</option>
+										<option value="30">30 条/页</option>
+										<option value="40">40 条/页</option>
+									</select>
+								</span>
+								<div style="display:inline-block" id="page_navigation">
+								</div>
+							</div>
+						</div>  
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<input type="text" id="contents" name="contents" hidden="hidden" value="<?php echo htmlentities(htmlspecialchars_decode($list['content'])); ?>" />
-	<style>
-		.w-e-text-container {
-			height:800px !important;
-		}
-	</style>
 
 				</div>
 				﻿<div class="ace-settings-container" id="ace-settings-container">
@@ -953,71 +1031,32 @@ function deleteObjMore(tbname){
 }
 </script>
 		
-<script type="text/javascript" src="/study/public/static/plug/wangEditor-3.1.1/release/wangEditor.min.js"></script>
-<script type="text/javascript" src="/study/public/static/plug/wangEditor-plugin-master/wangEditor-codeMode-plugin.min.js"></script>
+<input type="hidden" id="current_page" value="1">
+<script src="/study/public/static/admin/js/page.js"></script>
 <script>
-	$(function(){
-		var E = window.wangEditor;
-		var editor 		= new E('#editor');
-		var content	 	= $('#content');
-		editor.customConfig.debug = true;
-		editor.customConfig.uploadImgMaxSize = 2 * 1024 * 1024;
-		editor.customConfig.uploadFileName = 'sendImg';
-		editor.customConfig.uploadImgServer = "<?php echo url('admin/Check/checkImg',['tbname'=>$tbname]); ?>";
-		editor.customConfig.uploadImgHooks = {
-			customInsert: function (insertImg, result, editor) {
-				console.log(result);
-					var url = result.data[0];
-					insertImg(url);
-			}
-		};
-		editor.customConfig.onchange = function (html) {
-				content.val(html)
-		};
-		editor.create();
-		E.codeMode.init("#editor");
-		content.val(editor.txt.html());
-		editor.txt.html($('#contents').val());
-		content.val(editor.txt.html());
-	})
-</script>
-<script>
-	$("#button").click(function (){
-		var name     = $.trim($('#title').val());
-		var type	 = $.trim($('select').val());
-		if(!name){
-			layer.msg('内容不能为空',{time:600});
-			return false;
-		} else if(!type){
-			layer.msg('类别名称不能为空',{time:600});
-			return false;
-		} else {
-			$.ajax({
-				url: "<?php echo url('admin/Pubsix/update'); ?>",
-				data: $("#myform").serializeArray(),
-				datatype: 'json',
-				type: 'POST',
-				async: false,
-				success:function(res){
-					if(res.status == 1){
-						layer.msg(res.msg,{time:800,icon:1});
-						setTimeout(jump, 1000);
-						return
-					} else {
-						layer.msg(res.msg,{icon:2});
-						return
-					}
-				},
-				error:function(){
-					layer.msg('系统未知错误');
-					return false;
-				}
-			})
-		}
-	});
-	function jump(){
-		location.href = "<?php echo url('admin/Pubsix/index',['navid'=>$navid,'level'=>$level,'misparent'=>$misparent,'tbname'=>$tbname]); ?>";
+//全选
+$("#checkedall").click(function(){
+	if(this.checked){
+		$("#checkedpart").attr('checked',false);
+		$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
+			this.checked = 'checked';
+		});
 	}
+	else{
+		$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
+			this.checked = '';
+		});
+	}
+});
+//反选
+$("#checkedpart").click(function(){
+	if(this.checked){
+		$("#checkedall").attr('checked',false);
+	}
+	$("[name=<?php echo htmlentities($table); ?>]:checkbox").each(function() {
+		this.checked = !this.checked;
+	});
+});
 </script>
 
 	</body>

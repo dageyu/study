@@ -1,0 +1,220 @@
+---------------------------------------------------------------
+[ 2019-12-24T09:05:24+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/pubnine/update.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows&id=40
+[运行时间：0.778435s] [吞吐率：1.28req/s] [内存消耗：2,468.59kb] [文件加载：63]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'sec-fetch-user' => '?1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-site' => 'none',
+  'sec-fetch-mode' => 'navigate',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm78',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_book_knows',
+  'id' => '40',
+)
+---------------------------------------------------------------
+[ 2019-12-24T09:05:24+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/login/index.html
+[运行时间：0.086922s] [吞吐率：11.50req/s] [内存消耗：2,453.44kb] [文件加载：63]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'sec-fetch-user' => '?1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-site' => 'none',
+  'sec-fetch-mode' => 'navigate',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=9fb2u8o4qisjsf0us8uq86lrc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\login\index.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2019-12-24T09:05:38+08:00 ] ::1 POST localhost:8080/study/public/index.php/admin/login/login.html
+[运行时间：0.242301s] [吞吐率：4.13req/s] [内存消耗：4,078.49kb] [文件加载：73]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'content-length' => '45',
+  'accept' => '*/*',
+  'origin' => 'http://localhost:8080',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'sec-fetch-site' => 'same-origin',
+  'sec-fetch-mode' => 'cors',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=9fb2u8o4qisjsf0us8uq86lrc7',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'cuiyu1478',
+  'admin_password' => 'dageyu115',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010196s ] mysql:host=localhost;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_admin` [ RunTime:0.026065s ]
+[ sql ] [ SQL ] SELECT * FROM `study_admin` WHERE  `admin_name` = 'cuiyu1478'  AND `admin_password` = '07a0ac3365a4efd51b90556101f08481' LIMIT 1 [ RunTime:0.000832s ]
+[ sql ] [ SQL ] UPDATE `study_admin`  SET `admin_lasttime` = 1577149538 , `admin_lastip` = '::1' , `identifier` = 'ad7f1e6a7e0f6bc94df9b4a373435a85' , `token` = '9132010f03b5adbfc8d4765752c988fc' , `timeout` = 1577153138  WHERE  `admin_id` = 2 [ RunTime:0.000730s ]
+---------------------------------------------------------------
+[ 2019-12-24T09:05:40+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/index/index.html
+[运行时间：0.551718s] [吞吐率：1.81req/s] [内存消耗：5,102.76kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'sec-fetch-user' => '?1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-site' => 'same-origin',
+  'sec-fetch-mode' => 'navigate',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%7D; PHPSESSID=9fb2u8o4qisjsf0us8uq86lrc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\index\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'sys_info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011571s ] mysql:host=localhost;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.018439s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.018075s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000774s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.018894s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SELECT VERSION() as version [ RunTime:0.000479s ]
+---------------------------------------------------------------
+[ 2019-12-24T09:06:04+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/Pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows
+[运行时间：0.420578s] [吞吐率：2.38req/s] [内存消耗：5,503.02kb] [文件加载：84]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'sec-fetch-user' => '?1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-site' => 'same-origin',
+  'sec-fetch-mode' => 'navigate',
+  'referer' => 'http://localhost:8080/study/public/index.php/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'PHPSESSID=9fb2u8o4qisjsf0us8uq86lrc7',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm78',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_book_knows',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubnine\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010330s ] mysql:host=localhost;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.001173s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.001132s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000741s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.001149s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_book_knows` [ RunTime:0.025662s ]
+[ sql ] [ SQL ] SELECT study_book_knows.id as id,`sort`,`title`,`checked`,study_book_knows.addtime as addtime,`sign`,`is_ok`,study_book_type.name as type_name FROM `study_book_knows` INNER JOIN `study_book_type` ON `study_book_knows`.`book_id`=`study_book_type`.`id` WHERE  `study_book_knows`.`is_delete` = '0' ORDER BY `sort` ASC,`study_book_knows`.`addtime` DESC [ RunTime:0.018259s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 23 LIMIT 1 [ RunTime:0.000386s ]
+---------------------------------------------------------------
+[ 2019-12-24T09:34:16+08:00 ] ::1 GET localhost:8080/study/public/index.php/admin/Pubnine/index.html?navid=sm78&level=2&misparent=0&tbname=study_book_knows
+[运行时间：1.239990s] [吞吐率：0.81req/s] [内存消耗：5,061.45kb] [文件加载：82]
+[ info ] [ LANG ] D:\wamp64\www\study\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8080',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-site' => 'none',
+  'sec-fetch-mode' => 'navigate',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9,zh-TW;q=0.8',
+  'cookie' => 'ace.settings=%7B%22main-container-fixed%22%3A1%2C%22sidebar-collapsed%22%3A1%7D; PHPSESSID=9fb2u8o4qisjsf0us8uq86lrc7',
+)
+[ info ] [ PARAM ] array (
+  'navid' => 'sm78',
+  'level' => '2',
+  'misparent' => '0',
+  'tbname' => 'study_book_knows',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\study\application\admin\view\pubnine\index.html [ array (
+  0 => 'fm_lists',
+  1 => 'sm_lists',
+  2 => 'tm_lists',
+  3 => 'navid',
+  4 => 'level',
+  5 => 'misparent',
+  6 => 'lists',
+  7 => 'tbname',
+  8 => 'table',
+  9 => 'modules',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001825s ] mysql:host=localhost;port=3306;dbname=study;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_first_module` [ RunTime:0.008241s ]
+[ sql ] [ SQL ] SELECT * FROM `study_first_module` WHERE  ( is_delete = 0 and fm_state = 1 ) ORDER BY `fm_sort` [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_second_module` [ RunTime:0.006063s ]
+[ sql ] [ SQL ] SELECT * FROM `study_second_module` WHERE  ( is_delete = 0 and sm_state = 1 ) [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_three_module` [ RunTime:0.005305s ]
+[ sql ] [ SQL ] SELECT * FROM `study_three_module` WHERE  ( is_delete = 0 and tm_state = 1 ) [ RunTime:0.000745s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `study_book_knows` [ RunTime:0.005807s ]
+[ sql ] [ SQL ] SELECT study_book_knows.id as id,`sort`,`title`,`checked`,study_book_knows.addtime as addtime,`sign`,`is_ok`,study_book_type.name as type_name FROM `study_book_knows` INNER JOIN `study_book_type` ON `study_book_knows`.`book_id`=`study_book_type`.`id` WHERE  `study_book_knows`.`is_delete` = '0' ORDER BY `sort` ASC,`study_book_knows`.`addtime` DESC [ RunTime:0.005008s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT `fm_id`,`sm_name` FROM `study_second_module` WHERE  `tbname` = 'study_book_knows' LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT `fm_name` FROM `study_first_module` WHERE  `fm_id` = 23 LIMIT 1 [ RunTime:0.000430s ]
