@@ -283,6 +283,8 @@ function tbfields($tbname){
         'noun_type'             => array('tbname' => 'noun_type' , 'title' => 'name' , 'content' => 'content'),
         'noun_short'            => array('tbname' => 'noun_short' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'noun_type', 'onfield' => 'noun_id' , 'linkfield' => 'noun_type.name as type_name'),
         'toolon'                => array('tbname' => 'toolon' , 'title' => 'name' , 'content' => 'content'),
+        'wangpan_type'          => array('tbname' => 'wangpan_type' , 'title' => 'name' , 'content' => 'content'),
+        'wangpan_knows'         => array('tbname' => 'wangpan_knows' , 'title' => 'title' , 'content' => 'content' , 'linktb' => 'wangpan_type', 'onfield' => 'wangpan_id' , 'linkfield' => 'wangpan_type.name as type_name'),
     );
     return $arrs[$tbname];
 }
