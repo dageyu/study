@@ -67,7 +67,7 @@
 										<input type="text" value="{$list.name}" onblur="updateObj(this,'{$list.name}','{$table}','name','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>																											
 									<td style="vertical-align:middle;padding:4px 1px;" id="content{$list.id}">
-										<input type="text" value="{$list.content|getSubstr=###,0,60}" onblur="updateObj(this,'{$list.content}','{$table}','content','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
+										<input type="text" value="{$list.content|getSubstr=###,0,100}" onblur="updateObj(this,'{$list.content}','{$table}','content','{$list.id}','id',1)" style="color:#393939;width:100%;border:none; background:transparent;padding: 0px;font-size: 13px;height: 30px;"/>
 									</td>
 									<td class="hidden-480" style="vertical-align:middle;padding:4px 1px;text-align: center;" id="addtime{$list.id}">
 										{$list.addtime|date="Y-m-d H:i:s"}
