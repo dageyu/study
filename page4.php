@@ -1,5 +1,6 @@
 <?php
 header('Content-type:text/html;charset=utf8');
+
 // echo apache_get_version();
 // echo '<br/>';
 // echo zend_version();

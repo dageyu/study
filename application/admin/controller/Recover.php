@@ -19,6 +19,9 @@ class Recover extends Base {
         $array_name = array_intersect($arr_name,$arr_is_delete);
         $array_title = array_intersect($arr_title,$arr_is_delete);
         $where = ' where is_delete = 1 order by addtime)';
+        $array_name = array_merge($array_name);
+        $array_title = array_merge($array_title);
+        // var_dump($array_name);
         for($i = 0; $i < count($array_name); $i++){
             $name_array[] = '(select id,name,"'.$array_name[$i].'" as tbname,addtime from '.$array_name[$i].$where;
         }
